@@ -1,5 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import Http404, HttpResponseNotFound, HttpResponseRedirect
+from django.urls import reverse
+# from decouple import config
 
 def home(request):
     return render(request, "fabrics/home2.html")

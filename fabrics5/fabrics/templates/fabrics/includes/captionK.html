@@ -1,7 +1,7 @@
 {% load static %}
 
-<figure><img src="{% static "fabrics2/images/slides/"|add:sample|add:"_x4_PPL.jpeg" %}" alt={{ sample }} height:"50">
-    <img src="{% static "fabrics2/images/slides/"|add:sample|add:"_x4_XPL.jpeg" %}" alt= {{ sample }} height:"50">
+<figure><img src="{% static "fabrics/images/slides/"|add:sample|add:"_x4_PPL.jpeg" %}" alt={{ sample }} height:"50">
+    <img src="{% static "fabrics/images/slides/"|add:sample|add:"_x4_XPL.jpeg" %}" alt= {{ sample }} height:"50">
     <figcaption> Sherd {{ sherd }} from {{ site }}. Slide {{ slide }} from {{source}} x4 Magnification PPL (left) XPL (right). Scale bar: 0.5mm. <a class="caplink" href="https://kuden.anu.edu.au/webclient/img_detail/{{num}}" target="_blank">High resolution image (user: Guest pwd: Guest)</a>
      or <a class="caplink" href="https://kuden.anu.edu.au/webclient/img_detail/{{numf}}" target="_blank">full slide in VIMIPO (user: Guest pwd: Guest).</a> {{extra}} Imaged by K. Hardy and M. Leclerc, ANU.
     </figcaption>

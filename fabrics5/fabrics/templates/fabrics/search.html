@@ -3,9 +3,9 @@
 
 {% block css_files %}
 <link rel="stylesheet" href="{% static "styles.css"%}">
-<link rel="stylesheet" href="{% static "fabrics2/header.css" %}">
-<link rel="stylesheet" href="{% static "fabrics2/abuntable.css" %}">
-<link rel="stylesheet" href="{% static "fabrics2/search.css" %}">
+<link rel="stylesheet" href="{% static "fabrics/header.css" %}">
+<link rel="stylesheet" href="{% static "fabrics/abuntable.css" %}">
+<link rel="stylesheet" href="{% static "fabrics/search.css" %}">
 
 {% endblock %}
 
@@ -14,7 +14,7 @@
 {% endblock %}
 
 {% block content %}
-  {% include "fabrics2/includes/header.html" %}
+  {% include "fabrics/includes/header.html" %}
 
   <form method="POST">
     {% csrf_token %}
@@ -23,7 +23,7 @@
         {{ form.regions_to_include.errors}}
     <h2>Mineral and rock abundances</h2>
 <p>Click on mineral or rock names for glossary link.</p>
-    {% include "fabrics2/includes/abuntable.html" %}
+    {% include "fabrics/includes/abuntable.html" %}
     <br>  
     <br>  
     <a href="{% url "glossary" %}#cal">Calcareous</a> {{ form.calcareous}} &emsp;
@@ -79,5 +79,5 @@
     </div>
   </div>
   </form>
-  {% include "fabrics2/includes/footer.html" %}
+  {% include "fabrics/includes/footer.html" %}
 {% endblock %}

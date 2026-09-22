@@ -2,13 +2,13 @@
 {% load static %}
 
 {% block css_files %}
-  <link rel="stylesheet" href="{% static "fabrics2/fabrics.css" %}">
-  <link rel="stylesheet" href="{% static "fabrics2/header.css" %}">
-  <link rel="stylesheet" href="{% static "fabrics2/leaflet.css" %}">
-  <link rel="stylesheet" href="{% static "fabrics2/map.css" %}">
+  <link rel="stylesheet" href="{% static "fabrics/fabrics.css" %}">
+  <link rel="stylesheet" href="{% static "fabrics/header.css" %}">
+  <link rel="stylesheet" href="{% static "fabrics/leaflet.css" %}">
+  <link rel="stylesheet" href="{% static "fabrics/map.css" %}">
  
-  <script src="{% static "fabrics2/leaflet.js"%}"></script>
-  <script src="{% static "fabrics2/map.js" %}"></script>
+  <script src="{% static "fabrics/leaflet.js"%}"></script>
+  <script src="{% static "fabrics/map.js" %}"></script>
 {% endblock %}
 
 {% block page_title %}
@@ -16,28 +16,28 @@
 {% endblock %}
 
 {% block content %}
-  {% include "fabrics2/includes/header.html" %}
+  {% include "fabrics/includes/header.html" %}
   <h1>Sites</h1>
   <div id="map"></div>
   <div class="key"> 
-    <img src="{% static "fabrics2/images/brownPot.png" %}" alt="brown pot" height="50"> Site has a full slide image. <br>
+    <img src="{% static "fabrics/images/brownPot.png" %}" alt="brown pot" height="50"> Site has a full slide image. <br>
     <br>
-    <img src="{% static "fabrics2/images/tanPot.png" %}" alt="brown pot" height="50"> Site has an image.  <br>
+    <img src="{% static "fabrics/images/tanPot.png" %}" alt="brown pot" height="50"> Site has an image.  <br>
     <br>
-    <img src="{% static "fabrics2/images/bluePot2.png" %}" alt="brown pot" height="50"> No images for this site. 
+    <img src="{% static "fabrics/images/bluePot2.png" %}" alt="brown pot" height="50"> No images for this site. 
     <p id="targetSite"></p> </div>
   <script> 
-    var picon = "{% static "fabrics2/images/brownPot.png" %}";
-    var bicon = "{% static "fabrics2/images/bluePot2.png" %}";
-    var ricon = "{% static "fabrics2/images/tanPot.png" %}";
-    var blackv = "{% static "fabrics2/images/black-tri.png" %}";
-    var orangev = "{% static "fabrics2/images/orange-tri.png" %}";
-    var purplev = "{% static "fabrics2/images/purple-tri.png" %}";
-    var brownv = "{% static "fabrics2/images/brown-tri.png" %}";
-    var redv = "{% static "fabrics2/images/red-tri.png" %}";
-    var bluev = "{% static "fabrics2/images/blue-tri.png" %}";
-    var pinkv = "{% static "fabrics2/images/pink-tri.png" %}";
-    var greenv = "{% static "fabrics2/images/green-tri.png" %}";
+    var picon = "{% static "fabrics/images/brownPot.png" %}";
+    var bicon = "{% static "fabrics/images/bluePot2.png" %}";
+    var ricon = "{% static "fabrics/images/tanPot.png" %}";
+    var blackv = "{% static "fabrics/images/black-tri.png" %}";
+    var orangev = "{% static "fabrics/images/orange-tri.png" %}";
+    var purplev = "{% static "fabrics/images/purple-tri.png" %}";
+    var brownv = "{% static "fabrics/images/brown-tri.png" %}";
+    var redv = "{% static "fabrics/images/red-tri.png" %}";
+    var bluev = "{% static "fabrics/images/blue-tri.png" %}";
+    var pinkv = "{% static "fabrics/images/pink-tri.png" %}";
+    var greenv = "{% static "fabrics/images/green-tri.png" %}";
     let mbsu = "{{mbsu}}";
     let thsu = "{{thsu}}";
     let siteNames = [];
@@ -1000,5 +1000,5 @@
     </ul>
    </div>
     
-    {% include "fabrics2/includes/footer.html" %}   
+    {% include "fabrics/includes/footer.html" %}   
 {% endblock %}

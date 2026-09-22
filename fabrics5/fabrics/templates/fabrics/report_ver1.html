@@ -2,13 +2,13 @@
 {% load static %}
 
 {% block css_files %}
-  <link rel="stylesheet" href="{% static "fabrics2/fabric.css" %}">
-  <link rel="stylesheet" href="{% static "fabrics2/abuntable.css" %}">
-  <link rel="stylesheet" href="{% static "fabrics2/header.css" %}">
+  <link rel="stylesheet" href="{% static "fabrics/fabric.css" %}">
+  <link rel="stylesheet" href="{% static "fabrics/abuntable.css" %}">
+  <link rel="stylesheet" href="{% static "fabrics/header.css" %}">
 {% endblock %}
 
 {% block page_title %} Fabric Details {% endblock %}
-{% block content %} {% include "fabrics2/includes/header.html" %}
+{% block content %} {% include "fabrics/includes/header.html" %}
 
 
 <h2>{{ report.fullname }}</h2>
@@ -659,15 +659,15 @@
 {% for slide in report_slides %}
     <h3>{{slide.name }}</h3>
     {% if slide.image_name and slide.full_image_name %}
-    <figure><img src="{% static "fabrics2/images/slides/"|add:slide.image_name|add:"_x4_PPL.jpeg" %}" alt={{ slide.image_name }} height:"50">
-        <img src="{% static "fabrics2/images/slides/"|add:slide.image_name|add:"_x4_XPL.jpeg" %}" alt= {{ slide.image_name }} height:"50">
+    <figure><img src="{% static "fabrics/images/slides/"|add:slide.image_name|add:"_x4_PPL.jpeg" %}" alt={{ slide.image_name }} height:"50">
+        <img src="{% static "fabrics/images/slides/"|add:slide.image_name|add:"_x4_XPL.jpeg" %}" alt= {{ slide.image_name }} height:"50">
         <figcaption> Sherd {{ slide.sherd }} from {{ slide.site }}. Slide {{slide.name }} from {{ slide.source }}. x4 Magnification PPL (left) XPL (right). Scale bar: 0.5mm. <a class="caplink" href="https://kuden.anu.edu.au/webclient/img_detail/{{slide.image_omero_id}}">High resolution image in VIMIPO (user: Guest pwd: Guest).</a> 
         <a class="caplink" href="https://kuden.anu.edu.au/webclient/img_detail/{{slide.full_image_omero_id}}">Full slide in VIMIPO (user: Guest pwd: Guest).</a> Imaged by K. Hardy and M. Leclerc, ANU.
         </figcaption>
      </figure>
      {% elif slide.image_name %}
-     <figure><img src="{% static "fabrics2/images/slides/"|add:slide.image_name|add:"_x4_PPL.jpeg" %}" alt={{ slide.image_name }} height:"50">
-         <img src="{% static "fabrics2/images/slides/"|add:slide.image_name|add:"_x4_XPL.jpeg" %}" alt= {{ slide.image_name }} height:"50">
+     <figure><img src="{% static "fabrics/images/slides/"|add:slide.image_name|add:"_x4_PPL.jpeg" %}" alt={{ slide.image_name }} height:"50">
+         <img src="{% static "fabrics/images/slides/"|add:slide.image_name|add:"_x4_XPL.jpeg" %}" alt= {{ slide.image_name }} height:"50">
          <figcaption> Sherd {{ slide.sherd }} from {{ slide.site }}. Slide {{slide.name }} from {{ slide.source }}. x4 Magnification PPL (left) XPL (right). Scale bar: 0.5mm. <a class="caplink" href="https://kuden.anu.edu.au/webclient/img_detail/{{slide.image_omero_id}}">High resolution image in VIMIPO (user: Guest pwd: Guest).</a> Imaged by K. Hardy and M. Leclerc, ANU.
          </figcaption>
       </figure>
@@ -679,5 +679,5 @@
 {% endfor %}
 
 
-{% include "fabrics2/includes/footer.html" %}
+{% include "fabrics/includes/footer.html" %}
 {% endblock %}

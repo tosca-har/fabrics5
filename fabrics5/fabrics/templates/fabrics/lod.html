@@ -1,14 +1,14 @@
 {% extends "base.html" %} 
 {% load static %} 
 {% block css_files %}
- <link rel="stylesheet" href="{% static "fabrics2/glossary.css" %}">
-<link rel="stylesheet" href="{% static "fabrics2/header.css" %}"> 
+ <link rel="stylesheet" href="{% static "fabrics/glossary.css" %}">
+<link rel="stylesheet" href="{% static "fabrics/header.css" %}"> 
 {% endblock %} 
 {% block page_title %} 
 Vocabulary
 {% endblock %} 
 {% block content %} 
-{% include "fabrics2/includes/header.html" %}
+{% include "fabrics/includes/header.html" %}
 <h1>Measurement Definitions</h1>
 
 <p>These terms are used to define the relative abundances of mineral and lithic inclusions in the ceramic fabrics described in the Kuden database.</a>
@@ -1085,5 +1085,5 @@ Vocabulary
 </table>
 </div> 
 
-{% include "fabrics2/includes/footer.html" %}
+{% include "fabrics/includes/footer.html" %}
 {% endblock %}

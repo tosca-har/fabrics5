@@ -2,14 +2,14 @@
 {% load static %}
 
 {% block css_files %}
-    <link rel="stylesheet" href="{% static "fabrics2/fabric.css" %}">
-  <link rel="stylesheet" href="{% static "fabrics2/fabrics.css" %}">
-  <link rel="stylesheet" href="{% static "fabrics2/abuntable.css" %}">
-  <link rel="stylesheet" href="{% static "fabrics2/header.css" %}">
-  <link rel="stylesheet" href="{% static "fabrics2/leaflet.css" %}">
-  <link rel="stylesheet" href="{% static "fabrics2/map.css" %}">
-  <script src="{% static "fabrics2/leaflet.js"%}"></script>
-  <script src="{% static "fabrics2/map.js" %}"></script>
+    <link rel="stylesheet" href="{% static "fabrics/fabric.css" %}">
+  <link rel="stylesheet" href="{% static "fabrics/fabrics.css" %}">
+  <link rel="stylesheet" href="{% static "fabrics/abuntable.css" %}">
+  <link rel="stylesheet" href="{% static "fabrics/header.css" %}">
+  <link rel="stylesheet" href="{% static "fabrics/leaflet.css" %}">
+  <link rel="stylesheet" href="{% static "fabrics/map.css" %}">
+  <script src="{% static "fabrics/leaflet.js"%}"></script>
+  <script src="{% static "fabrics/map.js" %}"></script>
 {% endblock %}
 
 {% block page_title %}
@@ -17,7 +17,7 @@
 {% endblock %}
 
 {% block content %}
-  {% include "fabrics2/includes/header.html" %}
+  {% include "fabrics/includes/header.html" %}
 <h1>{{ wikisite.desc }}  </h1>
 <h2> Wikidata ID: <a href="https://www.wikidata.org/wiki/{{ wikisite.name }}" target="_blank">{{ wikisite.name }}</a> </h2>
 <h2>Lithology: {{wikisite.dickinson_lithology}} (<a href="https://pubs.geoscienceworld.org/gsa/books/book/553/Temper-Sands-in-Prehistoric-Oceanian-Pottery"> Dickinson (2006) </a>)</h2>
@@ -39,24 +39,24 @@
 {% endif%} 
    <div id="map"></div>
     <div class="key"> 
-        <img src="{% static "fabrics2/images/brownPot.png" %}" alt="brown pot" height="50"> Site has a full slide image. <br>
+        <img src="{% static "fabrics/images/brownPot.png" %}" alt="brown pot" height="50"> Site has a full slide image. <br>
         <br>
-        <img src="{% static "fabrics2/images/tanPot.png" %}" alt="brown pot" height="50"> Site has an image.  <br>
+        <img src="{% static "fabrics/images/tanPot.png" %}" alt="brown pot" height="50"> Site has an image.  <br>
         <br>
-        <img src="{% static "fabrics2/images/bluePot2.png" %}" alt="brown pot" height="50"> No images for this site. 
+        <img src="{% static "fabrics/images/bluePot2.png" %}" alt="brown pot" height="50"> No images for this site. 
         <p id="targetSite"></p> </div>
     <script> 
-      var picon = "{% static "fabrics2/images/brownPot.png" %}";
-      var bicon = "{% static "fabrics2/images/bluePot2.png" %}";
-      var ricon = "{% static "fabrics2/images/tanPot.png" %}";
-       var blackv = "{% static "fabrics2/images/black-tri.png" %}";
-    var orangev = "{% static "fabrics2/images/orange-tri.png" %}";
-    var purplev = "{% static "fabrics2/images/purple-tri.png" %}";
-    var brownv = "{% static "fabrics2/images/brown-tri.png" %}";
-    var redv = "{% static "fabrics2/images/red-tri.png" %}";
-    var bluev = "{% static "fabrics2/images/blue-tri.png" %}";
-    var pinkv = "{% static "fabrics2/images/pink-tri.png" %}";
-    var greenv = "{% static "fabrics2/images/green-tri.png" %}";
+      var picon = "{% static "fabrics/images/brownPot.png" %}";
+      var bicon = "{% static "fabrics/images/bluePot2.png" %}";
+      var ricon = "{% static "fabrics/images/tanPot.png" %}";
+       var blackv = "{% static "fabrics/images/black-tri.png" %}";
+    var orangev = "{% static "fabrics/images/orange-tri.png" %}";
+    var purplev = "{% static "fabrics/images/purple-tri.png" %}";
+    var brownv = "{% static "fabrics/images/brown-tri.png" %}";
+    var redv = "{% static "fabrics/images/red-tri.png" %}";
+    var bluev = "{% static "fabrics/images/blue-tri.png" %}";
+    var pinkv = "{% static "fabrics/images/pink-tri.png" %}";
+    var greenv = "{% static "fabrics/images/green-tri.png" %}";
 
       let mbsu = "{{mbsu}}";
       let thsu = "{{thsu}}";
@@ -101,7 +101,7 @@
       <div class ="after-map">
     <p>Many fabrics have a range of abundances. The range maximum (top) and minimum (bottom) are shown. </p>
     <p>** Has full slide image available.</p> 
-    {% include "fabrics2/includes/abuntable.html" %}
+    {% include "fabrics/includes/abuntable.html" %}
     <br>
     <table class = "fabrictable">
       <th>Name </th> <th>Cal.</th> <th>Quartz</th><th>Feldspar</th> <th>Pyroxene</th> <th>Amphibole</th> 
@@ -180,22 +180,22 @@
       {% for slide in slides %}
         <h3><a href="{% url "slide-type" slide.slug %}">{{slide.name}}</a></h3>
         {% if slide.image_name and slide.full_image_name and slide.full_image_oe_omero_id %}
-        <figure><img src="{% static "fabrics2/images/slides/"|add:slide.image_name|add:"_x4_PPL.jpeg" %}" alt={{ slide.image_name }} height:"50">
-          <img src="{% static "fabrics2/images/slides/"|add:slide.image_name|add:"_x4_XPL.jpeg" %}" alt= {{ slide.image_name }} height:"50">
+        <figure><img src="{% static "fabrics/images/slides/"|add:slide.image_name|add:"_x4_PPL.jpeg" %}" alt={{ slide.image_name }} height:"50">
+          <img src="{% static "fabrics/images/slides/"|add:slide.image_name|add:"_x4_XPL.jpeg" %}" alt= {{ slide.image_name }} height:"50">
           <figcaption> Sherd {{ slide.sherd }} from {{ slide.site }}. Slide {{slide.name }} from {{ slide.source }}. x4 Magnification PPL (left) XPL (right). Scale bar: 0.5mm. <a class="caplink" href="https://kuden.anu.edu.au/webclient/img_detail/{{slide.image_omero_id}}" target="_blank">High resolution image</a> 
            or <a class="caplink" href="https://kuden.anu.edu.au/webclient/img_detail/{{slide.full_image_omero_id}}" target="_blank">full slide in VIMIPO</a> with <a class="caplink" href="https://kuden.anu.edu.au/webclient/img_detail/{{slide.full_image_oe_omero_id}}" target="_blank"> higher exposure.</a> Imaged by K. Hardy and M. Leclerc, ANU.
           </figcaption>
         </figure>
         {% elif slide.image_name and slide.full_image_name %}
-          <figure><img src="{% static "fabrics2/images/slides/"|add:slide.image_name|add:"_x4_PPL.jpeg" %}" alt={{ slide.image_name }} height:"50">
-            <img src="{% static "fabrics2/images/slides/"|add:slide.image_name|add:"_x4_XPL.jpeg" %}" alt= {{ slide.image_name }} height:"50">
+          <figure><img src="{% static "fabrics/images/slides/"|add:slide.image_name|add:"_x4_PPL.jpeg" %}" alt={{ slide.image_name }} height:"50">
+            <img src="{% static "fabrics/images/slides/"|add:slide.image_name|add:"_x4_XPL.jpeg" %}" alt= {{ slide.image_name }} height:"50">
             <figcaption> Sherd {{ slide.sherd }} from {{ slide.site }}. Slide {{slide.name }} from {{ slide.source }}. x4 Magnification PPL (left) XPL (right). Scale bar: 0.5mm. <a class="caplink" href="https://kuden.anu.edu.au/webclient/img_detail/{{slide.image_omero_id}}" target="_blank">High resolution image</a>
              or <a class="caplink" href="https://kuden.anu.edu.au/webclient/img_detail/{{slide.full_image_omero_id}}" target="_blank">full slide in VIMIPO (user: Guest pwd: Guest).</a> Imaged by K. Hardy and M. Leclerc, ANU.
             </figcaption>
           </figure>
         {% elif slide.image_name %}
-          <figure><img src="{% static "fabrics2/images/slides/"|add:slide.image_name|add:"_x4_PPL.jpeg" %}" alt={{ slide.image_name }} height:"50">
-            <img src="{% static "fabrics2/images/slides/"|add:slide.image_name|add:"_x4_XPL.jpeg" %}" alt= {{ slide.image_name }} height:"50">
+          <figure><img src="{% static "fabrics/images/slides/"|add:slide.image_name|add:"_x4_PPL.jpeg" %}" alt={{ slide.image_name }} height:"50">
+            <img src="{% static "fabrics/images/slides/"|add:slide.image_name|add:"_x4_XPL.jpeg" %}" alt= {{ slide.image_name }} height:"50">
             <figcaption> Sherd {{ slide.sherd }} from {{ slide.site }}. Slide {{slide.name }} from {{ slide.source }}. x4 Magnification PPL (left) XPL (right). Scale bar: 0.5mm. <a class="caplink" href="https://kuden.anu.edu.au/webclient/img_detail/{{slide.image_omero_id}}" target="_blank">High resolution image in VIMIPO (user: Guest pwd: Guest).</a> Imaged by K. Hardy and M. Leclerc, ANU.
             </figcaption>
           </figure>
@@ -217,5 +217,5 @@
   {% for ref in references %}
     <h3> <a href="{% url "report-type" ref.slug %}">{{ ref.fullname }}</a> ({{ ref.author_list }}) </h3>
   {% endfor %} 
-    {% include "fabrics2/includes/footer.html" %}
+    {% include "fabrics/includes/footer.html" %}
     {% endblock %}
