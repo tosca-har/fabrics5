@@ -26,7 +26,8 @@ SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["localhost","127.0.0.1","kudenfabrics.anu.edu.au","150.203.85.93"]
+CSRF_TRUSTED_ORIGINS = [ 'https://kudenfabrics.anu.edu.au' ]
 
 
 # Application definition
