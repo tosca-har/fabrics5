@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block css_files %}
+  <link rel="stylesheet" href="{% static "fabrics2/fabrics.css" %}">
+  <link rel="stylesheet" href="{% static "fabrics2/abuntable.css" %}">
+  <link rel="stylesheet" href="{% static "fabrics2/header.css" %}">
+{% endblock %}
+
+{% block page_title %}
+  Fabric Index
+{% endblock %}
+
+{% block content %}
+  {% include "fabrics2/includes/header.html" %}
+  <h1>All Fabrics</h1>
+  {% include "fabrics2/includes/abuntable.html" %}
+  <p>Many fabrics have a range of abundances. The range maximum (top) and minimum (bottom) are shown. </p>
+  <p>** Has full slide image available.</p> 
+  <p>Simple sorting can be done by selecting a column heading. </p> 
+  <table class = "fabrictable" id = "ft">
+      <th>Name </th> <th><a href="{% url "index" 1 %}">Cal.</a></th> <th><a href="{% url "index" 2 %}">Quartz</a></th><th><a href="{% url "index" 3 %}">Felsp.</a></th>
+       <th><a href="{% url "index" 4 %}">Pyroxene</a></th> <th><a href="{% url "index" 5 %}">Amphibole</a></th> 
+      <th><a href="{% url "index" 6 %}">Opaques</a></th> <th><a href="{% url "index" 7 %}">Olivines</a></th><th><a href="{% url "index" 8 %}">Biotite</a></th> <th><a href="{% url "index" 9 %}">Muscovite</a></th> <th><a href="{% url "index" 10 %}">Epidote</a></th> 
+      <th><a href="{% url "index" 11 %}">Garnet/ Spinel</a></th><th><a href="{% url "index" 12 %}">Ig./Met. Rocks</a></th> <th><a href="{% url "index" 13 %}">Sed. Rocks</a></th> <th><a href="{% url "index" 14 %}">Grog</a></th>  <th><a href="{% url "index" 15 %}">Lithics</a>/ <a href="{% url "index" 16 %}">Region</a></th> 
+      {% for fabric in fabrics %}
+         <tr>
+            <td><a href="{% url "fabric-type" fabric.slug %}">{{ fabric.slug }}{% if fabric.has_full %} ** {% endif%} </a></td>
+            <td data-tag="{{fabric.calcareous_max}}"> {{fabric.calcareous_max}}</td>
+            <td data-tag="{{fabric.quartz_max}}"> {{fabric.quartz_max}}</td>
+            <td data-tag="{{fabric.feldspar_max}}">{{fabric.feldspar_max}}</td>
+            <td data-tag="{{fabric.pyroxene_max}}">{{fabric.pyroxene_max}}</td>
+            <td data-tag="{{fabric.amphibole_max}}">{{fabric.amphibole_max}}</td>
+            <td data-tag="{{fabric.opaque_max}}"> {{fabric.opaque_max}}</td>
+            <td data-tag="{{fabric.olivine_max}}"> {{fabric.olivine_max}}</td>
+            <td data-tag="{{fabric.biotite_max}}">{{fabric.biotite_max}}</td>
+            <td data-tag="{{fabric.muscovite_max}}">{{fabric.muscovite_max}}</td>
+            <td data-tag="{{fabric.epidote_max}}">{{fabric.epidote_max}}</td>
+            <td data-tag="{{fabric.garnet_max}}"> {{fabric.garnet_max}}</td>
+            <td data-tag="{{fabric.igneous_rock_fragments_max}}">{{fabric.igneous_rock_fragments_max}}</td>
+            <td data-tag="{{fabric.sedimentary_metasedimentary_max}}">{{fabric.sedimentary_metasedimentary_max}}</td>
+            <td data-tag="{{fabric.grog_max}}">{{fabric.grog_max}}</td>
+            <td> {{fabric.lithics}}</td>
+            </tr>
+            <tr>
+              <td>{{ fabric.desc }}</a></td>
+              <td data-tag="{{fabric.calcareous_min}}"> {{fabric.calcareous_min}}</td>
+              <td data-tag="{{fabric.quartz_min}}"> {{fabric.quartz_min}}</td>
+              <td data-tag="{{fabric.feldspar_min}}">{{fabric.feldspar_min}}</td>
+              <td data-tag="{{fabric.pyroxene_min}}">{{fabric.pyroxene_min}}</td>
+              <td data-tag="{{fabric.amphibole_min}}">{{fabric.amphibole_min}}</td>
+              <td data-tag="{{fabric.opaque_min}}"> {{fabric.opaque_min}}</td>
+              <td data-tag="{{fabric.olivine_min}}"> {{fabric.olivine_min}}</td>
+              <td data-tag="{{fabric.biotite_min}}">{{fabric.biotite_min}}</td>
+              <td data-tag="{{fabric.muscovite_min}}">{{fabric.muscovite_min}}</td>
+              <td data-tag="{{fabric.epidote_min}}">{{fabric.epidote_min}}</td>
+              <td data-tag="{{fabric.garnet_min}}"> {{fabric.garnet_min}}</td>
+              <td data-tag="{{fabric.igneous_rock_fragments_min}}">{{fabric.igneous_rock_fragments_min}}</td>
+              <td data-tag="{{fabric.sedimentary_metasedimentary_min}}">{{fabric.sedimentary_metasedimentary_min}}</td>
+              <td data-tag="{{fabric.grog_min}}">{{fabric.grog_min}}</td>
+              <td> {{fabric.region}}</td>
+              </tr>
+      {% endfor %}
+    </table>
+    {% include "fabrics2/includes/footer.html" %}
+{% endblock %}

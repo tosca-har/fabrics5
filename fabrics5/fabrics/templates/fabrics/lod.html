@@ -1,0 +1,1089 @@
+{% extends "base.html" %} 
+{% load static %} 
+{% block css_files %}
+ <link rel="stylesheet" href="{% static "fabrics2/glossary.css" %}">
+<link rel="stylesheet" href="{% static "fabrics2/header.css" %}"> 
+{% endblock %} 
+{% block page_title %} 
+Vocabulary
+{% endblock %} 
+{% block content %} 
+{% include "fabrics2/includes/header.html" %}
+<h1>Measurement Definitions</h1>
+
+<p>These terms are used to define the relative abundances of mineral and lithic inclusions in the ceramic fabrics described in the Kuden database.</a>
+</p>
+<div id="inclusionDimension"> 
+<h3> Label: Inclusion Dimension</h3>
+<table class = "vocab"> <tr> <td> IRI: </td> <td> https://kudenfabrics.anu.edu.au/vocab#inclusionDimension </td>  </tr> 
+<tr><td>Description:</td> <td> The range of proportions of an inclusion type in a ceramic fabric. The proportions are frequency counts, i.e. the number of inclusions of that type as a percentage of all inclusions, independent of inclusion size. </td>  </tr>
+<tr><td>Subclass of: </td> <td> <a href="http://www.cidoc-crm.org/cidoc-crm/E54_Dimension"> E54 Dimension</a></td>  </tr> 
+</table>
+</div>
+
+<div id="veryDominant"> 
+<h3> Label: Very Dominant</h3>
+<table class = "vocab"> <tr> <td> IRI: </td> <td> https://kudenfabrics.anu.edu.au/vocab#veryDominant</td>  </tr> 
+<tr><td>Description:</td> <td> The inclusion was 70-100% of the total inclusions. </td>  </tr>
+<tr><td>Subclass of: </td> <td> <a href="https://kudenfabrics.anu.edu.au/vocab#inclusionDimension"> Inclusion Dimension</a></td>  </tr> 
+<tr><td>Greater than: </td> <td> <a href="https://kudenfabrics.anu.edu.au/vocab#major"> Major</a></td>  </tr> 
+</table>
+</div>  
+
+<div id="major"> 
+<h3> Label: Major</h3>
+<table class = "vocab"> <tr> <td> IRI: </td> <td> https://kudenfabrics.anu.edu.au/vocab#major</td>  </tr> 
+<tr><td>Description:</td> <td> The inclusion was 50-70% of the total inclusions. </td>  </tr>
+<tr><td>Subclass of: </td> <td> <a href="https://kudenfabrics.anu.edu.au/vocab#inclusionDimension"> Inclusion Dimension</a></td>  </tr> 
+<tr><td>Greater than: </td> <td> <a href="https://kudenfabrics.anu.edu.au/vocab#frequent"> Frequent</a></td>  </tr> 
+</table>
+</div>  
+
+<div id="frequent"> 
+<h3> Label: Frequent</h3>
+<table class = "vocab"> <tr> <td> IRI: </td> <td> https://kudenfabrics.anu.edu.au/vocab#frequent</td>  </tr> 
+<tr><td>Description:</td> <td> The inclusion was 30-50% of the total inclusions. </td>  </tr>
+<tr><td>Subclass of: </td> <td> <a href="https://kudenfabrics.anu.edu.au/vocab#inclusionDimension"> Inclusion Dimension</a></td>  </tr> 
+<tr><td>Greater than: </td> <td> <a href="https://kudenfabrics.anu.edu.au/vocab#common"> Common</a></td>  </tr> 
+</table>
+</div>  
+
+<div id="common"> 
+<h3> Label: Common</h3>
+<table class = "vocab"> <tr> <td> IRI: </td> <td> https://kudenfabrics.anu.edu.au/vocab#common</td>  </tr> 
+<tr><td>Description:</td> <td> The inclusion was 15-30% of the total inclusions. </td>  </tr>
+<tr><td>Subclass of: </td> <td> <a href="https://kudenfabrics.anu.edu.au/vocab#inclusionDimension"> Inclusion Dimension</a></td>  </tr> 
+<tr><td>Greater than: </td> <td> <a href="https://kudenfabrics.anu.edu.au/vocab#few"> Few</a></td>  </tr> 
+</table>
+</div> 
+
+<div id="few"> 
+<h3> Label: Few</h3>
+<table class = "vocab"> <tr> <td> IRI: </td> <td> https://kudenfabrics.anu.edu.au/vocab#few</td>  </tr> 
+<tr><td>Description:</td> <td> The inclusion was 5-15% of the total inclusions. </td>  </tr>
+<tr><td>Subclass of: </td> <td> <a href="https://kudenfabrics.anu.edu.au/vocab#inclusionDimension"> Inclusion Dimension</a></td>  </tr> 
+<tr><td>Greater than: </td> <td> <a href="https://kudenfabrics.anu.edu.au/vocab#minor"> Minor</a></td>  </tr> 
+</table>
+</div> 
+
+<div id="minor"> 
+<h3> Label: Minor</h3>
+<table class = "vocab"> <tr> <td> IRI: </td> <td> https://kudenfabrics.anu.edu.au/vocab#minor</td>  </tr> 
+<tr><td>Description:</td> <td> The inclusion was 0-5% of the total inclusions. </td>  </tr>
+<tr><td>Subclass of: </td> <td> <a href="https://kudenfabrics.anu.edu.au/vocab#inclusionDimension"> Inclusion Dimension</a></td>  </tr> 
+<tr><td>Greater than: </td> <td> <a href="https://kudenfabrics.anu.edu.au/vocab#none"> None</a></td>  </tr> 
+</table>
+</div> 
+
+<div id="none"> 
+<h3> Label: None</h3>
+<table class = "vocab"> <tr> <td> IRI: </td> <td> https://kudenfabrics.anu.edu.au/vocab#none</td>  </tr> 
+<tr><td>Description:</td> <td> The inclusion is not present in the ceramic fabric. </td>  </tr>
+<tr><td>Subclass of: </td> <td> <a href="https://kudenfabrics.anu.edu.au/vocab#inclusionDimension"> Inclusion Dimension</a></td>  </tr> 
+</table>
+</div> 
+
+<div id="calcareousProportion"> 
+<h3> Label: Calcareous Proportion</h3>
+<table class = "vocab"> <tr> <td> IRI: </td> <td> https://kudenfabrics.anu.edu.au/vocab#calcareousProportion</td>  </tr> 
+<tr><td>Description:</td> <td> The proportion of calcareous inclusions. </td>  </tr>
+<tr><td>Subclass of: </td> <td> <a href="https://kudenfabrics.anu.edu.au/vocab#inclusionDimension"> Inclusion Dimension</a></td>  </tr> 
+</table>
+</div> 
+
+<div id="quartzProportion"> 
+<h3> Label: Quartz Proportion</h3>
+<table class = "vocab"> <tr> <td> IRI: </td> <td> https://kudenfabrics.anu.edu.au/vocab#quartzProportion</td>  </tr> 
+<tr><td>Description:</td> <td> The proportion of quartz inclusions. </td>  </tr>
+<tr><td>Subclass of: </td> <td> <a href="https://kudenfabrics.anu.edu.au/vocab#inclusionDimension"> Inclusion Dimension</a></td>  </tr> 
+</table>
+</div> 
+
+<div id="feldsparProportion"> 
+<h3> Label: Feldspar Proportion</h3>
+<table class = "vocab"> <tr> <td> IRI: </td> <td> https://kudenfabrics.anu.edu.au/vocab#feldsparProportion</td>  </tr> 
+<tr><td>Description:</td> <td> The proportion of feldspar inclusions (includes plagioclase, alkali and other feldspars). </td>  </tr>
+<tr><td>Subclass of: </td> <td> <a href="https://kudenfabrics.anu.edu.au/vocab#inclusionDimension"> Inclusion Dimension</a></td>  </tr> 
+</table>
+</div> 
+
+<div id="pyroxeneProportion"> 
+<h3> Label: Pyroxene Proportion</h3>
+<table class = "vocab"> <tr> <td> IRI: </td> <td> https://kudenfabrics.anu.edu.au/vocab#pyroxeneProportion</td>  </tr> 
+<tr><td>Description:</td> <td> The proportion of pyroxene inclusions. </td>  </tr>
+<tr><td>Subclass of: </td> <td> <a href="https://kudenfabrics.anu.edu.au/vocab#inclusionDimension"> Inclusion Dimension</a></td>  </tr> 
+</table>
+</div> 
+
+<div id="opaProportion"> 
+<h3> Label: Opaque Iron Oxide Proportion</h3>
+<table class = "vocab"> <tr> <td> IRI: </td> <td> https://kudenfabrics.anu.edu.au/vocab#opaProportion</td>  </tr> 
+<tr><td>Description:</td> <td> The proportion of opaque iron oxide inclusions. </td>  </tr>
+<tr><td>Subclass of: </td> <td> <a href="https://kudenfabrics.anu.edu.au/vocab#inclusionDimension"> Inclusion Dimension</a></td>  </tr> 
+</table>
+</div> 
+
+<div id="amphiboleProportion"> 
+<h3> Label: Amphibole Proportion</h3>
+<table class = "vocab"> <tr> <td> IRI: </td> <td> https://kudenfabrics.anu.edu.au/vocab#amphiboleProportion</td>  </tr> 
+<tr><td>Description:</td> <td> The proportion of amphibolic inclusions. </td>  </tr>
+<tr><td>Subclass of: </td> <td> <a href="https://kudenfabrics.anu.edu.au/vocab#inclusionDimension"> Inclusion Dimension</a></td>  </tr> 
+</table>
+</div> 
+
+<div id="biotiteProportion"> 
+<h3> Label: Biotite Proportion</h3>
+<table class = "vocab"> <tr> <td> IRI: </td> <td> https://kudenfabrics.anu.edu.au/vocab#biotiteProportion</td>  </tr> 
+<tr><td>Description:</td> <td> The proportion of biotite inclusions. </td>  </tr>
+<tr><td>Subclass of: </td> <td> <a href="https://kudenfabrics.anu.edu.au/vocab#inclusionDimension"> Inclusion Dimension</a></td>  </tr> 
+</table>
+</div> 
+
+<div id="muscoviteProportion"> 
+<h3> Label: Muscovite Proportion</h3>
+<table class = "vocab"> <tr> <td> IRI: </td> <td> https://kudenfabrics.anu.edu.au/vocab#muscoviteProportion</td>  </tr> 
+<tr><td>Description:</td> <td> The proportion of muscovite inclusions. </td>  </tr>
+<tr><td>Subclass of: </td> <td> <a href="https://kudenfabrics.anu.edu.au/vocab#inclusionDimension"> Inclusion Dimension</a></td>  </tr> 
+</table>
+</div> 
+
+<div id="olivineProportion"> 
+<h3> Label: Olivine Proportion</h3>
+<table class = "vocab"> <tr> <td> IRI: </td> <td> https://kudenfabrics.anu.edu.au/vocab#olivineProportion</td>  </tr> 
+<tr><td>Description:</td> <td> The proportion of olivine inclusions. </td>  </tr>
+<tr><td>Subclass of: </td> <td> <a href="https://kudenfabrics.anu.edu.au/vocab#inclusionDimension"> Inclusion Dimension</a></td>  </tr> 
+</table>
+</div> 
+
+<div id="epidoteProportion"> 
+<h3> Label: Epidote Proportion</h3>
+<table class = "vocab"> <tr> <td> IRI: </td> <td> https://kudenfabrics.anu.edu.au/vocab#epidoteProportion</td>  </tr> 
+<tr><td>Description:</td> <td> The proportion of epidote inclusions. </td>  </tr>
+<tr><td>Subclass of: </td> <td> <a href="https://kudenfabrics.anu.edu.au/vocab#inclusionDimension"> Inclusion Dimension</a></td>  </tr> 
+</table>
+</div> 
+
+<div id="garnetSpinelProportion"> 
+<h3> Label: Garnet and Spinel Proportion</h3>
+<table class = "vocab"> <tr> <td> IRI: </td> <td> https://kudenfabrics.anu.edu.au/vocab#garnetSpinelProportion</td>  </tr> 
+<tr><td>Description:</td> <td> The proportion of garnet and spinel inclusions. </td>  </tr>
+<tr><td>Subclass of: </td> <td> <a href="https://kudenfabrics.anu.edu.au/vocab#inclusionDimension"> Inclusion Dimension</a></td>  </tr> 
+</table>
+</div> 
+
+<div id="vrfProportion"> 
+<h3> Label: Igneous and Metamorphic Lithic Proportion</h3>
+<table class = "vocab"> <tr> <td> IRI: </td> <td> https://kudenfabrics.anu.edu.au/vocab#vrfProportion</td>  </tr> 
+<tr><td>Description:</td> <td> The proportion of igneous and metamorphic lithic inclusions. </td>  </tr>
+<tr><td>Subclass of: </td> <td> <a href="https://kudenfabrics.anu.edu.au/vocab#inclusionDimension"> Inclusion Dimension</a></td>  </tr> 
+</table>
+</div> 
+
+<div id="sedProportion"> 
+<h3> Label: Sedimentary and Meta-sedimentary Lithic Proportion</h3>
+<table class = "vocab"> <tr> <td> IRI: </td> <td> https://kudenfabrics.anu.edu.au/vocab#sedProportion</td>  </tr> 
+<tr><td>Description:</td> <td> The proportion of sedimentary and meta-sedimentary lithic inclusions. </td>  </tr>
+<tr><td>Subclass of: </td> <td> <a href="https://kudenfabrics.anu.edu.au/vocab#inclusionDimension"> Inclusion Dimension</a></td>  </tr> 
+</table>
+</div> 
+
+<div id=grogProportion"> 
+<h3> Label: Grog Proportion</h3>
+<table class = "vocab"> <tr> <td> IRI: </td> <td> https://kudenfabrics.anu.edu.au/vocab#grogProportion</td>  </tr> 
+<tr><td>Description:</td> <td> The proportion of grog (crushed pottery) inclusions. </td>  </tr>
+<tr><td>Subclass of: </td> <td> <a href="https://kudenfabrics.anu.edu.au/vocab#inclusionDimension"> Inclusion Dimension</a></td>  </tr> 
+</table>
+</div> 
+
+
+<div id="veryDominantCalcareous"> 
+<h3> Label: Very Dominant Calcareous</h3>
+<table class = "vocab"> <tr> <td> IRI: </td> <td> https://kudenfabrics.anu.edu.au/vocab#veryDominantCalcareous</td>  </tr> 
+<tr><td>Description:</td> <td> The proportion of calcareous inclusions in the ceramic fabric is 70-100%. </td>  </tr>
+<tr><td>Subclass of: </td> <td> <a href="https://kudenfabrics.anu.edu.au/vocab#veryDominant"> Very Dominant</a> & <a href="https://kudenfabrics.anu.edu.au/vocab#calcareousProportion">Calcareous Proportion</a></td>  </tr> 
+</table>
+</div> 
+
+<div id="majorCalcareous"> 
+<h3> Label: Major Calcareous</h3>
+<table class = "vocab"> <tr> <td> IRI: </td> <td> https://kudenfabrics.anu.edu.au/vocab#majorCalcareous</td>  </tr> 
+<tr><td>Description:</td> <td> The proportion of calcareous inclusions in the ceramic fabric is 50-70%. </td>  </tr>
+<tr><td>Subclass of: </td> <td> <a href="https://kudenfabrics.anu.edu.au/vocab#major"> Major</a> & <a href="https://kudenfabrics.anu.edu.au/vocab#calcareousProportion">Calcareous Proportion</a></td>  </tr> 
+</table>
+</div> 
+
+<div id="frequentCalcareous"> 
+<h3> Label: Frequent Calcareous</h3>
+<table class = "vocab"> <tr> <td> IRI: </td> <td> https://kudenfabrics.anu.edu.au/vocab#frequentCalcareous</td>  </tr> 
+<tr><td>Description:</td> <td> The proportion of calcareous inclusions in the ceramic fabric is 30-50%. </td>  </tr>
+<tr><td>Subclass of: </td> <td> <a href="https://kudenfabrics.anu.edu.au/vocab#frequent"> Frequent</a> & <a href="https://kudenfabrics.anu.edu.au/vocab#calcareousProportion">Calcareous Proportion</a></td>  </tr> 
+</table>
+</div> 
+
+<div id="commonCalcareous"> 
+<h3> Label: Common Calcareous</h3>
+<table class = "vocab"> <tr> <td> IRI: </td> <td> https://kudenfabrics.anu.edu.au/vocab#commonCalcareous</td>  </tr> 
+<tr><td>Description:</td> <td> The proportion of calcareous inclusions in the ceramic fabric is 15-30%. </td>  </tr>
+<tr><td>Subclass of: </td> <td> <a href="https://kudenfabrics.anu.edu.au/vocab#common"> Common</a> & <a href="https://kudenfabrics.anu.edu.au/vocab#calcareousProportion">Calcareous Proportion</a></td>  </tr> 
+</table>
+</div> 
+
+<div id="fewCalcareous"> 
+<h3> Label: Few Calcareous</h3>
+<table class = "vocab"> <tr> <td> IRI: </td> <td> https://kudenfabrics.anu.edu.au/vocab#fewCalcareous</td>  </tr> 
+<tr><td>Description:</td> <td> The proportion of calcareous inclusions in the ceramic fabric is 5-15%. </td>  </tr>
+<tr><td>Subclass of: </td> <td> <a href="https://kudenfabrics.anu.edu.au/vocab#few"> Few</a> & <a href="https://kudenfabrics.anu.edu.au/vocab#calcareousProportion">Calcareous Proportion</a></td>  </tr> 
+</table>
+</div> 
+
+<div id="minorCalcareous"> 
+<h3> Label: Minor Calcareous</h3>
+<table class = "vocab"> <tr> <td> IRI: </td> <td> https://kudenfabrics.anu.edu.au/vocab#minorCalcareous</td>  </tr> 
+<tr><td>Description:</td> <td> The proportion of calcareous inclusions in the ceramic fabric is 0-5%. </td>  </tr>
+<tr><td>Subclass of: </td> <td> <a href="https://kudenfabrics.anu.edu.au/vocab#minor"> Minor</a> & <a href="https://kudenfabrics.anu.edu.au/vocab#calcareousProportion">Calcareous Proportion</a></td>  </tr> 
+</table>
+</div> 
+
+<div id="noCalcareous"> 
+<h3> Label: No Calcareous</h3>
+<table class = "vocab"> <tr> <td> IRI: </td> <td> https://kudenfabrics.anu.edu.au/vocab#noCalcareous</td>  </tr> 
+<tr><td>Description:</td> <td> The proportion of calcareous inclusions in the ceramic fabric is 0%. </td>  </tr>
+<tr><td>Subclass of: </td> <td> <a href="https://kudenfabrics.anu.edu.au/vocab#none"> None</a> & <a href="https://kudenfabrics.anu.edu.au/vocab#calcareousProportion">Calcareous Proportion</a></td>  </tr> 
+</table>
+</div> 
+
+
+<div id="veryDominantQuartz"> 
+<h3> Label: Very Dominant Quartz</h3>
+<table class = "vocab"> <tr> <td> IRI: </td> <td> https://kudenfabrics.anu.edu.au/vocab#veryDominantQuartz</td>  </tr> 
+<tr><td>Description:</td> <td> The proportion of quartz inclusions in the ceramic fabric is 70-100%. </td>  </tr>
+<tr><td>Subclass of: </td> <td> <a href="https://kudenfabrics.anu.edu.au/vocab#veryDominant"> Very Dominant</a> & <a href="https://kudenfabrics.anu.edu.au/vocab#quartzProportion">Quartz Proportion</a></td>  </tr> 
+</table>
+</div> 
+
+<div id="majorQuartz"> 
+<h3> Label: Major Quartz</h3>
+<table class = "vocab"> <tr> <td> IRI: </td> <td> https://kudenfabrics.anu.edu.au/vocab#majorQuartz</td>  </tr> 
+<tr><td>Description:</td> <td> The proportion of quartz inclusions in the ceramic fabric is 50-70%. </td>  </tr>
+<tr><td>Subclass of: </td> <td> <a href="https://kudenfabrics.anu.edu.au/vocab#major"> Major</a> & <a href="https://kudenfabrics.anu.edu.au/vocab#quartzProportion">Quartz Proportion</a></td>  </tr> 
+</table>
+</div> 
+
+<div id="frequentQuartz"> 
+<h3> Label: Frequent Quartz</h3>
+<table class = "vocab"> <tr> <td> IRI: </td> <td> https://kudenfabrics.anu.edu.au/vocab#frequentQuartz</td>  </tr> 
+<tr><td>Description:</td> <td> The proportion of quartz inclusions in the ceramic fabric is 30-50%. </td>  </tr>
+<tr><td>Subclass of: </td> <td> <a href="https://kudenfabrics.anu.edu.au/vocab#frequent"> Frequent</a> & <a href="https://kudenfabrics.anu.edu.au/vocab#quartzProportion">Quartz Proportion</a></td>  </tr> 
+</table>
+</div> 
+
+<div id="commonQuartz"> 
+<h3> Label: Common Quartz</h3>
+<table class = "vocab"> <tr> <td> IRI: </td> <td> https://kudenfabrics.anu.edu.au/vocab#commonQuartz</td>  </tr> 
+<tr><td>Description:</td> <td> The proportion of quartz inclusions in the ceramic fabric is 15-30%. </td>  </tr>
+<tr><td>Subclass of: </td> <td> <a href="https://kudenfabrics.anu.edu.au/vocab#common"> Common</a> & <a href="https://kudenfabrics.anu.edu.au/vocab#quartzProportion">Quartz Proportion</a></td>  </tr> 
+</table>
+</div> 
+
+<div id="fewQuartz"> 
+<h3> Label: Few Quartz</h3>
+<table class = "vocab"> <tr> <td> IRI: </td> <td> https://kudenfabrics.anu.edu.au/vocab#fewQuartz</td>  </tr> 
+<tr><td>Description:</td> <td> The proportion of quartz inclusions in the ceramic fabric is 5-15%. </td>  </tr>
+<tr><td>Subclass of: </td> <td> <a href="https://kudenfabrics.anu.edu.au/vocab#few"> Few</a> & <a href="https://kudenfabrics.anu.edu.au/vocab#quartzProportion">Quartz Proportion</a></td>  </tr> 
+</table>
+</div> 
+
+<div id="minorQuartz"> 
+<h3> Label: Minor Quartz</h3>
+<table class = "vocab"> <tr> <td> IRI: </td> <td> https://kudenfabrics.anu.edu.au/vocab#minorQuartz</td>  </tr> 
+<tr><td>Description:</td> <td> The proportion of quartz inclusions in the ceramic fabric is 0-5%. </td>  </tr>
+<tr><td>Subclass of: </td> <td> <a href="https://kudenfabrics.anu.edu.au/vocab#minor"> Minor</a> & <a href="https://kudenfabrics.anu.edu.au/vocab#quartzProportion">Quartz Proportion</a></td>  </tr> 
+</table>
+</div> 
+
+<div id="noQuartz"> 
+<h3> Label: No Quartz</h3>
+<table class = "vocab"> <tr> <td> IRI: </td> <td> https://kudenfabrics.anu.edu.au/vocab#noQuartz</td>  </tr> 
+<tr><td>Description:</td> <td> The proportion of quartz inclusions in the ceramic fabric is 0%. </td>  </tr>
+<tr><td>Subclass of: </td> <td> <a href="https://kudenfabrics.anu.edu.au/vocab#none"> None</a> & <a href="https://kudenfabrics.anu.edu.au/vocab#quartzProportion">Quartz Proportion</a></td>  </tr> 
+</table>
+</div> 
+
+
+<div id="veryDominantFeldspar"> 
+<h3> Label: Very Dominant Feldspar</h3>
+<table class = "vocab"> <tr> <td> IRI: </td> <td> https://kudenfabrics.anu.edu.au/vocab#veryDominantFeldspar</td>  </tr> 
+<tr><td>Description:</td> <td> The proportion of feldspar inclusions in the ceramic fabric is 70-100%. </td>  </tr>
+<tr><td>Subclass of: </td> <td> <a href="https://kudenfabrics.anu.edu.au/vocab#veryDominant"> Very Dominant</a> & <a href="https://kudenfabrics.anu.edu.au/vocab#feldsparProportion">Feldspar Proportion</a></td>  </tr> 
+</table>
+</div> 
+
+<div id="majorFeldspar"> 
+<h3> Label: Major Feldspar</h3>
+<table class = "vocab"> <tr> <td> IRI: </td> <td> https://kudenfabrics.anu.edu.au/vocab#majorFeldspar</td>  </tr> 
+<tr><td>Description:</td> <td> The proportion of feldspar inclusions in the ceramic fabric is 50-70%. </td>  </tr>
+<tr><td>Subclass of: </td> <td> <a href="https://kudenfabrics.anu.edu.au/vocab#major"> Major</a> & <a href="https://kudenfabrics.anu.edu.au/vocab#feldsparProportion">Feldspar Proportion</a></td>  </tr> 
+</table>
+</div> 
+
+<div id="frequentFeldspar"> 
+<h3> Label: Frequent Feldspar</h3>
+<table class = "vocab"> <tr> <td> IRI: </td> <td> https://kudenfabrics.anu.edu.au/vocab#frequentFeldspar</td>  </tr> 
+<tr><td>Description:</td> <td> The proportion of feldspar inclusions in the ceramic fabric is 30-50%. </td>  </tr>
+<tr><td>Subclass of: </td> <td> <a href="https://kudenfabrics.anu.edu.au/vocab#frequent"> Frequent</a> & <a href="https://kudenfabrics.anu.edu.au/vocab#feldsparProportion">Feldspar Proportion</a></td>  </tr> 
+</table>
+</div> 
+
+<div id="commonFeldspar"> 
+<h3> Label: Common Feldspar</h3>
+<table class = "vocab"> <tr> <td> IRI: </td> <td> https://kudenfabrics.anu.edu.au/vocab#commonFeldspar</td>  </tr> 
+<tr><td>Description:</td> <td> The proportion of feldspar inclusions in the ceramic fabric is 15-30%. </td>  </tr>
+<tr><td>Subclass of: </td> <td> <a href="https://kudenfabrics.anu.edu.au/vocab#common"> Common</a> & <a href="https://kudenfabrics.anu.edu.au/vocab#feldsparProportion">Feldspar Proportion</a></td>  </tr> 
+</table>
+</div> 
+
+<div id="fewFeldspar"> 
+<h3> Label: Few Feldspar</h3>
+<table class = "vocab"> <tr> <td> IRI: </td> <td> https://kudenfabrics.anu.edu.au/vocab#fewFeldspar</td>  </tr> 
+<tr><td>Description:</td> <td> The proportion of feldspar inclusions in the ceramic fabric is 5-15%. </td>  </tr>
+<tr><td>Subclass of: </td> <td> <a href="https://kudenfabrics.anu.edu.au/vocab#few"> Few</a> & <a href="https://kudenfabrics.anu.edu.au/vocab#feldsparProportion">Feldspar Proportion</a></td>  </tr> 
+</table>
+</div> 
+
+<div id="minorFeldspar"> 
+<h3> Label: Minor Feldspar</h3>
+<table class = "vocab"> <tr> <td> IRI: </td> <td> https://kudenfabrics.anu.edu.au/vocab#minorFeldspar</td>  </tr> 
+<tr><td>Description:</td> <td> The proportion of feldspar inclusions in the ceramic fabric is 0-5%. </td>  </tr>
+<tr><td>Subclass of: </td> <td> <a href="https://kudenfabrics.anu.edu.au/vocab#minor"> Minor</a> & <a href="https://kudenfabrics.anu.edu.au/vocab#feldsparProportion">Feldspar Proportion</a></td>  </tr> 
+</table>
+</div> 
+
+<div id="noFeldspar"> 
+<h3> Label: No Feldspar</h3>
+<table class = "vocab"> <tr> <td> IRI: </td> <td> https://kudenfabrics.anu.edu.au/vocab#noFeldspar</td>  </tr> 
+<tr><td>Description:</td> <td> The proportion of feldspar inclusions in the ceramic fabric is 0%. </td>  </tr>
+<tr><td>Subclass of: </td> <td> <a href="https://kudenfabrics.anu.edu.au/vocab#none"> None</a> & <a href="https://kudenfabrics.anu.edu.au/vocab#feldsparProportion">Feldspar Proportion</a></td>  </tr> 
+</table>
+</div> 
+
+
+<div id="veryDominantPyroxene"> 
+<h3> Label: Very Dominant Pyroxene</h3>
+<table class = "vocab"> <tr> <td> IRI: </td> <td> https://kudenfabrics.anu.edu.au/vocab#veryDominantPyroxene</td>  </tr> 
+<tr><td>Description:</td> <td> The proportion of pyroxene inclusions in the ceramic fabric is 70-100%. </td>  </tr>
+<tr><td>Subclass of: </td> <td> <a href="https://kudenfabrics.anu.edu.au/vocab#veryDominant"> Very Dominant</a> & <a href="https://kudenfabrics.anu.edu.au/vocab#pyroxeneProportion">Pyroxene Proportion</a></td>  </tr> 
+</table>
+</div> 
+
+<div id="majorPyroxene"> 
+<h3> Label: Major Pyroxene</h3>
+<table class = "vocab"> <tr> <td> IRI: </td> <td> https://kudenfabrics.anu.edu.au/vocab#majorPyroxene</td>  </tr> 
+<tr><td>Description:</td> <td> The proportion of pyroxene inclusions in the ceramic fabric is 50-70%. </td>  </tr>
+<tr><td>Subclass of: </td> <td> <a href="https://kudenfabrics.anu.edu.au/vocab#major"> Major</a> & <a href="https://kudenfabrics.anu.edu.au/vocab#pyroxeneProportion">Pyroxene Proportion</a></td>  </tr> 
+</table>
+</div> 
+
+<div id="frequentPyroxene"> 
+<h3> Label: Frequent Pyroxene</h3>
+<table class = "vocab"> <tr> <td> IRI: </td> <td> https://kudenfabrics.anu.edu.au/vocab#frequentPyroxene</td>  </tr> 
+<tr><td>Description:</td> <td> The proportion of pyroxene inclusions in the ceramic fabric is 30-50%. </td>  </tr>
+<tr><td>Subclass of: </td> <td> <a href="https://kudenfabrics.anu.edu.au/vocab#frequent"> Frequent</a> & <a href="https://kudenfabrics.anu.edu.au/vocab#pyroxeneProportion">Pyroxene Proportion</a></td>  </tr> 
+</table>
+</div> 
+
+<div id="commonPyroxene"> 
+<h3> Label: Common Pyroxene</h3>
+<table class = "vocab"> <tr> <td> IRI: </td> <td> https://kudenfabrics.anu.edu.au/vocab#commonPyroxene</td>  </tr> 
+<tr><td>Description:</td> <td> The proportion of pyroxene inclusions in the ceramic fabric is 15-30%. </td>  </tr>
+<tr><td>Subclass of: </td> <td> <a href="https://kudenfabrics.anu.edu.au/vocab#common"> Common</a> & <a href="https://kudenfabrics.anu.edu.au/vocab#pyroxeneProportion">Pyroxene Proportion</a></td>  </tr> 
+</table>
+</div> 
+
+<div id="fewPyroxene"> 
+<h3> Label: Few Pyroxene</h3>
+<table class = "vocab"> <tr> <td> IRI: </td> <td> https://kudenfabrics.anu.edu.au/vocab#fewPyroxene</td>  </tr> 
+<tr><td>Description:</td> <td> The proportion of pyroxene inclusions in the ceramic fabric is 5-15%. </td>  </tr>
+<tr><td>Subclass of: </td> <td> <a href="https://kudenfabrics.anu.edu.au/vocab#few"> Few</a> & <a href="https://kudenfabrics.anu.edu.au/vocab#pyroxeneProportion">Pyroxene Proportion</a></td>  </tr> 
+</table>
+</div> 
+
+<div id="minorPyroxene"> 
+<h3> Label: Minor Pyroxene</h3>
+<table class = "vocab"> <tr> <td> IRI: </td> <td> https://kudenfabrics.anu.edu.au/vocab#minorPyroxene</td>  </tr> 
+<tr><td>Description:</td> <td> The proportion of pyroxene inclusions in the ceramic fabric is 0-5%. </td>  </tr>
+<tr><td>Subclass of: </td> <td> <a href="https://kudenfabrics.anu.edu.au/vocab#minor"> Minor</a> & <a href="https://kudenfabrics.anu.edu.au/vocab#pyroxeneProportion">Pyroxene Proportion</a></td>  </tr> 
+</table>
+</div> 
+
+<div id="noPyroxene"> 
+<h3> Label: No Pyroxene</h3>
+<table class = "vocab"> <tr> <td> IRI: </td> <td> https://kudenfabrics.anu.edu.au/vocab#noPyroxene</td>  </tr> 
+<tr><td>Description:</td> <td> The proportion of pyroxene inclusions in the ceramic fabric is 0%. </td>  </tr>
+<tr><td>Subclass of: </td> <td> <a href="https://kudenfabrics.anu.edu.au/vocab#none"> None</a> & <a href="https://kudenfabrics.anu.edu.au/vocab#pyroxeneProportion">Pyroxene Proportion</a></td>  </tr> 
+</table>
+</div> 
+
+
+<div id="veryDominantOpaque"> 
+<h3> Label: Very Dominant Opaque Iron Oxide</h3>
+<table class = "vocab"> <tr> <td> IRI: </td> <td> https://kudenfabrics.anu.edu.au/vocab#veryDominantOpaque</td>  </tr> 
+<tr><td>Description:</td> <td> The proportion of opaque iron oxide inclusions in the ceramic fabric is 70-100%. </td>  </tr>
+<tr><td>Subclass of: </td> <td> <a href="https://kudenfabrics.anu.edu.au/vocab#veryDominant"> Very Dominant</a> & <a href="https://kudenfabrics.anu.edu.au/vocab#opaProportion">Opaque Iron Oxide Proportion</a></td>  </tr> 
+</table>
+</div> 
+
+<div id="majorOpaque"> 
+<h3> Label: Major Opaque Iron Oxide</h3>
+<table class = "vocab"> <tr> <td> IRI: </td> <td> https://kudenfabrics.anu.edu.au/vocab#majorOpaque</td>  </tr> 
+<tr><td>Description:</td> <td> The proportion of opaque iron oxide inclusions in the ceramic fabric is 50-70%. </td>  </tr>
+<tr><td>Subclass of: </td> <td> <a href="https://kudenfabrics.anu.edu.au/vocab#major"> Major</a> & <a href="https://kudenfabrics.anu.edu.au/vocab#opaProportion">Opaque Iron Oxide Proportion</a></td>  </tr> 
+</table>
+</div> 
+
+<div id="frequentOpaque"> 
+<h3> Label: Frequent Opaque Iron Oxide</h3>
+<table class = "vocab"> <tr> <td> IRI: </td> <td> https://kudenfabrics.anu.edu.au/vocab#frequentOpaque</td>  </tr> 
+<tr><td>Description:</td> <td> The proportion of opaque iron oxide inclusions in the ceramic fabric is 30-50%. </td>  </tr>
+<tr><td>Subclass of: </td> <td> <a href="https://kudenfabrics.anu.edu.au/vocab#frequent"> Frequent</a> & <a href="https://kudenfabrics.anu.edu.au/vocab#opaProportion">Opaque Iron Oxide Proportion</a></td>  </tr> 
+</table>
+</div> 
+
+<div id="commonOpaque"> 
+<h3> Label: Common Opaque Iron Oxide</h3>
+<table class = "vocab"> <tr> <td> IRI: </td> <td> https://kudenfabrics.anu.edu.au/vocab#commonOpaque</td>  </tr> 
+<tr><td>Description:</td> <td> The proportion of opaque iron oxide inclusions in the ceramic fabric is 15-30%. </td>  </tr>
+<tr><td>Subclass of: </td> <td> <a href="https://kudenfabrics.anu.edu.au/vocab#common"> Common</a> & <a href="https://kudenfabrics.anu.edu.au/vocab#opaProportion">Opaque Iron Oxide Proportion</a></td>  </tr> 
+</table>
+</div> 
+
+<div id="fewOpaque"> 
+<h3> Label: Few Opaque Iron Oxide</h3>
+<table class = "vocab"> <tr> <td> IRI: </td> <td> https://kudenfabrics.anu.edu.au/vocab#fewOpaque</td>  </tr> 
+<tr><td>Description:</td> <td> The proportion of opaque iron oxide inclusions in the ceramic fabric is 5-15%. </td>  </tr>
+<tr><td>Subclass of: </td> <td> <a href="https://kudenfabrics.anu.edu.au/vocab#few"> Few</a> & <a href="https://kudenfabrics.anu.edu.au/vocab#opaProportion">Opaque Iron Oxide Proportion</a></td>  </tr> 
+</table>
+</div> 
+
+<div id="minorOpaque"> 
+<h3> Label: Minor Opaque Iron Oxide</h3>
+<table class = "vocab"> <tr> <td> IRI: </td> <td> https://kudenfabrics.anu.edu.au/vocab#minorOpaque</td>  </tr> 
+<tr><td>Description:</td> <td> The proportion of opaque iron oxide inclusions in the ceramic fabric is 0-5%. </td>  </tr>
+<tr><td>Subclass of: </td> <td> <a href="https://kudenfabrics.anu.edu.au/vocab#minor"> Minor</a> & <a href="https://kudenfabrics.anu.edu.au/vocab#opaProportion">Opaque Iron Oxide Proportion</a></td>  </tr> 
+</table>
+</div> 
+
+<div id="noOpaque"> 
+<h3> Label: No Opaque Iron Oxide</h3>
+<table class = "vocab"> <tr> <td> IRI: </td> <td> https://kudenfabrics.anu.edu.au/vocab#noOpaque</td>  </tr> 
+<tr><td>Description:</td> <td> The proportion of opaque iron oxide inclusions in the ceramic fabric is 0%. </td>  </tr>
+<tr><td>Subclass of: </td> <td> <a href="https://kudenfabrics.anu.edu.au/vocab#none"> None</a> & <a href="https://kudenfabrics.anu.edu.au/vocab#opaProportion">Opaque Iron Oxide Proportion</a></td>  </tr> 
+</table>
+</div> 
+
+
+<div id="veryDominantAmphibole"> 
+<h3> Label: Very Dominant Amphibole</h3>
+<table class = "vocab"> <tr> <td> IRI: </td> <td> https://kudenfabrics.anu.edu.au/vocab#veryDominantAmphibole</td>  </tr> 
+<tr><td>Description:</td> <td> The proportion of amphibole inclusions in the ceramic fabric is 70-100%. </td>  </tr>
+<tr><td>Subclass of: </td> <td> <a href="https://kudenfabrics.anu.edu.au/vocab#veryDominant"> Very Dominant</a> & <a href="https://kudenfabrics.anu.edu.au/vocab#amphiboleProportion">Amphibole Proportion</a></td>  </tr> 
+</table>
+</div> 
+
+<div id="majorAmphibole"> 
+<h3> Label: Major Amphibole</h3>
+<table class = "vocab"> <tr> <td> IRI: </td> <td> https://kudenfabrics.anu.edu.au/vocab#majorAmphibole</td>  </tr> 
+<tr><td>Description:</td> <td> The proportion of amphibole inclusions in the ceramic fabric is 50-70%. </td>  </tr>
+<tr><td>Subclass of: </td> <td> <a href="https://kudenfabrics.anu.edu.au/vocab#major"> Major</a> & <a href="https://kudenfabrics.anu.edu.au/vocab#amphiboleProportion">Amphibole Proportion</a></td>  </tr> 
+</table>
+</div> 
+
+<div id="frequentAmphibole"> 
+<h3> Label: Frequent Amphibole</h3>
+<table class = "vocab"> <tr> <td> IRI: </td> <td> https://kudenfabrics.anu.edu.au/vocab#frequentAmphibole</td>  </tr> 
+<tr><td>Description:</td> <td> The proportion of amphibole inclusions in the ceramic fabric is 30-50%. </td>  </tr>
+<tr><td>Subclass of: </td> <td> <a href="https://kudenfabrics.anu.edu.au/vocab#frequent"> Frequent</a> & <a href="https://kudenfabrics.anu.edu.au/vocab#amphiboleProportion">Amphibole Proportion</a></td>  </tr> 
+</table>
+</div> 
+
+<div id="commonAmphibole"> 
+<h3> Label: Common Amphibole</h3>
+<table class = "vocab"> <tr> <td> IRI: </td> <td> https://kudenfabrics.anu.edu.au/vocab#commonAmphibole</td>  </tr> 
+<tr><td>Description:</td> <td> The proportion of amphibole inclusions in the ceramic fabric is 15-30%. </td>  </tr>
+<tr><td>Subclass of: </td> <td> <a href="https://kudenfabrics.anu.edu.au/vocab#common"> Common</a> & <a href="https://kudenfabrics.anu.edu.au/vocab#amphiboleProportion">Amphibole Proportion</a></td>  </tr> 
+</table>
+</div> 
+
+<div id="fewAmphibole"> 
+<h3> Label: Few Amphibole</h3>
+<table class = "vocab"> <tr> <td> IRI: </td> <td> https://kudenfabrics.anu.edu.au/vocab#fewAmphibole</td>  </tr> 
+<tr><td>Description:</td> <td> The proportion of amphibole inclusions in the ceramic fabric is 5-15%. </td>  </tr>
+<tr><td>Subclass of: </td> <td> <a href="https://kudenfabrics.anu.edu.au/vocab#few"> Few</a> & <a href="https://kudenfabrics.anu.edu.au/vocab#amphiboleProportion">Amphibole Proportion</a></td>  </tr> 
+</table>
+</div> 
+
+<div id="minorAmphibole"> 
+<h3> Label: Minor Amphibole</h3>
+<table class = "vocab"> <tr> <td> IRI: </td> <td> https://kudenfabrics.anu.edu.au/vocab#minorAmphibole</td>  </tr> 
+<tr><td>Description:</td> <td> The proportion of amphibole inclusions in the ceramic fabric is 0-5%. </td>  </tr>
+<tr><td>Subclass of: </td> <td> <a href="https://kudenfabrics.anu.edu.au/vocab#minor"> Minor</a> & <a href="https://kudenfabrics.anu.edu.au/vocab#amphiboleProportion">Amphibole Proportion</a></td>  </tr> 
+</table>
+</div> 
+
+<div id="noAmphibole"> 
+<h3> Label: No Amphibole</h3>
+<table class = "vocab"> <tr> <td> IRI: </td> <td> https://kudenfabrics.anu.edu.au/vocab#noAmphibole</td>  </tr> 
+<tr><td>Description:</td> <td> The proportion of amphibole inclusions in the ceramic fabric is 0%. </td>  </tr>
+<tr><td>Subclass of: </td> <td> <a href="https://kudenfabrics.anu.edu.au/vocab#none"> None</a> & <a href="https://kudenfabrics.anu.edu.au/vocab#amphiboleProportion">Amphibole Proportion</a></td>  </tr> 
+</table>
+</div> 
+
+
+<div id="veryDominantBiotite"> 
+<h3> Label: Very Dominant Biotite</h3>
+<table class = "vocab"> <tr> <td> IRI: </td> <td> https://kudenfabrics.anu.edu.au/vocab#veryDominantBiotite</td>  </tr> 
+<tr><td>Description:</td> <td> The proportion of biotite inclusions in the ceramic fabric is 70-100%. </td>  </tr>
+<tr><td>Subclass of: </td> <td> <a href="https://kudenfabrics.anu.edu.au/vocab#veryDominant"> Very Dominant</a> & <a href="https://kudenfabrics.anu.edu.au/vocab#biotiteProportion">Biotite Proportion</a></td>  </tr> 
+</table>
+</div> 
+
+<div id="majorBiotite"> 
+<h3> Label: Major Biotite</h3>
+<table class = "vocab"> <tr> <td> IRI: </td> <td> https://kudenfabrics.anu.edu.au/vocab#majorBiotite</td>  </tr> 
+<tr><td>Description:</td> <td> The proportion of biotite inclusions in the ceramic fabric is 50-70%. </td>  </tr>
+<tr><td>Subclass of: </td> <td> <a href="https://kudenfabrics.anu.edu.au/vocab#major"> Major</a> & <a href="https://kudenfabrics.anu.edu.au/vocab#biotiteProportion">Biotite Proportion</a></td>  </tr> 
+</table>
+</div> 
+
+<div id="frequentBiotite"> 
+<h3> Label: Frequent Biotite</h3>
+<table class = "vocab"> <tr> <td> IRI: </td> <td> https://kudenfabrics.anu.edu.au/vocab#frequentBiotite</td>  </tr> 
+<tr><td>Description:</td> <td> The proportion of biotite inclusions in the ceramic fabric is 30-50%. </td>  </tr>
+<tr><td>Subclass of: </td> <td> <a href="https://kudenfabrics.anu.edu.au/vocab#frequent"> Frequent</a> & <a href="https://kudenfabrics.anu.edu.au/vocab#biotiteProportion">Biotite Proportion</a></td>  </tr> 
+</table>
+</div> 
+
+<div id="commonBiotite"> 
+<h3> Label: Common Biotite</h3>
+<table class = "vocab"> <tr> <td> IRI: </td> <td> https://kudenfabrics.anu.edu.au/vocab#commonBiotite</td>  </tr> 
+<tr><td>Description:</td> <td> The proportion of biotite inclusions in the ceramic fabric is 15-30%. </td>  </tr>
+<tr><td>Subclass of: </td> <td> <a href="https://kudenfabrics.anu.edu.au/vocab#common"> Common</a> & <a href="https://kudenfabrics.anu.edu.au/vocab#biotiteProportion">Biotite Proportion</a></td>  </tr> 
+</table>
+</div> 
+
+<div id="fewBiotite"> 
+<h3> Label: Few Biotite</h3>
+<table class = "vocab"> <tr> <td> IRI: </td> <td> https://kudenfabrics.anu.edu.au/vocab#fewBiotite</td>  </tr> 
+<tr><td>Description:</td> <td> The proportion of biotite inclusions in the ceramic fabric is 5-15%. </td>  </tr>
+<tr><td>Subclass of: </td> <td> <a href="https://kudenfabrics.anu.edu.au/vocab#few"> Few</a> & <a href="https://kudenfabrics.anu.edu.au/vocab#biotiteProportion">Biotite Proportion</a></td>  </tr> 
+</table>
+</div> 
+
+<div id="minorBiotite"> 
+<h3> Label: Minor Biotite</h3>
+<table class = "vocab"> <tr> <td> IRI: </td> <td> https://kudenfabrics.anu.edu.au/vocab#minorBiotite</td>  </tr> 
+<tr><td>Description:</td> <td> The proportion of biotite inclusions in the ceramic fabric is 0-5%. </td>  </tr>
+<tr><td>Subclass of: </td> <td> <a href="https://kudenfabrics.anu.edu.au/vocab#minor"> Minor</a> & <a href="https://kudenfabrics.anu.edu.au/vocab#biotiteProportion">Biotite Proportion</a></td>  </tr> 
+</table>
+</div> 
+
+<div id="noBiotite"> 
+<h3> Label: No Biotite</h3>
+<table class = "vocab"> <tr> <td> IRI: </td> <td> https://kudenfabrics.anu.edu.au/vocab#noBiotite</td>  </tr> 
+<tr><td>Description:</td> <td> The proportion of biotite inclusions in the ceramic fabric is 0%. </td>  </tr>
+<tr><td>Subclass of: </td> <td> <a href="https://kudenfabrics.anu.edu.au/vocab#none"> None</a> & <a href="https://kudenfabrics.anu.edu.au/vocab#biotiteProportion">Biotite Proportion</a></td>  </tr> 
+</table>
+</div> 
+
+
+<div id="veryDominantMuscovite"> 
+<h3> Label: Very Dominant Muscovite</h3>
+<table class = "vocab"> <tr> <td> IRI: </td> <td> https://kudenfabrics.anu.edu.au/vocab#veryDominantMuscovite</td>  </tr> 
+<tr><td>Description:</td> <td> The proportion of muscovite inclusions in the ceramic fabric is 70-100%. </td>  </tr>
+<tr><td>Subclass of: </td> <td> <a href="https://kudenfabrics.anu.edu.au/vocab#veryDominant"> Very Dominant</a> & <a href="https://kudenfabrics.anu.edu.au/vocab#muscoviteProportion">Muscovite Proportion</a></td>  </tr> 
+</table>
+</div> 
+
+<div id="majorMuscovite"> 
+<h3> Label: Major Muscovite</h3>
+<table class = "vocab"> <tr> <td> IRI: </td> <td> https://kudenfabrics.anu.edu.au/vocab#majorMuscovite</td>  </tr> 
+<tr><td>Description:</td> <td> The proportion of muscovite inclusions in the ceramic fabric is 50-70%. </td>  </tr>
+<tr><td>Subclass of: </td> <td> <a href="https://kudenfabrics.anu.edu.au/vocab#major"> Major</a> & <a href="https://kudenfabrics.anu.edu.au/vocab#muscoviteProportion">Muscovite Proportion</a></td>  </tr> 
+</table>
+</div> 
+
+<div id="frequentMuscovite"> 
+<h3> Label: Frequent Muscovite</h3>
+<table class = "vocab"> <tr> <td> IRI: </td> <td> https://kudenfabrics.anu.edu.au/vocab#frequentMuscovite</td>  </tr> 
+<tr><td>Description:</td> <td> The proportion of muscovite inclusions in the ceramic fabric is 30-50%. </td>  </tr>
+<tr><td>Subclass of: </td> <td> <a href="https://kudenfabrics.anu.edu.au/vocab#frequent"> Frequent</a> & <a href="https://kudenfabrics.anu.edu.au/vocab#muscoviteProportion">Muscovite Proportion</a></td>  </tr> 
+</table>
+</div> 
+
+<div id="commonMuscovite"> 
+<h3> Label: Common Muscovite</h3>
+<table class = "vocab"> <tr> <td> IRI: </td> <td> https://kudenfabrics.anu.edu.au/vocab#commonMuscovite</td>  </tr> 
+<tr><td>Description:</td> <td> The proportion of muscovite inclusions in the ceramic fabric is 15-30%. </td>  </tr>
+<tr><td>Subclass of: </td> <td> <a href="https://kudenfabrics.anu.edu.au/vocab#common"> Common</a> & <a href="https://kudenfabrics.anu.edu.au/vocab#muscoviteProportion">Muscovite Proportion</a></td>  </tr> 
+</table>
+</div> 
+
+<div id="fewMuscovite"> 
+<h3> Label: Few Muscovite</h3>
+<table class = "vocab"> <tr> <td> IRI: </td> <td> https://kudenfabrics.anu.edu.au/vocab#fewMuscovite</td>  </tr> 
+<tr><td>Description:</td> <td> The proportion of muscovite inclusions in the ceramic fabric is 5-15%. </td>  </tr>
+<tr><td>Subclass of: </td> <td> <a href="https://kudenfabrics.anu.edu.au/vocab#few"> Few</a> & <a href="https://kudenfabrics.anu.edu.au/vocab#muscoviteProportion">Muscovite Proportion</a></td>  </tr> 
+</table>
+</div> 
+
+<div id="minorMuscovite"> 
+<h3> Label: Minor Muscovite</h3>
+<table class = "vocab"> <tr> <td> IRI: </td> <td> https://kudenfabrics.anu.edu.au/vocab#minorMuscovite</td>  </tr> 
+<tr><td>Description:</td> <td> The proportion of muscovite inclusions in the ceramic fabric is 0-5%. </td>  </tr>
+<tr><td>Subclass of: </td> <td> <a href="https://kudenfabrics.anu.edu.au/vocab#minor"> Minor</a> & <a href="https://kudenfabrics.anu.edu.au/vocab#muscoviteProportion">Muscovite Proportion</a></td>  </tr> 
+</table>
+</div> 
+
+<div id="noMuscovite"> 
+<h3> Label: No Muscovite</h3>
+<table class = "vocab"> <tr> <td> IRI: </td> <td> https://kudenfabrics.anu.edu.au/vocab#noMuscovite</td>  </tr> 
+<tr><td>Description:</td> <td> The proportion of muscovite inclusions in the ceramic fabric is 0%. </td>  </tr>
+<tr><td>Subclass of: </td> <td> <a href="https://kudenfabrics.anu.edu.au/vocab#none"> None</a> & <a href="https://kudenfabrics.anu.edu.au/vocab#muscoviteProportion">Muscovite Proportion</a></td>  </tr> 
+</table>
+</div> 
+
+
+<div id="veryDominantOlivine"> 
+<h3> Label: Very Dominant Olivine</h3>
+<table class = "vocab"> <tr> <td> IRI: </td> <td> https://kudenfabrics.anu.edu.au/vocab#veryDominantOlivine</td>  </tr> 
+<tr><td>Description:</td> <td> The proportion of olivine inclusions in the ceramic fabric is 70-100%. </td>  </tr>
+<tr><td>Subclass of: </td> <td> <a href="https://kudenfabrics.anu.edu.au/vocab#veryDominant"> Very Dominant</a> & <a href="https://kudenfabrics.anu.edu.au/vocab#olivineProportion">Olivine Proportion</a></td>  </tr> 
+</table>
+</div> 
+
+<div id="majorOlivine"> 
+<h3> Label: Major Olivine</h3>
+<table class = "vocab"> <tr> <td> IRI: </td> <td> https://kudenfabrics.anu.edu.au/vocab#majorOlivine</td>  </tr> 
+<tr><td>Description:</td> <td> The proportion of olivine inclusions in the ceramic fabric is 50-70%. </td>  </tr>
+<tr><td>Subclass of: </td> <td> <a href="https://kudenfabrics.anu.edu.au/vocab#major"> Major</a> & <a href="https://kudenfabrics.anu.edu.au/vocab#olivineProportion">Olivine Proportion</a></td>  </tr> 
+</table>
+</div> 
+
+<div id="frequentOlivine"> 
+<h3> Label: Frequent Olivine</h3>
+<table class = "vocab"> <tr> <td> IRI: </td> <td> https://kudenfabrics.anu.edu.au/vocab#frequentOlivine</td>  </tr> 
+<tr><td>Description:</td> <td> The proportion of olivine inclusions in the ceramic fabric is 30-50%. </td>  </tr>
+<tr><td>Subclass of: </td> <td> <a href="https://kudenfabrics.anu.edu.au/vocab#frequent"> Frequent</a> & <a href="https://kudenfabrics.anu.edu.au/vocab#olivineProportion">Olivine Proportion</a></td>  </tr> 
+</table>
+</div> 
+
+<div id="commonOlivine"> 
+<h3> Label: Common Olivine</h3>
+<table class = "vocab"> <tr> <td> IRI: </td> <td> https://kudenfabrics.anu.edu.au/vocab#commonOlivine</td>  </tr> 
+<tr><td>Description:</td> <td> The proportion of olivine inclusions in the ceramic fabric is 15-30%. </td>  </tr>
+<tr><td>Subclass of: </td> <td> <a href="https://kudenfabrics.anu.edu.au/vocab#common"> Common</a> & <a href="https://kudenfabrics.anu.edu.au/vocab#olivineProportion">Olivine Proportion</a></td>  </tr> 
+</table>
+</div> 
+
+<div id="fewOlivine"> 
+<h3> Label: Few Olivine</h3>
+<table class = "vocab"> <tr> <td> IRI: </td> <td> https://kudenfabrics.anu.edu.au/vocab#fewOlivine</td>  </tr> 
+<tr><td>Description:</td> <td> The proportion of olivine inclusions in the ceramic fabric is 5-15%. </td>  </tr>
+<tr><td>Subclass of: </td> <td> <a href="https://kudenfabrics.anu.edu.au/vocab#few"> Few</a> & <a href="https://kudenfabrics.anu.edu.au/vocab#olivineProportion">Olivine Proportion</a></td>  </tr> 
+</table>
+</div> 
+
+<div id="minorOlivine"> 
+<h3> Label: Minor Olivine</h3>
+<table class = "vocab"> <tr> <td> IRI: </td> <td> https://kudenfabrics.anu.edu.au/vocab#minorOlivine</td>  </tr> 
+<tr><td>Description:</td> <td> The proportion of olivine inclusions in the ceramic fabric is 0-5%. </td>  </tr>
+<tr><td>Subclass of: </td> <td> <a href="https://kudenfabrics.anu.edu.au/vocab#minor"> Minor</a> & <a href="https://kudenfabrics.anu.edu.au/vocab#olivineProportion">Olivine Proportion</a></td>  </tr> 
+</table>
+</div> 
+
+<div id="noOlivine"> 
+<h3> Label: No Olivine</h3>
+<table class = "vocab"> <tr> <td> IRI: </td> <td> https://kudenfabrics.anu.edu.au/vocab#noOlivine</td>  </tr> 
+<tr><td>Description:</td> <td> The proportion of olivine inclusions in the ceramic fabric is 0%. </td>  </tr>
+<tr><td>Subclass of: </td> <td> <a href="https://kudenfabrics.anu.edu.au/vocab#none"> None</a> & <a href="https://kudenfabrics.anu.edu.au/vocab#olivineProportion">Olivine Proportion</a></td>  </tr> 
+</table>
+</div> 
+
+
+<div id="veryDominantEpidote"> 
+<h3> Label: Very Dominant Epidote</h3>
+<table class = "vocab"> <tr> <td> IRI: </td> <td> https://kudenfabrics.anu.edu.au/vocab#veryDominantEpidote</td>  </tr> 
+<tr><td>Description:</td> <td> The proportion of epidote inclusions in the ceramic fabric is 70-100%. </td>  </tr>
+<tr><td>Subclass of: </td> <td> <a href="https://kudenfabrics.anu.edu.au/vocab#veryDominant"> Very Dominant</a> & <a href="https://kudenfabrics.anu.edu.au/vocab#epidoteProportion">Epidote Proportion</a></td>  </tr> 
+</table>
+</div> 
+
+<div id="majorEpidote"> 
+<h3> Label: Major Epidote</h3>
+<table class = "vocab"> <tr> <td> IRI: </td> <td> https://kudenfabrics.anu.edu.au/vocab#majorEpidote</td>  </tr> 
+<tr><td>Description:</td> <td> The proportion of epidote inclusions in the ceramic fabric is 50-70%. </td>  </tr>
+<tr><td>Subclass of: </td> <td> <a href="https://kudenfabrics.anu.edu.au/vocab#major"> Major</a> & <a href="https://kudenfabrics.anu.edu.au/vocab#epidoteProportion">Epidote Proportion</a></td>  </tr> 
+</table>
+</div> 
+
+<div id="frequentEpidote"> 
+<h3> Label: Frequent Epidote</h3>
+<table class = "vocab"> <tr> <td> IRI: </td> <td> https://kudenfabrics.anu.edu.au/vocab#frequentEpidote</td>  </tr> 
+<tr><td>Description:</td> <td> The proportion of epidote inclusions in the ceramic fabric is 30-50%. </td>  </tr>
+<tr><td>Subclass of: </td> <td> <a href="https://kudenfabrics.anu.edu.au/vocab#frequent"> Frequent</a> & <a href="https://kudenfabrics.anu.edu.au/vocab#epidoteProportion">Epidote Proportion</a></td>  </tr> 
+</table>
+</div> 
+
+<div id="commonEpidote"> 
+<h3> Label: Common Epidote</h3>
+<table class = "vocab"> <tr> <td> IRI: </td> <td> https://kudenfabrics.anu.edu.au/vocab#commonEpidote</td>  </tr> 
+<tr><td>Description:</td> <td> The proportion of epidote inclusions in the ceramic fabric is 15-30%. </td>  </tr>
+<tr><td>Subclass of: </td> <td> <a href="https://kudenfabrics.anu.edu.au/vocab#common"> Common</a> & <a href="https://kudenfabrics.anu.edu.au/vocab#epidoteProportion">Epidote Proportion</a></td>  </tr> 
+</table>
+</div> 
+
+<div id="fewEpidote"> 
+<h3> Label: Few Epidote</h3>
+<table class = "vocab"> <tr> <td> IRI: </td> <td> https://kudenfabrics.anu.edu.au/vocab#fewEpidote</td>  </tr> 
+<tr><td>Description:</td> <td> The proportion of epidote inclusions in the ceramic fabric is 5-15%. </td>  </tr>
+<tr><td>Subclass of: </td> <td> <a href="https://kudenfabrics.anu.edu.au/vocab#few"> Few</a> & <a href="https://kudenfabrics.anu.edu.au/vocab#epidoteProportion">Epidote Proportion</a></td>  </tr> 
+</table>
+</div> 
+
+<div id="minorEpidote"> 
+<h3> Label: Minor Epidote</h3>
+<table class = "vocab"> <tr> <td> IRI: </td> <td> https://kudenfabrics.anu.edu.au/vocab#minorEpidote</td>  </tr> 
+<tr><td>Description:</td> <td> The proportion of epidote inclusions in the ceramic fabric is 0-5%. </td>  </tr>
+<tr><td>Subclass of: </td> <td> <a href="https://kudenfabrics.anu.edu.au/vocab#minor"> Minor</a> & <a href="https://kudenfabrics.anu.edu.au/vocab#epidoteProportion">Epidote Proportion</a></td>  </tr> 
+</table>
+</div> 
+
+<div id="noEpidote"> 
+<h3> Label: No Epidote</h3>
+<table class = "vocab"> <tr> <td> IRI: </td> <td> https://kudenfabrics.anu.edu.au/vocab#noEpidote</td>  </tr> 
+<tr><td>Description:</td> <td> The proportion of epidote inclusions in the ceramic fabric is 0%. </td>  </tr>
+<tr><td>Subclass of: </td> <td> <a href="https://kudenfabrics.anu.edu.au/vocab#none"> None</a> & <a href="https://kudenfabrics.anu.edu.au/vocab#epidoteProportion">Epidote Proportion</a></td>  </tr> 
+</table>
+</div> 
+
+
+<div id="veryDominantGarnetSpinel"> 
+<h3> Label: Very Dominant Garnet and Spinel</h3>
+<table class = "vocab"> <tr> <td> IRI: </td> <td> https://kudenfabrics.anu.edu.au/vocab#veryDominantGarnetSpinel</td>  </tr> 
+<tr><td>Description:</td> <td> The proportion of garnet and spinel inclusions in the ceramic fabric is 70-100%. </td>  </tr>
+<tr><td>Subclass of: </td> <td> <a href="https://kudenfabrics.anu.edu.au/vocab#veryDominant"> Very Dominant</a> & <a href="https://kudenfabrics.anu.edu.au/vocab#garnetSpinelProportion">Garnet and Spinel Proportion</a></td>  </tr> 
+</table>
+</div> 
+
+<div id="majorGarnetSpinel"> 
+<h3> Label: Major Garnet and Spinel</h3>
+<table class = "vocab"> <tr> <td> IRI: </td> <td> https://kudenfabrics.anu.edu.au/vocab#majorGarnetSpinel</td>  </tr> 
+<tr><td>Description:</td> <td> The proportion of garnet and spinel inclusions in the ceramic fabric is 50-70%. </td>  </tr>
+<tr><td>Subclass of: </td> <td> <a href="https://kudenfabrics.anu.edu.au/vocab#major"> Major</a> & <a href="https://kudenfabrics.anu.edu.au/vocab#garnetSpinelProportion">Garnet and Spinel Proportion</a></td>  </tr> 
+</table>
+</div> 
+
+<div id="frequentGarnetSpinel"> 
+<h3> Label: Frequent Garnet and Spinel</h3>
+<table class = "vocab"> <tr> <td> IRI: </td> <td> https://kudenfabrics.anu.edu.au/vocab#frequentGarnetSpinel</td>  </tr> 
+<tr><td>Description:</td> <td> The proportion of garnet and spinel inclusions in the ceramic fabric is 30-50%. </td>  </tr>
+<tr><td>Subclass of: </td> <td> <a href="https://kudenfabrics.anu.edu.au/vocab#frequent"> Frequent</a> & <a href="https://kudenfabrics.anu.edu.au/vocab#garnetSpinelProportion">Garnet and Spinel Proportion</a></td>  </tr> 
+</table>
+</div> 
+
+<div id="commonGarnetSpinel"> 
+<h3> Label: Common Garnet and Spinel</h3>
+<table class = "vocab"> <tr> <td> IRI: </td> <td> https://kudenfabrics.anu.edu.au/vocab#commonGarnetSpinel</td>  </tr> 
+<tr><td>Description:</td> <td> The proportion of garnet and spinel inclusions in the ceramic fabric is 15-30%. </td>  </tr>
+<tr><td>Subclass of: </td> <td> <a href="https://kudenfabrics.anu.edu.au/vocab#common"> Common</a> & <a href="https://kudenfabrics.anu.edu.au/vocab#garnetSpinelProportion">Garnet and Spinel Proportion</a></td>  </tr> 
+</table>
+</div> 
+
+<div id="fewGarnetSpinel"> 
+<h3> Label: Few Garnet and Spinel</h3>
+<table class = "vocab"> <tr> <td> IRI: </td> <td> https://kudenfabrics.anu.edu.au/vocab#fewGarnetSpinel</td>  </tr> 
+<tr><td>Description:</td> <td> The proportion of garnet and spinel inclusions in the ceramic fabric is 5-15%. </td>  </tr>
+<tr><td>Subclass of: </td> <td> <a href="https://kudenfabrics.anu.edu.au/vocab#few"> Few</a> & <a href="https://kudenfabrics.anu.edu.au/vocab#garnetSpinelProportion">Garnet and Spinel Proportion</a></td>  </tr> 
+</table>
+</div> 
+
+<div id="minorGarnetSpinel"> 
+<h3> Label: Minor Garnet and Spinel</h3>
+<table class = "vocab"> <tr> <td> IRI: </td> <td> https://kudenfabrics.anu.edu.au/vocab#minorGarnetSpinel</td>  </tr> 
+<tr><td>Description:</td> <td> The proportion of garnet and spinel inclusions in the ceramic fabric is 0-5%. </td>  </tr>
+<tr><td>Subclass of: </td> <td> <a href="https://kudenfabrics.anu.edu.au/vocab#minor"> Minor</a> & <a href="https://kudenfabrics.anu.edu.au/vocab#garnetSpinelProportion">Garnet and Spinel Proportion</a></td>  </tr> 
+</table>
+</div> 
+
+<div id="noGarnetSpinel"> 
+<h3> Label: No Garnet and Spinel</h3>
+<table class = "vocab"> <tr> <td> IRI: </td> <td> https://kudenfabrics.anu.edu.au/vocab#noGarnetSpinel</td>  </tr> 
+<tr><td>Description:</td> <td> The proportion of garnet and spinel inclusions in the ceramic fabric is 0%. </td>  </tr>
+<tr><td>Subclass of: </td> <td> <a href="https://kudenfabrics.anu.edu.au/vocab#none"> None</a> & <a href="https://kudenfabrics.anu.edu.au/vocab#garnetSpinelProportion">Garnet and Spinel Proportion</a></td>  </tr> 
+</table>
+</div> 
+
+
+<div id="veryDominantVRF"> 
+<h3> Label: Very Dominant Igneous and Metamorphic Lithics</h3>
+<table class = "vocab"> <tr> <td> IRI: </td> <td> https://kudenfabrics.anu.edu.au/vocab#veryDominantVRF</td>  </tr> 
+<tr><td>Description:</td> <td> The proportion of igneous and metamorphic inclusions in the ceramic fabric is 70-100%. </td>  </tr>
+<tr><td>Subclass of: </td> <td> <a href="https://kudenfabrics.anu.edu.au/vocab#veryDominant"> Very Dominant</a> & <a href="https://kudenfabrics.anu.edu.au/vocab#vrfProportion">Igneous and Metamorphic Lithic Proportion</a></td>  </tr> 
+</table>
+</div> 
+
+<div id="majorVRF"> 
+<h3> Label: Major Igneous and Metamorphic Lithics</h3>
+<table class = "vocab"> <tr> <td> IRI: </td> <td> https://kudenfabrics.anu.edu.au/vocab#majorVRF</td>  </tr> 
+<tr><td>Description:</td> <td> The proportion of igneous and metamorphic lithic inclusions in the ceramic fabric is 50-70%. </td>  </tr>
+<tr><td>Subclass of: </td> <td> <a href="https://kudenfabrics.anu.edu.au/vocab#major"> Major</a> & <a href="https://kudenfabrics.anu.edu.au/vocab#vrfProportion">Igneous and Metamorphic Lithic Proportion</a></td>  </tr> 
+</table>
+</div> 
+
+<div id="frequentVRF"> 
+<h3> Label: Frequent Igneous and Metamorphic Lithics</h3>
+<table class = "vocab"> <tr> <td> IRI: </td> <td> https://kudenfabrics.anu.edu.au/vocab#frequentVRF</td>  </tr> 
+<tr><td>Description:</td> <td> The proportion of igneous and metamorphic lithic inclusions in the ceramic fabric is 30-50%. </td>  </tr>
+<tr><td>Subclass of: </td> <td> <a href="https://kudenfabrics.anu.edu.au/vocab#frequent"> Frequent</a> & <a href="https://kudenfabrics.anu.edu.au/vocab#vrfProportion">Igneous and Metamorphic Lithic Proportion</a></td>  </tr> 
+</table>
+</div> 
+
+<div id="commonVRF"> 
+<h3> Label: Common Igneous and Metamorphic Lithics</h3>
+<table class = "vocab"> <tr> <td> IRI: </td> <td> https://kudenfabrics.anu.edu.au/vocab#commonVRF</td>  </tr> 
+<tr><td>Description:</td> <td> The proportion of igneous and metamorphic lithic inclusions in the ceramic fabric is 15-30%. </td>  </tr>
+<tr><td>Subclass of: </td> <td> <a href="https://kudenfabrics.anu.edu.au/vocab#common"> Common</a> & <a href="https://kudenfabrics.anu.edu.au/vocab#vrfProportion">Igneous and Metamorphic Lithic Proportion</a></td>  </tr> 
+</table>
+</div> 
+
+<div id="fewVRF"> 
+<h3> Label: Few Igneous and Metamorphic Lithics</h3>
+<table class = "vocab"> <tr> <td> IRI: </td> <td> https://kudenfabrics.anu.edu.au/vocab#fewVRF</td>  </tr> 
+<tr><td>Description:</td> <td> The proportion of igneous and metamorphic lithic inclusions in the ceramic fabric is 5-15%. </td>  </tr>
+<tr><td>Subclass of: </td> <td> <a href="https://kudenfabrics.anu.edu.au/vocab#few"> Few</a> & <a href="https://kudenfabrics.anu.edu.au/vocab#vrfProportion">Igneous and Metamorphic Lithic Proportion</a></td>  </tr> 
+</table>
+</div> 
+
+<div id="minorVRF"> 
+<h3> Label: Minor Igneous and Metamorphic Lithics</h3>
+<table class = "vocab"> <tr> <td> IRI: </td> <td> https://kudenfabrics.anu.edu.au/vocab#minorVRF</td>  </tr> 
+<tr><td>Description:</td> <td> The proportion of igneous and metamorphic lithic inclusions in the ceramic fabric is 0-5%. </td>  </tr>
+<tr><td>Subclass of: </td> <td> <a href="https://kudenfabrics.anu.edu.au/vocab#minor"> Minor</a> & <a href="https://kudenfabrics.anu.edu.au/vocab#vrfProportion">Igneous and Metamorphic Lithic Proportion</a></td>  </tr> 
+</table>
+</div> 
+
+<div id="noVRF"> 
+<h3> Label: No Igneous and Metamorphic Lithics</h3>
+<table class = "vocab"> <tr> <td> IRI: </td> <td> https://kudenfabrics.anu.edu.au/vocab#noVRF</td>  </tr> 
+<tr><td>Description:</td> <td> The proportion of igneous and metamorphic lithic inclusions in the ceramic fabric is 0%. </td>  </tr>
+<tr><td>Subclass of: </td> <td> <a href="https://kudenfabrics.anu.edu.au/vocab#none"> None</a> & <a href="https://kudenfabrics.anu.edu.au/vocab#vrfProportion">Igneous and Metamorphic Lithic Proportion</a></td>  </tr> 
+</table>
+</div> 
+
+
+<div id="veryDominantSed"> 
+<h3> Label: Very Dominant Sedimentary and Meta-sedimentary Lithics</h3>
+<table class = "vocab"> <tr> <td> IRI: </td> <td> https://kudenfabrics.anu.edu.au/vocab#veryDominantSed</td>  </tr> 
+<tr><td>Description:</td> <td> The proportion of igneous and metamorphic inclusions in the ceramic fabric is 70-100%. </td>  </tr>
+<tr><td>Subclass of: </td> <td> <a href="https://kudenfabrics.anu.edu.au/vocab#veryDominant"> Very Dominant</a> & <a href="https://kudenfabrics.anu.edu.au/vocab#sedProportion">Sedimentary and Meta-sedimentary Lithic Proportion</a></td>  </tr> 
+</table>
+</div> 
+
+<div id="majorSed"> 
+<h3> Label: Major Sedimentary and Meta-sedimentary Lithics</h3>
+<table class = "vocab"> <tr> <td> IRI: </td> <td> https://kudenfabrics.anu.edu.au/vocab#majorSed</td>  </tr> 
+<tr><td>Description:</td> <td> The proportion of igneous and metamorphic inclusions in the ceramic fabric is 50-70%. </td>  </tr>
+<tr><td>Subclass of: </td> <td> <a href="https://kudenfabrics.anu.edu.au/vocab#major"> Major</a> & <a href="https://kudenfabrics.anu.edu.au/vocab#sedProportion">Sedimentary and Meta-sedimentary Lithic Proportion</a></td>  </tr> 
+</table>
+</div> 
+
+<div id="frequentSed"> 
+<h3> Label: Frequent Sedimentary and Meta-sedimentary Lithics</h3>
+<table class = "vocab"> <tr> <td> IRI: </td> <td> https://kudenfabrics.anu.edu.au/vocab#frequentSed</td>  </tr> 
+<tr><td>Description:</td> <td> The proportion of igneous and metamorphic inclusions in the ceramic fabric is 30-50%. </td>  </tr>
+<tr><td>Subclass of: </td> <td> <a href="https://kudenfabrics.anu.edu.au/vocab#frequent"> Frequent</a> & <a href="https://kudenfabrics.anu.edu.au/vocab#sedProportion">Sedimentary and Meta-sedimentary Lithic Proportion</a></td>  </tr> 
+</table>
+</div> 
+
+<div id="commonSed"> 
+<h3> Label: Common Sedimentary and Meta-sedimentary Lithics</h3>
+<table class = "vocab"> <tr> <td> IRI: </td> <td> https://kudenfabrics.anu.edu.au/vocab#commonSed</td>  </tr> 
+<tr><td>Description:</td> <td> The proportion of igneous and metamorphic inclusions in the ceramic fabric is 15-30%. </td>  </tr>
+<tr><td>Subclass of: </td> <td> <a href="https://kudenfabrics.anu.edu.au/vocab#common"> Common</a> & <a href="https://kudenfabrics.anu.edu.au/vocab#sedProportion">Sedimentary and Meta-sedimentary Lithic Proportion</a></td>  </tr> 
+</table>
+</div> 
+
+<div id="fewSed"> 
+<h3> Label: Few Sedimentary and Meta-sedimentary Lithics</h3>
+<table class = "vocab"> <tr> <td> IRI: </td> <td> https://kudenfabrics.anu.edu.au/vocab#fewSed</td>  </tr> 
+<tr><td>Description:</td> <td> The proportion of igneous and metamorphic inclusions in the ceramic fabric is 5-15%. </td>  </tr>
+<tr><td>Subclass of: </td> <td> <a href="https://kudenfabrics.anu.edu.au/vocab#few"> Few</a> & <a href="https://kudenfabrics.anu.edu.au/vocab#sedProportion">Sedimentary and Meta-sedimentary Lithic Proportion</a></td>  </tr> 
+</table>
+</div> 
+
+<div id="minorSed"> 
+<h3> Label: Minor Sedimentary and Meta-sedimentary Lithics</h3>
+<table class = "vocab"> <tr> <td> IRI: </td> <td> https://kudenfabrics.anu.edu.au/vocab#minorSed</td>  </tr> 
+<tr><td>Description:</td> <td> The proportion of igneous and metamorphic inclusions in the ceramic fabric is 0-5%. </td>  </tr>
+<tr><td>Subclass of: </td> <td> <a href="https://kudenfabrics.anu.edu.au/vocab#minor"> Minor</a> & <a href="https://kudenfabrics.anu.edu.au/vocab#sedProportion">Sedimentary and Meta-sedimentary Lithic Proportion</a></td>  </tr> 
+</table>
+</div> 
+
+<div id="noSed"> 
+<h3> Label: No Sedimentary and Meta-sedimentary Lithics</h3>
+<table class = "vocab"> <tr> <td> IRI: </td> <td> https://kudenfabrics.anu.edu.au/vocab#noSed</td>  </tr> 
+<tr><td>Description:</td> <td> The proportion of sedimentary and meta-sedimentary lithic inclusions in the ceramic fabric is 0%. </td>  </tr>
+<tr><td>Subclass of: </td> <td> <a href="https://kudenfabrics.anu.edu.au/vocab#none"> None</a> & <a href="https://kudenfabrics.anu.edu.au/vocab#sedProportion">Sedimentary and Meta-sedimentary Lithic Proportion</a></td>  </tr> 
+</table>
+</div> 
+
+
+<div id="veryDominantGrog"> 
+<h3> Label: Very Dominant Grog</h3>
+<table class = "vocab"> <tr> <td> IRI: </td> <td> https://kudenfabrics.anu.edu.au/vocab#veryDominantGrog</td>  </tr> 
+<tr><td>Description:</td> <td> The proportion of grog inclusions in the ceramic fabric is 70-100%. </td>  </tr>
+<tr><td>Subclass of: </td> <td> <a href="https://kudenfabrics.anu.edu.au/vocab#veryDominant"> Very Dominant</a> & <a href="https://kudenfabrics.anu.edu.au/vocab#grogProportion">Grog Proportion</a></td>  </tr> 
+</table>
+</div> 
+
+<div id="majorGrog"> 
+<h3> Label: Major Grog</h3>
+<table class = "vocab"> <tr> <td> IRI: </td> <td> https://kudenfabrics.anu.edu.au/vocab#majorGrog</td>  </tr> 
+<tr><td>Description:</td> <td> The proportion of grog inclusions in the ceramic fabric is 50-70%. </td>  </tr>
+<tr><td>Subclass of: </td> <td> <a href="https://kudenfabrics.anu.edu.au/vocab#major"> Major</a> & <a href="https://kudenfabrics.anu.edu.au/vocab#grogProportion">Grog Proportion</a></td>  </tr> 
+</table>
+</div> 
+
+<div id="frequentGrog"> 
+<h3> Label: Frequent Grog</h3>
+<table class = "vocab"> <tr> <td> IRI: </td> <td> https://kudenfabrics.anu.edu.au/vocab#frequentGrog</td>  </tr> 
+<tr><td>Description:</td> <td> The proportion of grog inclusions in the ceramic fabric is 30-50%. </td>  </tr>
+<tr><td>Subclass of: </td> <td> <a href="https://kudenfabrics.anu.edu.au/vocab#frequent"> Frequent</a> & <a href="https://kudenfabrics.anu.edu.au/vocab#grogProportion">Grog Proportion</a></td>  </tr> 
+</table>
+</div> 
+
+<div id="commonGrog"> 
+<h3> Label: Common Grog</h3>
+<table class = "vocab"> <tr> <td> IRI: </td> <td> https://kudenfabrics.anu.edu.au/vocab#commonGrog</td>  </tr> 
+<tr><td>Description:</td> <td> The proportion of grog inclusions in the ceramic fabric is 15-30%. </td>  </tr>
+<tr><td>Subclass of: </td> <td> <a href="https://kudenfabrics.anu.edu.au/vocab#common"> Common</a> & <a href="https://kudenfabrics.anu.edu.au/vocab#grogProportion">Grog Proportion</a></td>  </tr> 
+</table>
+</div> 
+
+<div id="fewGrog"> 
+<h3> Label: Few Grog</h3>
+<table class = "vocab"> <tr> <td> IRI: </td> <td> https://kudenfabrics.anu.edu.au/vocab#fewGrog</td>  </tr> 
+<tr><td>Description:</td> <td> The proportion of grog inclusions in the ceramic fabric is 5-15%. </td>  </tr>
+<tr><td>Subclass of: </td> <td> <a href="https://kudenfabrics.anu.edu.au/vocab#few"> Few</a> & <a href="https://kudenfabrics.anu.edu.au/vocab#grogProportion">Grog Proportion</a></td>  </tr> 
+</table>
+</div> 
+
+<div id="minorGrog"> 
+<h3> Label: Minor Grog</h3>
+<table class = "vocab"> <tr> <td> IRI: </td> <td> https://kudenfabrics.anu.edu.au/vocab#minorGrog</td>  </tr> 
+<tr><td>Description:</td> <td> The proportion of grog inclusions in the ceramic fabric is 0-5%. </td>  </tr>
+<tr><td>Subclass of: </td> <td> <a href="https://kudenfabrics.anu.edu.au/vocab#minor"> Minor</a> & <a href="https://kudenfabrics.anu.edu.au/vocab#grogProportion">Grog Proportion</a></td>  </tr> 
+</table>
+</div> 
+
+<div id="noGrog"> 
+<h3> Label: No Grog</h3>
+<table class = "vocab"> <tr> <td> IRI: </td> <td> https://kudenfabrics.anu.edu.au/vocab#noGrog</td>  </tr> 
+<tr><td>Description:</td> <td> The proportion of grog inclusions in the ceramic fabric is 0%. </td>  </tr>
+<tr><td>Subclass of: </td> <td> <a href="https://kudenfabrics.anu.edu.au/vocab#none"> None</a> & <a href="https://kudenfabrics.anu.edu.au/vocab#grogProportion">Grog Proportion</a></td>  </tr> 
+</table>
+</div> 
+
+<div id="vitricPresent"> 
+<h3> Label: Vitric Lithics Present</h3>
+<table class = "vocab"> <tr> <td> IRI: </td> <td> https://kudenfabrics.anu.edu.au/vocab#vitricPresent</td>  </tr> 
+<tr><td>Description:</td> <td> Lithics with a vitric texture are present in the ceramic fabric. </td>  </tr>
+</table>
+</div> 
+
+
+<div id="felsiticPresent"> 
+<h3> Label: Felsitic Lithics Present</h3>
+<table class = "vocab"> <tr> <td> IRI: </td> <td> https://kudenfabrics.anu.edu.au/vocab#felsiticPresent</td>  </tr> 
+<tr><td>Description:</td> <td> Lithics with a felsitic texture are present in the ceramic fabric. </td>  </tr>
+</table>
+</div> 
+
+<div id="microliticPresent"> 
+<h3> Label: Microlitic Lithics Present</h3>
+<table class = "vocab"> <tr> <td> IRI: </td> <td> https://kudenfabrics.anu.edu.au/vocab#microliticPresent</td>  </tr> 
+<tr><td>Description:</td> <td> Lithics with a microlitic texture are present in the ceramic fabric. </td>  </tr>
+</table>
+</div> 
+
+<div id="microphaneriticPresent"> 
+<h3> Label: Microphaneritic Lithics Present</h3>
+<table class = "vocab"> <tr> <td> IRI: </td> <td> https://kudenfabrics.anu.edu.au/vocab#microphaneriticPresent</td>  </tr> 
+<tr><td>Description:</td> <td> Lithics with a microphaneritic texture are present in the ceramic fabric. </td>  </tr>
+</table>
+</div> 
+
+<div id="lathPresent"> 
+<h3> Label: Lathwork Lithics Present</h3>
+<table class = "vocab"> <tr> <td> IRI: </td> <td> https://kudenfabrics.anu.edu.au/vocab#lathPresent</td>  </tr> 
+<tr><td>Description:</td> <td> Lithics with a lathwork texture are present in the ceramic fabric. </td>  </tr>
+</table>
+</div> 
+
+<div id="metavolcPresent"> 
+<h3> Label: Metavolcanic Lithics Present</h3>
+<table class = "vocab"> <tr> <td> IRI: </td> <td> https://kudenfabrics.anu.edu.au/vocab#metavolcPresent</td>  </tr> 
+<tr><td>Description:</td> <td> Lithics with a metavolcanic texture are present in the ceramic fabric. </td>  </tr>
+</table>
+</div> 
+
+<div id="plutonitePresent"> 
+<h3> Label: Plutonite Present</h3>
+<table class = "vocab"> <tr> <td> IRI: </td> <td> https://kudenfabrics.anu.edu.au/vocab#plutonitePresent</td>  </tr> 
+<tr><td>Description:</td> <td> Plutonite is present in the ceramic fabric. </td>  </tr>
+</table>
+</div> 
+
+<div id="limeclastPresent"> 
+<h3> Label: Limeclast Present</h3>
+<table class = "vocab"> <tr> <td> IRI: </td> <td> https://kudenfabrics.anu.edu.au/vocab#limeclastPresent</td>  </tr> 
+<tr><td>Description:</td> <td> Limeclast is present in the ceramic fabric.  </td>  </tr>
+</table>
+</div> 
+
+<div id="tectonitePresent"> 
+<h3> Label: Tectonite Present</h3>
+<table class = "vocab"> <tr> <td> IRI: </td> <td> https://kudenfabrics.anu.edu.au/vocab#tectonitePresent</td>  </tr> 
+<tr><td>Description:</td> <td> Tectonite is present in the ceramic fabric.  </td>  </tr>
+</table>
+</div> 
+
+<div id="argilliticPresent"> 
+<h3> Label: Argillitic Present</h3>
+<table class = "vocab"> <tr> <td> IRI: </td> <td> https://kudenfabrics.anu.edu.au/vocab#argilliticPresent</td>  </tr> 
+<tr><td>Description:</td> <td> Argillitic lithics are present in the ceramic fabric. </td>  </tr>
+</table>
+</div> 
+
+<div id="chertPresent"> 
+<h3> Label: Chert Present</h3>
+<table class = "vocab"> <tr> <td> IRI: </td> <td> https://kudenfabrics.anu.edu.au/vocab#chertPresent</td>  </tr> 
+<tr><td>Description:</td> <td> Chert is present in the ceramic fabric.  </td>  </tr>
+</table>
+</div> 
+
+<div id="quartzitePresent"> 
+<h3> Label: Quartzite Present</h3>
+<table class = "vocab"> <tr> <td> IRI: </td> <td> https://kudenfabrics.anu.edu.au/vocab#quartzitePresent</td>  </tr> 
+<tr><td>Description:</td> <td> Quartzite is present in the ceramic fabric.  </td>  </tr>
+</table>
+</div> 
+
+<div id="siltstonePresent"> 
+<h3> Label: Siltstone Present</h3>
+<table class = "vocab"> <tr> <td> IRI: </td> <td> https://kudenfabrics.anu.edu.au/vocab#siltstonePresent</td>  </tr> 
+<tr><td>Description:</td> <td> Siltstone is present in the ceramic fabric.  </td>  </tr>
+</table>
+</div> 
+
+{% include "fabrics2/includes/footer.html" %}
+{% endblock %}

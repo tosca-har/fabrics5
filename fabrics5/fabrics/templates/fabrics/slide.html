@@ -1,0 +1,91 @@
+{% extends "base.html" %} 
+{% load static %}
+
+{% block css_files %}
+  <link rel="stylesheet" href="{% static "fabrics2/fabric.css" %}">
+  <link rel="stylesheet" href="{% static "fabrics2/abuntable.css" %}">
+  <link rel="stylesheet" href="{% static "fabrics2/header.css" %}">
+
+{% endblock %}
+
+{% block page_title %} Slide details {% endblock %}
+{% block content %} {% include "fabrics2/includes/header.html" %}
+<h1>Slide: {{ slide.name }}</h1>
+
+  <h3 id="des">{{ slide.desc }}</h3>  
+ 
+ 
+  <div class="after-map">
+  <h2>Mineral and Rock Abundances </h2>
+  <h3>Fabric:  <a href="{% url "fabric-type" fabric.slug %}">{{fabric.name}}</a>  - {{fabric.desc}}</h3>
+  {% include "fabrics2/includes/abuntable.html" %}
+
+   <table class = "slidetable">
+       <th>Cal.</th> <th>Quartz</th><th>Feldspar</th> <th>Pyroxene</th> <th>Amphibole</th> 
+      <th>Opaques</th> <th>Olivine</th><th>Biotite</th> <th>Muscovite</th> <th>Epidote</th> 
+      <th>Garnet/ Spinel</th> <th>Ig./Met. Rocks</th> <th>Sed. Rocks</th> <th>Grog</th>  <th>Lithics</th>
+
+      <tr>
+      <td data-tag="{{slide.calcareous}}"> {{slide.calcareous}}</td>
+      <td data-tag="{{slide.quartz}}"> {{slide.quartz}}</td>
+      <td data-tag="{{slide.feldspar}}">{{slide.feldspar}}</td>
+      <td data-tag="{{slide.pyroxene}}">{{slide.pyroxene}}</td>
+      <td data-tag="{{slide.amphibole}}">{{slide.amphibole}}</td>
+      <td data-tag="{{slide.opaque}}"> {{slide.opaque}}</td>
+      <td data-tag="{{slide.olivine}}"> {{slide.olivine}}</td>
+      <td data-tag="{{slide.biotite}}">{{slide.biotite}}</td>
+      <td data-tag="{{slide.muscovite}}">{{slide.muscovite}}</td>
+      <td data-tag="{{slide.epidote}}">{{slide.epidote}}</td>
+      <td data-tag="{{slide.garnet}}"> {{slide.garnet}}</td>
+      <td data-tag="{{slide.igneous_rock_fragments}}">{{slide.igneous_rock_fragments}}</td>
+      <td data-tag="{{slide.sedimentary_metasedimentary}}">{{slide.sedimentary_metasedimentary}}</td>
+      <td data-tag="{{slide.grog}}">{{slide.grog}}</td>
+      <td> {{slide.lithics}}</td>
+      </tr> 
+
+    </table>  
+  
+       <h3>Images</h3>
+      {% if slide.image_name and slide.full_image_name and slide.full_image_oe_omero_id %}
+      <figure><img src="{% static "fabrics2/images/slides/"|add:slide.image_name|add:"_x4_PPL.jpeg" %}" alt={{ slide.image_name }} height:"50">
+        <img src="{% static "fabrics2/images/slides/"|add:slide.image_name|add:"_x4_XPL.jpeg" %}" alt= {{ slide.image_name }} height:"50">
+        <figcaption> Sherd {{ slide.sherd }} from {{ slide.site }}. Slide {{slide.name }} from {{ slide.source }}. x4 Magnification PPL (left) XPL (right). Scale bar: 0.5mm. <a class="caplink" href="https://kuden.anu.edu.au/webclient/img_detail/{{slide.image_omero_id}}" target="_blank">High resolution image (user: Guest pwd: Guest)</a> 
+         or <a class="caplink" href="https://kuden.anu.edu.au/webclient/img_detail/{{slide.full_image_omero_id}}" target="_blank">full slide in VIMIPO</a> with <a class="caplink" href="https://kuden.anu.edu.au/webclient/img_detail/{{slide.full_image_oe_omero_id}}" target="_blank"> higher exposure.</a> Imaged by K. Hardy and M. Leclerc, ANU.
+        </figcaption>
+      </figure>
+      {% elif slide.image_name and slide.full_image_name %}
+        <figure><img src="{% static "fabrics2/images/slides/"|add:slide.image_name|add:"_x4_PPL.jpeg" %}" alt={{ slide.image_name }} height:"50">
+          <img src="{% static "fabrics2/images/slides/"|add:slide.image_name|add:"_x4_XPL.jpeg" %}" alt= {{ slide.image_name }} height:"50">
+          <figcaption> Sherd {{ slide.sherd }} from {{ slide.site }}. Slide {{slide.name }} from {{ slide.source }}. x4 Magnification PPL (left) XPL (right). Scale bar: 0.5mm. <a class="caplink" href="https://kuden.anu.edu.au/webclient/img_detail/{{slide.image_omero_id}}" target="_blank">High resolution image (user: Guest pwd: Guest)</a> 
+           or <a class="caplink" href="https://kuden.anu.edu.au/webclient/img_detail/{{slide.full_image_omero_id}}" target="_blank">full slide in VIMIPO.</a> Imaged by K. Hardy and M. Leclerc, ANU.
+          </figcaption>
+        </figure>
+      {% elif slide.image_name %}
+        <figure><img src="{% static "fabrics2/images/slides/"|add:slide.image_name|add:"_x4_PPL.jpeg" %}" alt={{ slide.image_name }} height:"50">
+          <img src="{% static "fabrics2/images/slides/"|add:slide.image_name|add:"_x4_XPL.jpeg" %}" alt= {{ slide.image_name }} height:"50">
+          <figcaption> Sherd {{ slide.sherd }} from {{ slide.site }}. Slide {{slide.name }} from {{ slide.source }}. x4 Magnification PPL (left) XPL (right). Scale bar: 0.5mm. <a class="caplink" href="https://kuden.anu.edu.au/webclient/img_detail/{{slide.image_omero_id}}" target="_blank">High resolution image in VIMIPO (user: Guest pwd: Guest).</a> Imaged by K. Hardy and M. Leclerc, ANU.
+          </figcaption>
+        </figure>
+      {% elif slide.full_image_name %}
+       <p> <a class="caplink" href="https://kuden.anu.edu.au/webclient/img_detail/{{slide.full_image_omero_id}}" target="_blank">{{ slide.sherd }} has a full slide scan available.</a> Imaged by K. Hardy and M. Leclerc, ANU.</p>
+      {% else %}
+      <p>No images available.</p>
+      {% endif%}
+          <br>
+<h1 id="sherd">Sherd: {{ slide.sherd }}</h1>
+ 
+  <h3 id="des">{{ slide.sherd_desc }}</h3>  
+  {% if slide.ceramic_period %}
+    <h2>Ware/Period: <a href="{% url "period" slide.ceramic_period.slug %}">{{slide.ceramic_period}}</a>  (<a href="https://www.wikidata.org/wiki/{{slide.ceramic_period.wikidata}}">{{slide.ceramic_period.wikidata}}</a>)</h2>
+  {% endif%}
+  <h2>Site:  <a href="{% url "site-type" site.slug %}">{{slide.site}}</a></h2>
+  <h2>Suspected origin site:  {{slide.sherd_origin_site}}</h2>
+ 
+  <h1>References:</h1> 
+    {% for ref in slide_references %}
+         <h3> <a href="{% url "report-type" ref.slug %}">{{ ref.fullname }}</a> ({{ ref.author_list }}) </h3>
+    {% endfor %}
+
+
+  {% include "fabrics2/includes/footer.html" %}
+ {% endblock %}

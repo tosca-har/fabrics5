@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block css_files %}
+<link rel="stylesheet" href="{% static "styles.css"%}">
+<link rel="stylesheet" href="{% static "fabrics2/header.css" %}">
+<link rel="stylesheet" href="{% static "fabrics2/abuntable.css" %}">
+<link rel="stylesheet" href="{% static "fabrics2/search.css" %}">
+
+{% endblock %}
+
+{% block page_title %}
+  Search
+{% endblock %}
+
+{% block content %}
+  {% include "fabrics2/includes/header.html" %}
+
+  <form method="POST">
+    {% csrf_token %}
+    <div class="flex-container">
+    <div class="form-control">
+        {{ form.regions_to_include.errors}}
+    <h2>Mineral and rock abundances</h2>
+<p>Click on mineral or rock names for glossary link.</p>
+    {% include "fabrics2/includes/abuntable.html" %}
+    <br>  
+    <br>  
+    <a href="{% url "glossary" %}#cal">Calcareous</a> {{ form.calcareous}} &emsp;
+    <a href="{% url "glossary" %}#qua">Quartz</a> {{ form.quartz }} &emsp;
+    <a href="{% url "glossary" %}#fel">Feldspar</a> {{ form.feldspars}}
+    <br>
+    <a href="{% url "glossary" %}#pyr">Pyroxene</a> {{ form.pyroxene}} &emsp;
+    <a href="{% url "glossary" %}#amp">Amphibole</a> {{ form.amphibole }} &emsp;
+    <a href="{% url "glossary" %}#opa">Opaque iron oxides</a> {{ form.opaque_iron_oxides}}
+    <br>
+    <a href="{% url "glossary" %}#bio">Biotite</a> {{ form.biotite}} &emsp;
+    <a href="{% url "glossary" %}#mus">Muscovite</a> {{ form.muscovite }} &emsp;
+    <a href="{% url "glossary" %}#oli">Olivine</a> {{ form.olivine }}
+    <br>
+    <a href="{% url "glossary" %}#epi">Epidote</a> {{ form.epidote }} &emsp;
+    <a href="{% url "glossary" %}#gar">Garnet/ Spinel</a> {{ form.garnet }} &emsp;
+    <a href="{% url "glossary" %}#irf">Igneous/Metamorphic Rocks</a> {{ form.igneous_rock_fragments }}
+    <br>
+    <a href="{% url "glossary" %}#sed">Sedimentary/Metasedimentary Rocks</a> {{ form.sedimentary_metasedimentary_rocks }} &emsp;
+    <a href="{% url "glossary" %}#gro">Grog</a> {{ form.grog }}
+    </div>
+    <div class="form-control2">
+      <h2>Regions</h2>
+      {{ form.regions_to_include }}
+      </div>
+    <div class="form-control">
+    <h2>Rock types</h2>
+    <p>Rock type identification can be very subjective. Use as a guide only.</p>
+    <a href="{% url "glossary" %}#vit">Vitric</a> {{ form.vitric }} &emsp;
+    <a href="{% url "glossary" %}#fes">Felsitic</a> {{ form.felsitic }} &emsp;
+    <a href="{% url "glossary" %}#mic">Microlitic</a> {{ form.microlitic }} &emsp;
+    <a href="{% url "glossary" %}#mph">Microphaneritic</a> {{ form.microphaneritic }}
+    <br>
+    <a href="{% url "glossary" %}#lat">Lathwork</a> {{ form.lathwork }} &emsp;
+    <a href="{% url "glossary" %}#met">Metavolcanic</a> {{ form.metavolcanic }} &emsp;
+    <a href="{% url "glossary" %}#plu">Plutonite</a> {{ form.plutonite }} &emsp;
+    <a href="{% url "glossary" %}#lim">Limeclast</a> {{ form.limeclast }}
+    <br>
+    <a href="{% url "glossary" %}#tec">Tectonite</a> {{ form.tectonite }} &emsp;
+    <a href="{% url "glossary" %}#arg">Argillitic</a> {{ form.argillitic }} &emsp;
+    <a href="{% url "glossary" %}#che">Chert</a> {{ form.chert }} &emsp;
+    <a href="{% url "glossary" %}#qze">Quartzite</a> {{ form.quartzite }}
+    <br>
+    <a href="{% url "glossary" %}#sil">Siltstone</a> {{ form.siltstone }} 
+   
+    </div>
+
+    <br>
+    <div class = "submit">
+    <input type="submit" value="Submit"> 
+    <br>
+    <input type="reset">
+    </div>
+  </div>
+  </form>
+  {% include "fabrics2/includes/footer.html" %}
+{% endblock %}

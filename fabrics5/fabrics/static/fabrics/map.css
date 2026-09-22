@@ -1,0 +1,23 @@
+#map { 
+/*     width: 1000px;
+    height: 700px; */
+    width: 75%;
+    height: 700px;
+    margin: 2rem 2rem 1rem 2rem;
+    float: left;
+}
+.key p {
+    font-size: 1.5rem;
+}
+#targetSite a {
+    color: #f8e64f;
+}
+
+#targetSite a:hover,
+#targetSite a:active {
+color: #e35d30;
+}
+
+.after-map {
+    clear: left;
+  }

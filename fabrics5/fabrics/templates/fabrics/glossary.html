@@ -1,0 +1,450 @@
+{% extends "base.html" %} 
+{% load static %} 
+{% block css_files %}
+ <link rel="stylesheet" href="{% static "fabrics/glossary.css" %}">
+<link rel="stylesheet" href="{% static "fabrics/header.css" %}"> 
+{% endblock %} 
+{% block page_title %} 
+Glossary 
+{% endblock %} 
+{% block content %} 
+{% include "fabrics/includes/header.html" %}
+<h1>Glossary</h1>
+<div id="wordlist">
+<ul>
+  <li><a href="#amp">Amphiboles</a></li>
+  <li><a href="#amh">Amphibolite</a></li>
+  <li><a href="#and">Andesitic</a></li>
+  <li><a href="#arc">Andesitic Arc</a></li>
+  <li><a href="#aph">Aphanitic</a></li>
+  <li><a href="#arg">Argillitic</a></li>
+  <li><a href="#pos">Back-arc</a></li>
+  <li><a href="#bas">Basaltic</a></li>
+  <li><a href="#mia">Biotite</a></li>
+  <li><a href="#bir">Birefringence</a></li>
+  <li><a href="#cal">Calcareous</a></li>
+  <li><a href="#che">Chert</a></li>
+  <li><a href="#dac">Dacitic</a></li>
+  <li><a href="#dis">Dissected Orogen</a></li>
+  <li><a href="#epi">Epidote</a></li>
+  <li><a href="#eut">Eutaxitic</a></li>
+  <li><a href="#ext">Extinction angle</a></li>
+  <li><a href="#fel">Feldspar</a></li>
+  <li><a href="#fec">Felsic</a></li>
+  <li><a href="#fes">Felsitic</a></li>
+  <li><a href="#gar">Garnet</a></li>
+  <li><a href="#gro">Grog</a></li>
+  <li><a href="#hya">Hyalopilitic</a></li>
+  <li><a href="#hyb">Hypabassal</a></li>
+  <li><a href="#hig">Highland Tectonic</a></li>
+  <li><a href="#idd">Iddingsite</a></li>
+  <li><a href="#irf">Igneous Rock Fragments</a></li>
+  <li><a href="#int">Interference Colour</a></li>
+  <li><a href="#lat">Lathwork</a></li>
+  <li><a href="#lim">Limeclast</a></li>
+  <li><a href="#maf">Mafic</a></li>
+  <li><a href="#sed">Metasedimentary</a></li>
+  <li><a href="#met">Metavolcanic</a></li>
+  <li><a href="#mia">Mica</a></li>
+  <li><a href="#mid">Microdioritic</a></li>
+  <li><a href="#mic">Microlitic</a></li>
+  <li><a href="#mph">Microphaneritic</a></li>
+  <li><a href="#mia">Muscovite</a></li>
+  <li><a href="#oce">Oceanic Basalt</a></li>
+  <li><a href="#oli">Olivine</a></li>
+  <li><a href="#opa">Opaque iron oxides</a></li>
+  <li><a href="#oph">Ophiolitic</a></li>
+  <li><a href="#pha">Phaneritic</a></li>
+  <li><a href="#pil">Pilotaxitic</a></li>
+  <li><a href="#pla">Placer</a></li>
+  <li><a href="#ple">Pleochroism</a></li>
+  <li><a href="#plu">Plutonic</a></li>
+  <li><a href="#pos">Post-arc</a></li>
+  <li><a href="#ppl">PPL</a></li>
+  <li><a href="#pum">Pumiceous</a></li>
+  <li><a href="#pyr">Pyroxene</a></li>
+  <li><a href="#qua">Quartz</a></li>
+  <li><a href="#qze">Quartzite</a></li>
+  <li><a href="#dac">Rhyolitic</a></li>
+  <li><a href="#sed">Sedimentary</a></li>
+  <li><a href="#ser">Sericite</a></li>
+  <li><a href="#sep">Serpentinite</a></li>
+  <li><a href="#sil">Siltstone</a></li>
+  <li><a href="#gar">Spinel</a></li>
+  <li><a href="#tec">Tectonic</a></li>
+  <li><a href="#tra">Trachytic</a></li>
+  <li><a href="#twi">Twinning</a></li>
+  <li><a href="#vit">Vitric</a></li>
+  <li><a href="#vip">Vitrophyric</a></li>
+  <li><a href="#ppl">XPL</a></li>
+
+</ul>
+</div>
+<p>This glossary is intended as a common language, accessible resource for beginners and/or students interested to learn about petrographic anlaysis of archaeological pottery in Oceania. For more formal academic definitions
+  see <a href="https://pubs.geoscienceworld.org/gsa/books/book/553/Temper-Sands-in-Prehistoric-Oceanian-Pottery">Dickinson's Temper Sands in Prehistoric Oceanian Pottery</a>,
+  <a href="https://www.alexstrekeisen.it/english/index.php"> Alex Strekeisen's site</a> or the other references linked <a href="#ref">below.</a>
+</p>
+
+<p>The glossary covers:</p>
+    <h3><a href="#ppl">* Polarised light</a></h3>
+    <h3><a href="#fab">* The components of Pacific pottery fabrics</a></h3>
+    <h3><a href="#roc">* Rock types</a></h3>
+    <h3><a href="#pac">* The Pacific fabric types</a></h3>
+
+  
+<h2 id="ppl">Plane Polarised Light (PPL) and Cross Polarised Light (XPL)</h2>
+<p>Microscopes used for petrography have a polariser positioned between the light source and the slide, and an analyser (a second polarising filter, perpendicular to the first), between the slide and eye-piece.
+The polariser restricts the light rays entering the sample to only those oscillating in a single plane or direction. Minerals in the sample can split the plane light into 2 rays of different speeds. The analyser resolves the two rays.</p>
+<p>Only one polarising filter is used in plane polarised light (PPL) conditions. The effects of the polariser alone, are some decreased light intensity and some change of colour (<mark id="ple">pleochroism</mark>) for some minerals, when the sample is rotated.</p>
+<p>Under cross polarised light (XPL) conditions, both the analyser and the polariser are in use. The difference (<mark id="bir">birefringence</mark>) in how the two rays were refracted by the sample is visible in the <mark id="int">interference colour</mark> of the crystals. How the rays are refracted depends on both crystal characteristics, the orientation of the crystal and the thickness of the section.
+As the crystal orientation is changed with rotation of the slide, at a particular angle the 2 rays will be refracted at the same speed. This refraction will cause the rays to destructively interfere with each other as they recombine in the analyser. This results in the crystal appearing black. The angle at which 
+this occurs (relative to the crystal direction) is known as the <mark id='ext'>'extinction' angle</mark>. The maximum extinction angle is a distinguishing characteristic of a mineral.</p>
+<p>See <a href="https://geo.libretexts.org/Bookshelves/Geology/Mineralogy_(Perkins_et_al.)/05%3A_Optical_Mineralogy">Perkins (2022) section 5</a>, <a href="http://www.labotka.net/310/Atlas/Plates/Extinction-Angle.html">Labotka (2014)</a> or <a href="https://www2.tulane.edu/~sanelson/eens211/interference_of_light.htm">Nelson (2017)</a>.
+</p>
+<figure><img src="{% static "fabrics/images/int_colours.jpg" %}" alt="Interference colours." ></figure>
+<figcaption> Interference colours from the Michel-Levy chart. Modified by K. Hardy from full chart, see <a href="https://en.m.wikipedia.org/wiki/File:Michel-Lévy_interference_colour_chart_(21257606712).jpg">ZEISS Microscopy Michel-Levy chart</a>.
+ </figcaption>
+
+<h2 id="fab">The components of Pacific pottery fabrics </h2>
+<h2 id="cal">Calcareous</h2>
+<p>Calcareous (calcium carbonate in calcite or aragonite grains) fabric grains include those oringinating from reef debris or from <mark id="lim">limeclasts</mark> (fragments of limestone terraces).</p>
+<p>While limestones are <a href="#sed">sedimentary rocks</a>, they were generally, included in 'calcareous' by Dickinson, and so have been here. Beach sand, recognisable by the presence of bioclasts (i.e. 'skeletons' of minute reef organisms, such as foraminifera), was a commonly used temper in Oceania. For many Pacific atoll communities it was the only one available. Most Pacific sites feature at least one calcareous or hybrid calcareous-terrigeneous fabric. Unfortunately this makes reef debris calcareous fabrics hard to source to location. However their presence at an inland site is evidence of pottery (or at least temper) importation.
+In contrast, fabrics including limeclasts derive from eroded limestones and thus can potentially be more diagnostic. Limeclasts can be distinguished from bioclasts by their unordered internal structure, although the possibility of degraded bioclasts is a confounding factor. Places with limeclast fabrics include Timor (<a href="{% url "fabric-type" "tpr200" %}">tpr200</a>), the Marianas (<a href="{% url "fabric-type" "tpr4" %}">tpr4</a>), Vanuatu (<a href="{% url "fabric-type" "tpr249" %}">tpr249</a>) and Fiji (<a href="{% url "fabric-type" "tpr373" %}">e.g. tpr373</a>).</p>
+<p>Fabric types with large proportions of calcareous inclusions include: <a href="{% url "superfabric-type" "calcareous" %}">calcareous</a>; <a href="{% url "superfabric-type" "calcareous-feldspathic" %}">calcareous-feldspathic</a>; and <a href="{% url "superfabric-type" "calcareous-quartzose" %}">calcareous-quartzose</a> fabrics.</p>
+<p>Calcareous inclusions are light grey in <a href="#ppl">PPL and XPL</a> (where they show pale higher order colours).</p>
+  
+  <p>See <a href="https://pubs.geoscienceworld.org/gsa/books/book/553/Temper-Sands-in-Prehistoric-Oceanian-Pottery">Dickinson (2006) pg. 3, 20, 23</a>, Strekeisen (2006-2020) <a href="https://www.alexstrekeisen.it/english/meta/calcite.php">calcite</a>, <a href="http://www.alexstrekeisen.it/english/sedi/carbonatic.php">carbonate rocks</a>, or <a href="https://geo.libretexts.org/Bookshelves/Geology/Mineralogy_(Perkins_et_al.)/07%3A_Sedimentary_Minerals_and_Sedimentary_Rocks/7.04%3A_Sedimentary_Minerals/7.4.03%3A_Carbonate_Minerals">Perkins, (2022) section 7.4.3</a>.
+  Matches Getty AAT definition: calcite (<a href="http://vocab.getty.edu/page/aat/300011078">300011078</a>), carbonate rock (<a href="http://vocab.getty.edu/page/aat/300011283">300011283</a>), limestone (<a href="http://vocab.getty.edu/page/aat/300011286">300011286</a>) and Wikidata: calcareous (<a href="https://www.wikidata.org/wiki/Q17005941">Q17005941</a>), limestone (<a href="https://www.wikidata.org/wiki/Q23757">Q23757</a>).</p>
+
+  {% include "fabrics/includes/captionF.html" with sherd="VA_A1_23" site="Vasino, Timor" sample="VasinoVA_A1_23" slide="WD_86_12" num="1771" numf="264" extra="Features foraminifera reef debris."%} 
+{% include "fabrics/includes/captionF.html" with sherd="TTP2_4" site="Telepunu, Timor" sample="TelepunuTTP2_4" slide="WD_86_6" num="1583" numf="249" extra="Features limeclasts." %} 
+
+<h2 id="qua">Quartz</h2>
+<p>To the contrary of continental settings where quartz is often the most abundant mineral in pottery fabrics, quartz (silicon dioxide) is not universally presesnt in the geological formations of the Pacific region and so is an important distinguishing mineral in Pacific fabrics. It is a dominant mineral in <a href="#dis">dissected orogen</a> and quartzose variant <a href="#hig">tectonic highland</a> fabrics from up-lifted geology, and also occurs (generally in lower proportions) in the <a href="#dac">dacitic</a> andesitic arc fabrics. Regions with quartzose fabrics include New Caledonia (<a href="{% url "fabric-type" "tpr296" %}">e.g. tpr296</a>), Maluku (<a href="{% url "fabric-type" "tpr80" %}">e.g. tpr80</a>), PNG (<a href="{% url "fabric-type" "tpr270" %}">e.g. tpr270</a>), Carolines (<a href="{% url "fabric-type" "tpr42" %}">e.g. tpr42</a>), Fiji (<a href="{% url "fabric-type" "tpr388" %}">e.g. tpr388</a>), Australia (<a href="{% url "fabric-type" "tpr204" %}">e.g. tpr204</a>), Tonga (<a href="{% url "fabric-type" "tpr437" %}">e.g. tpr437</a>) and the Marianas (<a href="{% url "fabric-type" "tpr10" %}">e.g. tpr10</a>). 
+  In the Marianas they are indicative of Saipan, the main island with dacitic rocks.</p> 
+  <p>Polycrystalline aggregates of quartz, derived from quartz veins, and monocrystalline quartz are both identified as 'quartz' in the database. Sedimentary <a href="#che">chert</a> or metamorphic <a href="#qze">quartzite</a> are identified as <a href="#sed">sedimentary/metasedimentary</a> rock fragments. </p>
+<p>Fabric types with large proportions of quartz inclusions include: <a href="{% url "superfabric-type" "quartzose" %}">quartzose</a>; <a href="{% url "superfabric-type" "quartzose-feldspathic-lithic" %}">quartzose-feldspathic lithic</a>; <a href="{% url "superfabric-type" "feldspathic-quartzose" %}">feldspathic-quartzose</a>; and <a href="{% url "superfabric-type" "calcareous-quartzose" %}">calcareous-quartzose</a> fabrics.</p>
+<p>Quartz minerals are white in <a href="#ppl">PPL</a> and white, grey or extinct (black) in <a href="#ppl">XPL</a> (i.e. first order colours). Quartz from <a href="#plu">plutonic</a> igneous rocks, often have undulose (wavy) extinction, where the extinction travels across the crystal as the polarisation angle changes. In contrast quartz derived from volcanic rocks typically displays sharp extinction. Quartz crystals resistance to alteration or degradation (compared to feldspars) can also be a diagnostic feature. </p>
+ <p> See <a href="https://pubs.geoscienceworld.org/gsa/books/book/553/Temper-Sands-in-Prehistoric-Oceanian-Pottery">Dickinson (2006) pg. 23, 27</a>, <a href="https://www.alexstrekeisen.it/english/pluto/quartz.php">Strekeisen (2006-2020)</a>, or Perkins, (2022) sections <a href="https://geo.libretexts.org/Bookshelves/Geology/Mineralogy_(Perkins_et_al.)/06%3A_Igneous_Rocks_and_Silicate_Minerals/6.04%3A_Silicate_Minerals/6.4.02%3A_SiO2_Polymorphs">6.4.2</a>, <a href="https://geo.libretexts.org/Bookshelves/Geology/Mineralogy_(Perkins_et_al.)/14%3A_Mineral_Descriptions/14.01%3A_Silicate_Class/14.1.01%3A_Silicate_Class_-_Framework_Silicates">14.1.1.1</a>.
+Matches Getty AAT definition: quartz (<a href="http://vocab.getty.edu/page/aat/300011132">300011132</a>), Wikidata: quartz (<a href="https://www.wikidata.org/wiki/Q43010">Q43010</a>), and Mindat mineral ID: quartz (<a href="https://www.mindat.org/min-3337.html">3337</a>).</p>
+
+{% include "fabrics/includes/captionF.html" with sherd="On8" site="Ondor, Maluku" sample="OndorOn8" slide="WD_18_10" num="1296" numf="330" extra="Origin Gorom. Features quartz and also contains quartzite and tectonite." %} 
+
+
+<h2 id="fel">Feldspars</h2>
+<p>Feldspars (aluminium tectosilicates) found in Pacific fabrics include plagioclases and K-feldspars. Feldspars being the most common mineral on Earth, feldspathic fabrics occur in all Pacific regions, including the Marianas (<a href="{% url "fabric-type" "tpr13" %}">tpr13</a>), Solomon Islands (<a href="{% url "fabric-type" "tpr110" %}">tpr110</a>),
+  Bismarcks (<a href="{% url "fabric-type" "tpr198" %}">tpr198</a>), New Caledonia (<a href="{% url "fabric-type" "tpr308" %}">tpr308</a>), Carolines (<a href="{% url "fabric-type" "tpr210" %}">tpr210</a>), Vanuatu (<a href="{% url "fabric-type" "tpr233" %}">tpr233</a>) and Fiji (<a href="{% url "fabric-type" "tpr406" %}">tpr406</a>). 
+  While plagioclase are often one of the dominant minerals in all the fabric types (<a href="#arc">andesitic arc</a>, <a href="#pos">post-arc cover</a>, <a href="#oce">oceanic basalt</a>, <a href="#hig">tectonic highland</a> and <a href="#dis">dissected orogen</a>), the K-feldspars only occur in large proportions in the dissected orogen fabrics.
+  </p>
+  <p>Fabric types with large proportions of feldspar inclusions include: <a href="{% url "superfabric-type" "feldspathic" %}">feldspathic</a>; <a href="{% url "superfabric-type" "quartzose-feldspathic-lithic" %}">quartzose-feldspathic lithic</a>; <a href="{% url "superfabric-type" "feldspathic-quartzose" %}">feldspathic-quartzose</a>; <a href="{% url "superfabric-type" "feldspathic-igneous-amphibolic" %}">feldspathic igneous-amphbiolic</a>; <a href="{% url "superfabric-type" "calcareous-feldspathic" %}">calcareous-feldspathic</a>; and <a href="{% url "superfabric-type" "feldspathic-pyroxenic" %}">feldspathic pyroxenic</a> fabrics.</p>
+  <p>Feldspars are white in <a href="#ppl">PPL</a> and have black, white and grey coloured <mark id="twi">'twinning'</mark> in <a href="#ppl">XPL</a>. Plagioclase twinning often appears as black and white stripes, while K-feldspars have more simple or cross-hatched twinning. Twins form by symmetrical crystal intergrowth sometimes in response to shear stress (deformation twinning).</p>
+  <p>See <a href="https://pubs.geoscienceworld.org/gsa/books/book/553/Temper-Sands-in-Prehistoric-Oceanian-Pottery">Dickinson (2006) pg. 23</a>, <a href="http://www.alexstrekeisen.it/english/pluto/feldsparstructure.php">Strekeisen (2006-2020)</a>, or Perkins, (2022) sections <a href="https://geo.libretexts.org/Bookshelves/Geology/Mineralogy_(Perkins_et_al.)/06%3A_Igneous_Rocks_and_Silicate_Minerals/6.04%3A_Silicate_Minerals/6.4.03%3A_Feldspars">6.4.3</a>, <a href="https://geo.libretexts.org/Bookshelves/Geology/Mineralogy_(Perkins_et_al.)/14%3A_Mineral_Descriptions/14.01%3A_Silicate_Class/14.1.01%3A_Silicate_Class_-_Framework_Silicates"> 14.1.1.2</a>.
+ Matches Getty AAT definition: feldspar (<a href="http://vocab.getty.edu/page/aat/300011087">300011087</a>), Wikidata: feldspar (<a href="https://www.wikidata.org/wiki/Q170258">Q170258</a>), and Mindat mineral ID: feldspar (<a href="https://www.mindat.org/min-1624.html">1624</a>). </p>
+
+{% include "fabrics/includes/captionF.html" with sherd="TC4" site="Teouma, Vanuatu" sample="TeoumaTC4" slide="WD_44_5" num="1623" numf="420" extra="Partially placered fabric with twinned plagioclase." %} 
+{% include "fabrics/includes/captionF.html" with sherd="WmSu5" site="Wammar, Maluku" sample="WammarWmSu5" slide="WD_16_1" num="1791" numf="153" extra="May not be local. Quartz-feldspathic temper containing both plagioclase and K-feldspars." %} 
+
+<h2 id="amp">Amphiboles</h2>
+<p>The most common of the amphiboles (ferromagnesian double chain (ino-) silicates) in Pacific fabrics are hornblende, oxy-hornblende, glaucophane and cummingtonite. Hornblendes are found in higher proportions in fabrics from the Solomon Islands (<a href="{% url "fabric-type" "tpr143" %}">tpr143</a>), Bismarcks (<a href="{% url "fabric-type" "tpr197" %}">tpr197</a>), PNG (<a href="{% url "fabric-type" "tpr181" %}">tpr181</a>), Batanes (<a href="{% url "fabric-type" "tpr58" %}">tpr58</a>), Banda (Maluku, <a href="{% url "fabric-type" "tpr67" %}">tpr67</a>), Fiji (<a href="{% url "fabric-type" "tpr357" %}">tpr357</a>) and Eua (Tonga, <a href="{% url "fabric-type" "tpr437" %}">tpr437</a>). Oxy-hornblendes are generally found in lower proportions than hornblendes, but are more common in some sherds of <a href="{% url "fabric-type" "tpr348" %}">tpr348</a> from Kadavu, Fiji.  Glaucophane, cummingtonite and perhaps actinolite are found in certain New Caledonian fabrics (<a href="{% url "fabric-type" "tpr296a" %}">tpr296a</a>, <a href="{% url "fabric-type" "tpr230" %}">tpr230</a> and <a href="{% url "fabric-type" "tpr303" %}">tpr303</a>) and are characteristic of continental bedrock.</p>
+ <p>Fabric types with large proportions of amphibolic inclusions include: <a href="{% url "superfabric-type" "amphibolic" %}">amphibolic</a> fabrics.</p>
+<p>In <a href="#ppl">PPL</a> hornblendes exhibit colours ranging from green to shades of yellow and brown. Some fabrics from the Solomon Islands are notably distinguishable by their different colours: yellow-brown (<a href="{% url "fabric-type" "tpr111" %}">tpr111</a>) or green (<a href="{% url "fabric-type" "tpr121" %}">tpr121</a>). Oxy-hornblende and cummingtonite are brown and glaucophane is light blue-violet in <a href="#ppl">PPL</a>. Amphiboles have bright (2nd order) colours in <a href="#ppl">XPL</a> and <a href="#ext">extinction angles</a> of around 20&deg. They have two cleavage lines at 56&deg and 124&deg.</p>
+
+<p>See <a href="https://pubs.geoscienceworld.org/gsa/books/book/553/Temper-Sands-in-Prehistoric-Oceanian-Pottery">Dickinson (2006) pg. 25</a>, <a href="http://www.alexstrekeisen.it/english/pluto/amphiboles.php">Strekeisen (2006-2020)</a>, or Perkins, (2022) sections <a href="https://geo.libretexts.org/Bookshelves/Geology/Mineralogy_(Perkins_et_al.)/06%3A_Igneous_Rocks_and_Silicate_Minerals/6.04%3A_Silicate_Minerals/6.4.08%3A_Amphiboles">6.4.8</a>, <a href="https://geo.libretexts.org/Bookshelves/Geology/Mineralogy_(Perkins_et_al.)/14%3A_Mineral_Descriptions/14.01%3A_Silicate_Class/14.1.03%3A_Silicate_Class_-_Chain_Silicates">14.1.3.2</a>.
+Matches Getty AAT definition: hornblende (<a href="http://vocab.getty.edu/page/aat/300380298">300380298</a>), glaucophane (<a href="http://vocab.getty.edu/page/aat/300380383">300380383</a>) Wikidata: amphibole (<a href="https://www.wikidata.org/wiki/Q17159">Q17159</a>), and Mindat mineral ID: amphibole (<a href="https://www.mindat.org/min-207.html">207</a>).</p>
+
+{% include "fabrics/includes/captionF.html" with sherd="4180_BS4" site="Paubake (Buin), Bougainville" sample="Paubake4180_BS_4" slide="WD_34_11" num="1337" numf="78" extra="Features yellow/brown hornblendes." %}
+{% include "fabrics/includes/captionF.html" with sherd="201T_BS14" site="Teop Islet, Bougainville" sample="Teop_201T_BS14" slide="WD_35_3" num="1587" numf="93" extra="Features green hornblendes. Sherd made in Buka." %}
+{% include "fabrics/includes/captionF.html" with sherd="TCS13" site="Teouma, Vanuatu" sample="Teouma_TCS13" slide="WD_46_4" num="1609" numf="393" extra="Glaucophane in New Caledonian fabric in sherd found in Efate." %}
+{% include "fabrics/includes/captionF.html" with sherd="6-1" site="Iles Des Pins, New Caledonia" sample="IllsDesPins_6_1" slide="WD_27_6" num="3290" numf="4477" extra="Amphiboles, possible actinolites in New Caledonian fabric." %}
+
+<h2 id="pyr">Pyroxenes</h2>
+<p>The most common pyroxenes (ferromagnesian single chain (ino-) silicates) in Pacific fabrics are the clinopyroxene (with monoclinic crystals) augite, although orthopyroxenes (with orthorhombic crystals), such as hypersthene, also occur. Pyroxenic fabrics are found in all regions, including Fiji (e.g. <a href="{% url "fabric-type" "tpr334" %}">tpr334</a>), Tonga (e.g. <a href="{% url "fabric-type" "tpr438" %}">tpr438</a>), Marianas (e.g. <a href="{% url "fabric-type" "tpr17" %}">tpr17</a>), Vanuatu (e.g. <a href="{% url "fabric-type" "tpr165" %}">tpr165</a>), Solomon Islands (e.g. <a href="{% url "fabric-type" "tpr173" %}">tpr173</a>), PNG (e.g. <a href="{% url "fabric-type" "tpr274" %}">tpr274</a>), Bismarcks (e.g. <a href="{% url "fabric-type" "tpr317" %}">tpr317</a>), Samoa (e.g. <a href="{% url "fabric-type" "tpr292" %}">tpr292</a>), New Caledonia (e.g. <a href="{% url "fabric-type" "tpr307" %}">tpr307</a>), Carolines (e.g. <a href="{% url "fabric-type" "tpr52" %}">tpr52</a>) and Marquesa (e.g. <a href="{% url "fabric-type" "tpr441" %}">tpr441</a>).
+   Orthopyroxenes are found (with clinopyroxenes) in Tongan fabrics (<a href="{% url "fabric-type" "tpr432" %}">tpr432</a>), New Britain (Bismarcks, <a href="{% url "fabric-type" "tpr192" %}">tpr192</a>), Saipan (Marianas, <a href="{% url "fabric-type" "tpr13" %}">tpr13</a>) and Vanua Levu (Fiji, <a href="{% url "fabric-type" "tpr386" %}">tpr386</a>).</p>
+  <p>Fabric types with large proportions of pyroxene inclusions include: <a href="{% url "superfabric-type" "pyroxenic" %}">pyroxenic</a>; <a href="{% url "superfabric-type" "pyroxenic-calcareous" %}">pyroxenic calcareous</a>; <a href="{% url "superfabric-type" "pyroxenic-olivine" %}">pyroxenic olivine</a>; <a href="{% url "superfabric-type" "pyroxenic-igneous" %}">pyroxenic-igneous</a>; <a href="{% url "superfabric-type" "pyroxenic-amphibolic" %}">pyroxenic amphibolic</a>; and <a href="{% url "superfabric-type" "pyroxenic-opaque" %}">pyroxenic opaque</a> fabrics.</p>
+   <p>Pyroxenes are white (or very lightly green) in <a href="#ppl">PPL</a> and brightly coloured (2nd order colours) in <a href="#ppl">XPL</a>. They have two cleavage lines at 90&deg and 180&deg. Clinopyroxenes have maximum <a href="#ext">extinction</a> at 40&deg, orthopyroxenes at 0&deg (parallel).</p>
+    <p>See <a href="https://pubs.geoscienceworld.org/gsa/books/book/553/Temper-Sands-in-Prehistoric-Oceanian-Pottery">Dickinson (2006) pg. 25</a>, <a href="http://www.alexstrekeisen.it/english/pluto/pyroxene.php">Strekeisen (2006-2020)</a>, or Perkins, (2022) sections <a href="https://geo.libretexts.org/Bookshelves/Geology/Mineralogy_(Perkins_et_al.)/06%3A_Igneous_Rocks_and_Silicate_Minerals/6.04%3A_Silicate_Minerals/6.4.07%3A_Pyroxenes"> 6.4.7</a>, <a href="https://geo.libretexts.org/Bookshelves/Geology/Mineralogy_(Perkins_et_al.)/14%3A_Mineral_Descriptions/14.01%3A_Silicate_Class/14.1.03%3A_Silicate_Class_-_Chain_Silicates"> 14.1.3.1</a>.
+    Matches Getty AAT definition: pyroxene (<a href="http://vocab.getty.edu/page/aat/300386789">300386789</a>), Wikidata: pyroxene (<a href="https://www.wikidata.org/wiki/Q192880">Q192880</a>), and Mindat mineral ID: pyroxene (<a href="https://www.mindat.org/min-9767.html">9767</a>).</p>
+{% include "fabrics/includes/captionF.html" with sherd="ECA-67_5_11" site="Mussau" sample="ECA67_5_11" slide="WD_39_25" num="802" numf="22" extra="Feldspathic-pyroxenic temper. Origin in TLTF chain." %} 
+{% include "fabrics/includes/captionF.html" with sherd="Ma-GU-6-1" site="Guam" sample="Ma_GU_6_1" slide="WD_5_6" num="1132" numf="219" extra="Clinopyroxenes are the main pyroxene, but orthopyroxenes also occur." %} 
+{% include "fabrics/includes/captionF.html" with sherd="FS2-14-94" site="Garua, Bismarcks" sample="GaruaFS2_14_94" slide="WD_41_9" num="939" numf="447" extra="Clinopyroxenes are the main pyroxene, but orthopyroxenes also occur." %} 
+{% include "fabrics/includes/captionF.html" with sherd="112" site="Ha'ano, Tonga" sample="Haano_112" slide="WD_73_10" num="3548" numf="4519" extra="Clinopyroxenes are the main pyroxene, but orthopyroxenes also occur." %} 
+{% include "fabrics/includes/captionF.html" with sherd="39-3" site="Tungua, Tonga" sample="Tungua_39_3" slide="WD_73_13" num="3602" numf="4372" extra="Clinopyroxenes are the main pyroxene, but orthopyroxenes also occur." %} 
+
+<h2 id="opa">Opaque iron oxides</h2>
+<p>Opaque iron oxides in Pacific fabrics are predominantly magnetite (iron oxide spinel). Ilmenite (iron-titanium oxide), hematite and limonite also occur. Magnetite and ilmenite are derived from igneous or metamorphic rocks. In some situations, the iron oxides/hydroxides, limonite and hematite are derived from sedimentary rock (reworked iron-rich nodules). Most regions have a fabric, often a <a href="#pla"> placer</a> sand, with high levels of opaques, including Solomon Islands (<a href="{% url "fabric-type" "tpr156" %}">tpr156</a>), Bismarcks (<a href="{% url "fabric-type" "tpr194" %}">tpr194</a>), Vanuatu (<a href="{% url "fabric-type" "tpr266" %}">tpr266</a>), Fiji(<a href="{% url "fabric-type" "tpr413" %}">tpr413</a>), New Caledonia ( <a href="{% url "fabric-type" "tpr304" %}">tpr304</a>), Tonga ( <a href="{% url "fabric-type" "tpr427" %}">tpr427</a>), Marquesa (<a href="{% url "fabric-type" "tpr441" %}">tpr441</a>), and PNG (<a href="{% url "fabric-type" "tpr300" %}">tpr300</a>). 
+</p>
+<p>Fabric types with large proportions of opaque inclusions include: <a href="{% url "superfabric-type" "opaque" %}">opaque</a>; and <a href="{% url "superfabric-type" "opaque-pyroxenic" %}">opaque pyroxenic</a> fabrics.</p>
+<p>Opaques iron oxides are isotropic and appear black in <a href="#ppl">PPL</a> and <a href="#ppl">XPL</a>. With reflected light microscopy, magnetite and ilmenite appear gray, limonite appears white, and hematite appears bright red. </p> 
+ <p>See <a href="https://pubs.geoscienceworld.org/gsa/books/book/553/Temper-Sands-in-Prehistoric-Oceanian-Pottery">Dickinson (2006) pg. 22</a>, <a href="http://www.alexstrekeisen.it/english/pluto/magnetite.php">Strekeisen (2006-2020)</a>, or Perkins, (2022) sections <a href="https://geo.libretexts.org/Bookshelves/Geology/Mineralogy_(Perkins_et_al.)/14%3A_Mineral_Descriptions/14.05%3A_Oxide_Minerals/14.5.02%3A_Spinels_and_other_Oxides_with_Mixed_Coordination">14.5.1, 14.5.2</a>, <a href="https://geo.libretexts.org/Bookshelves/Geology/Mineralogy_(Perkins_et_al.)/14%3A_Mineral_Descriptions/14.06%3A_Hydroxide_Minerals">14.6</a>.
+ Matches Getty AAT definition: magnetite (<a href="http://vocab.getty.edu/page/aat/300011110">300011110</a>), ilmenite (<a href="http://vocab.getty.edu/page/aat/300219700">300219700</a>), hematite (<a href="http://vocab.getty.edu/page/aat/300011105">300011105</a>), limonite (<a href="http://vocab.getty.edu/page/aat/300379931">300379931</a>), Wikidata: magnetite (<a href="https://www.wikidata.org/wiki/Q181395">Q181395</a>), ilmenite (<a href="https://www.wikidata.org/wiki/Q190729">Q190729</a>), hematite (<a href="https://www.wikidata.org/wiki/Q103223">Q103223</a>), limonite (<a href="https://www.wikidata.org/wiki/Q193565">Q193565</a>) and Mindat mineral ID: magnetite (<a href="https://www.mindat.org/min-2538.html">2538</a>), ilmenite (<a href="https://www.mindat.org/min-2013.html">2013</a>), hematite (<a href="https://www.mindat.org/min-1856.html">1856</a>), limonite (<a href="https://www.mindat.org/min-2402.html">2402</a>).</p>
+{% include "fabrics/includes/captionF.html" with sherd="66-1" site="Apalo, New Britain" sample="Apalo_Arare66_1" slide="WD_41_11" num="673" numf="441" %} 
+
+<h2 id="oli">Olivine</h2>
+<p>Olivine (ferromagnesian nesosilicate) is found in some Pacific fabrics, primarily those derived from <a href="#bas">basalts</a>. It is found in lower propotions in fabrics, than in their source materials, as it is more susceptible to degradation than other minerals like <a href="#pyr">pyroxenes</a>.
+ Some fabrics with olivines are documented in Samoa (<a href="{% url "fabric-type" "tpr295" %}">tpr295</a>), Solomon Islands (<a href="{% url "fabric-type" "tpr154" %}">tpr154</a>), Fiji (<a href="{% url "fabric-type" "tpr392" %}">tpr392</a>), Erromango (Vanuatu, <a href="{% url "fabric-type" "tpr222a" %}">tpr222a</a>) and Tabar-Lihi-Tanga-Feni chain (Bismarcks, <a href="{% url "fabric-type" "tpr134" %}">tpr134</a>). Olivine is also found in lower proportion in fabrics from Pohnpei (Carolines, <a href="{% url "fabric-type" "tpr210" %}">tpr210</a>), Tonga (<a href="{% url "fabric-type" "tpr4326" %}">tpr436 </a>) and Marquesas (<a href="{% url "fabric-type" "tpr441" %}">tpr441</a>).</p>
+ <p>Olivines are white to pale green/brown in <a href="#ppl">PPL</a> and have bright (2nd order) colours in <a href="#ppl">XPL</a>. Their similar colours to <a href="#pyr">pyroxenes</a> can make them harder to distinguish, but they only have poor cleavage, and have higher relief. <a href="#ext">Extinction</a> is at 0&deg (parallel).</p>
+ <p>Under oxidative conditions, olivines can alter to <mark id="idd">iddingsite</mark> which appear red-brown in <a href="#ppl">PPL</a> and <a href="#ppl">XPL</a>. Sometimes the alteration is complete, while often it can be observed as a ring around the crystal. </p>
+ <p>See <a href="https://pubs.geoscienceworld.org/gsa/books/book/553/Temper-Sands-in-Prehistoric-Oceanian-Pottery">Dickinson (2006) pg. 26</a>, Strekeisen (2006-2020) on <a href="href="http://www.alexstrekeisen.it/english/pluto/olivine.php">olivine</a>, <a href="https://www.alexstrekeisen.it/english/vulc/iddingsite.php">iddingsite</a>, or Perkins, (2022) sections <a href="https://geo.libretexts.org/Bookshelves/Geology/Mineralogy_(Perkins_et_al.)/06%3A_Igneous_Rocks_and_Silicate_Minerals/6.04%3A_Silicate_Minerals/6.4.10%3A_Olivine_Group_Minerals">6.4.10</a>, <a href="https://geo.libretexts.org/Bookshelves/Geology/Mineralogy_(Perkins_et_al.)/14%3A_Mineral_Descriptions/14.01%3A_Silicate_Class/14.1.05%3A_Silicate_Class_-_Isolated_Tetrahedral_Silicates">14.1.5.2</a>.
+  Matches Getty AAT definition: olivine (<a href="http://vocab.getty.edu/page/aat/300147980">300147980</a>), Wikidata: olivine (<a href="https://www.wikidata.org/wiki/Q22693">Q22693</a>), and Mindat mineral ID: olivine (<a href="https://www.mindat.org/min-2983.html">2983</a>).</p>
+ {% include "fabrics/includes/captionF.html" with sherd="DFF2" site="Nissan Island" sample="DFF2" slide="WD_38_14" num="1296" numf="438" extra="Fabric with olivines and pyroxenes. Likely from the Tabar-Lihir-Tanga-Feni (TLTF) island chain." %} 
+ {% include "fabrics/includes/captionK.html" with sherd="30-151" site="Mulifanua, Samoa" sample="Mulifanna_30v151" slide="FP_1_15" num="2418" numf="2745" extra="Partial and full alteration of some olivine to iddingsite." source="F. Petchey"%} 
+
+<h2 id="mia">Mica</h2>
+<p>Micas (aluminium phyllosilicates) found in Pacific fabrics, include <mark id="mus"> muscovite </mark> and the ferromagnesian <mark id="bio"> biotite </mark>.  </p>
+<p>Exposure to heated liquids (such as those from cooling magmas) can alter feldspars to the mica <mark id="ser"> sericite </mark>. </p>
+<p>Mica grains are found in fabrics including the Carolines (<a href="{% url "fabric-type" "tpr272" %}">tpr272</a>), Maluku (<a href="{% url "fabric-type" "tpr80" %}">tpr80</a>) and PNG (<a href="{% url "fabric-type" "tpr271" %}">tpr271</a>), and at lower levels in other <a href="#arc">andesitic arc</a> and <a href="#dis">dissected orogen</a> fabrics.</p>
+<p>Muscovite often has a flaky, irregular appearance, is white in <a href="#ppl">PPL</a> and has higher order (bright electric-like) colours in <a href="#ppl">XPL</a>. Biotite, typically has a rectangular appearance and appears brown or dark green when viewed in <a href="#ppl">PPL</a>. In <a href="#ppl">XPL</a> it displays higher order colours or appears dark brown. Biotite turns black, indicating <a href="#ext">extinction</a> when its long direction is aligned parallel to the x or y axis. Sericite alterations exhibit a distinctive golden colour in <a href="#ppl">PPL</a> and <a href="#ppl">XPL</a>.</p>
+<p>See <a href="https://pubs.geoscienceworld.org/gsa/books/book/553/Temper-Sands-in-Prehistoric-Oceanian-Pottery">Dickinson (2006) pg. 26</a>, Strekeisen (2006-2020) on <a href="http://www.alexstrekeisen.it/english/pluto/muscovite.php">muscovite</a>, <a href="http://www.alexstrekeisen.it/english/pluto/biotite.php">biotite</a>, <a href="http://www.alexstrekeisen.it/english/pluto/sericite.php">sericite</a> or Perkins, (2022) sections <a href="https://geo.libretexts.org/Bookshelves/Geology/Mineralogy_(Perkins_et_al.)/06%3A_Igneous_Rocks_and_Silicate_Minerals/6.04%3A_Silicate_Minerals/6.4.05%3A_Micas">6.4.5</a>, <a href="https://geo.libretexts.org/Bookshelves/Geology/Mineralogy_(Perkins_et_al.)/14%3A_Mineral_Descriptions/14.01%3A_Silicate_Class/14.1.02%3A_Silicate_Class_-_Sheet_Silicates">14.1.2.3</a>.</p>
+ <p> Matches Getty AAT definition: muscovite (<a href="http://vocab.getty.edu/page/aat/300011125">300011125</a>), biotite (<a href="http://vocab.getty.edu/page/aat/300209728">300209728</a>), Wikidata: muscovite (<a href="https://www.wikidata.org/wiki/Q106532">Q106532</a>), biotite (<a href="https://www.wikidata.org/wiki/Q105794">Q105794</a>) and Mindat mineral ID: muscovite (<a href="https://www.mindat.org/min-2815.html">2815</a>), biotite (<a href="https://www.mindat.org/min-677.html">677</a>).</p>
+{% include "fabrics/includes/captionF.html" with sherd="TCS13" site="Teouma, Vanuatu" sample="Teouma_TCS13" slide="WD_46_4" num="1609" numf="393" extra="Minor muscovite and biotite present. Sherd made exotically in New Caledonia." %} 
+{% include "fabrics/includes/caption.html" with sherd="AT" site="Ambon, Maluku" sample="AmbonAT" slide="WD_20_5" num="645" extra="Biotite present." %} 
+{% include "fabrics/includes/captionK.html" with sherd="NLQ15" site="Arona, PNG" sample="NLQ15" slide="KH_1_37" num="1959" numf="315" extra="Sericitic degradation of feldspars. Biotite also present." source="K. Hardy"%} 
+
+<h2 id="epi">Epidote</h2>
+<p>Epidotes (calcium ferro-aluminium sorosilicates) are generally found in Pacific fabrics in polycrystalline aggregates derived from rock alteration (metamorphic or hydrothermal). They are found in regions including PNG (<a href="{% url "fabric-type" "tpr91" %}">tpr91</a>), Fiji (<a href="{% url "fabric-type" "tpr332" %}">tpr332</a>), Vanuatu (<a href="{% url "fabric-type" "tpr247" %}">tpr247</a>), New Caledonia (<a href="{% url "fabric-type" "tpr299" %}">tpr299</a>), Bismarcks (<a href="{% url "fabric-type" "tpr133" %}">tpr133</a>), Solomon Islands (<a href="{% url "fabric-type" "tpr138" %}">tpr138</a>), Cagayan (Philippines, <a href="{% url "fabric-type" "tpr55" %}">tpr55</a>) and Carolines (<a href="{% url "fabric-type" "tpr42" %}">tpr42</a>). </p>
+<p>Epidotes are clear to light yellow-green in <a href="#ppl">PPL</a>, and very brightly coloured (higher order) in <a href="#ppl">XPL</a>. They have one cleavage line at 25-40&deg and <a href="#ext">extinction</a> is at 0&deg (parallel) when measured relative to the length of the crystal (not the cleavage line).</p>
+<p>See <a href="https://pubs.geoscienceworld.org/gsa/books/book/553/Temper-Sands-in-Prehistoric-Oceanian-Pottery">Dickinson (2006) pg. 26</a>, <a href="https://www.alexstrekeisen.it/english/vulc/epidote.php">Strekeisen (2006-2020)</a>, or Perkins, (2022) sections <a href="https://geo.libretexts.org/Bookshelves/Geology/Mineralogy_(Perkins_et_al.)/06%3A_Igneous_Rocks_and_Silicate_Minerals/6.04%3A_Silicate_Minerals/6.4.09%3A_Ring_Silicates_and_Paired_Tetrahedral_Silicates">6.4.9</a>, <a href="https://geo.libretexts.org/Bookshelves/Geology/Mineralogy_(Perkins_et_al.)/14%3A_Mineral_Descriptions/14.01%3A_Silicate_Class/14.1.06%3A_Paired_Tetrahedral_Silicates">14.1.6</a>.
+Matches Getty AAT definition: epidote (<a href="http://vocab.getty.edu/page/aat/300011086">300011086</a>), Wikidata: epidote (<a href="https://www.wikidata.org/wiki/Q272844">Q272844</a>), and Mindat mineral ID: epidote (<a href="https://www.mindat.org/min-1389.html">1389</a>).</p>
+
+<h2 id="gar">Garnet and Red Chrome Spinel</h2>
+<p>Minerals found in Pacific fabrics, that are nonopaque (translucent) but isotropic, include garnets (a nesosilicate mineral group) and red chrome spinel (a non-silicate of the spinel group). 
+  In Pacific fabrics garnets are not found in abundances above 5%, but occur in fabrics from Buru (Maluku, <a href="{% url "fabric-type" "tpr69" %}">tpr69</a>) and New Caledonia (<a href="{% url "fabric-type" "tpr296" %}">tpr296</a>). Red chrome spinels occur in selected fabrics from PNG (<a href="{% url "fabric-type" "tpr183" %}">tpr183</a>) and New Caledonia (<a href="{% url "fabric-type" "tpr311" %}">tpr311</a>). </p>
+  <p>Garnets are clear and red chrome spinels are a dark red colour in <a href="#ppl">PPL</a>. Both are black in <a href="#ppl">XPL</a>.</p> 
+  <p>See <a href="https://pubs.geoscienceworld.org/gsa/books/book/553/Temper-Sands-in-Prehistoric-Oceanian-Pottery">Dickinson (2006) pg. 25</a>, Strekeisen (2006-2020) <a href="http://www.alexstrekeisen.it/english/pluto/garnet.php">garnet</a>, or Perkins, (2022) sections <a href="https://geo.libretexts.org/Bookshelves/Geology/Mineralogy_(Perkins_et_al.)/14%3A_Mineral_Descriptions/14.01%3A_Silicate_Class/14.1.05%3A_Silicate_Class_-_Isolated_Tetrahedral_Silicates"> 14.1.5.1</a>, <a href="https://geo.libretexts.org/Bookshelves/Geology/Mineralogy_(Perkins_et_al.)/14%3A_Mineral_Descriptions/14.05%3A_Oxide_Minerals/14.5.02%3A_Spinels_and_other_Oxides_with_Mixed_Coordination">14.5.2</a>.
+  Matches Getty AAT definition: garnet (<a href="http://vocab.getty.edu/page/aat/300011097">300011097</a>), Wikidata: garnet (<a href="https://www.wikidata.org/wiki/Q105368">Q105368</a>), chromspinel (<a href="https://www.wikidata.org/wiki/Q56314668">Q56314668</a>) and Mindat mineral ID: garnet (<a href="https://www.mindat.org/min-10272.html">10272</a>), Cr-spinel (<a href="https://www.mindat.org/min-7699.html">7699</a>).</p>
+{% include "fabrics/includes/captionF.html" with sherd="267" site="Malo" sample="Malo267" slide="WD_57_21" num="1173" numf="372" extra="Has chrome spinel, likely from New Caledonia." %} 
+{% include "fabrics/includes/captionF.html" with sherd="BX13" site="Buru, Maluku" sample="BuruBX13" slide="WD_18_2" num="722" numf="324" extra="Contains rare garnets." %} 
+
+<h2 id="irf">Igneous Rock Fragments</h2>
+<h3> Note that the abundances of igneous and metavolcanic rocks are reported together in this database. </h3>
+
+<p> Igneous rocks are derived from crystallised magma. Igneous rocks are classified by crystal size, which is dependent on magma cooling time. In volcanic rocks, the magma cooled on the earths surface (i.e. lava) results in an <mark id="aph"> aphanitic </mark> (very fine) texture, whereas the slower cooling underground, in <mark id="plu">plutonic</mark> rocks results in larger crystals (i.e. a <mark id="pha">phaneritic</mark> texture). 
+ The different proportions of <a href="#fel">K-feldspars</a>, <a href="#qua">quartz</a>, <a href="#fel">plagioclase</a>, <a href="#pyr">pyroxenes</a>, <a href="#oli">olivines</a>, <a href="#mia">micas</a> and <a href="#amp">amphiboles</a>, give rise to different rock types. 
+ The most common volcanic rock types in Pacific fabrics include <a href="#and">andesite</a>, <a href="#bas">basalt</a> and <a href="#dac">dacite</a>, with some <a href="#dac">rhyolite</a>. 
+The more common plutonic rock types include diorite, granodiorite, and gabbro, with some granite and peridotite. </p>
+
+<a class="linked" title="Woudloper, Public domain, via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File:Mineralogy_igneous_rocks_EN.svg"><img width="512" alt="Mineralogy igneous rocks EN" src="{% static "fabrics/images/Mineralogy_igneous_rocks_EN.svg" %}"></a>
+<a href="https://commons.wikimedia.org/wiki/File:Mineralogy_igneous_rocks_EN.svg">Woudloper</a>, Public domain, via Wikimedia Commons
+<p> All regions contain at least one fabric variant dominated by igneous lithic fragments, including Vanuatu (<a href="{% url "fabric-type" "tpr250" %}">tpr250</a>), Marianas (<a href="{% url "fabric-type" "tpr20" %}">tpr20</a>), Samoa (<a href="{% url "fabric-type" "tpr293a" %}">tpr293a</a>), Bismarck (<a href="{% url "fabric-type" "tpr180" %}">tpr180</a>), Fiji (<a href="{% url "fabric-type" "tpr410" %}">tpr410</a>), Tonga (<a href="{% url "fabric-type" "tpr374" %}">tpr374</a>), and PNG (<a href="{% url "fabric-type" "tpr88" %}">tpr88</a>). 
+  Igneous volcanic rock textures include <a href="#vit">vitric</a>, <a href="#fes">felsitic</a>, <a href="mic">microlitic</a>, and <a href="#lat">lathwork</a>.
+ For plutonic rocks, <a href="#mph">microphaneritic</a> is used for fragments with smaller crystals, like the <mark id="hyb"> hypabassal </mark> and <mark id="mid"> microdiorites </mark>, while plutonic is used here for larger crystals. 
+ However, it is important to note that the distinction between the different textures is operator subjective, and should be taken as a guide only and refer to fabric images where possible.</p>
+ 
+ <p>Fabric types with large proportions of igneous lithic inclusions include: <a href="{% url "superfabric-type" "igneous" %}">igneous</a>; <a href="{% url "superfabric-type" "igneous-feldspathic" %}">igneous feldspathic</a>; <a href="{% url "superfabric-type" "igneous-olivine" %}">igneous olivine</a>; <a href="{% url "superfabric-type" "pyroxenic-igneous" %}">pyroxenic-igneous</a>; <a href="{% url "superfabric-type" "lithic-quartzose-feldspathic" %}">lithic quartzose-feldspathic</a>; <a href="{% url "superfabric-type" "felsitic-microlitic" %}">felsitic-microlitic</a>; <a href="{% url "superfabric-type" "felsitic-microlitic-feldspathic" %}">felsitic-microlitic feldspathic</a>; <a href="{% url "superfabric-type" "lathwork" %}">lathwork</a>; <a href="{% url "superfabric-type" "lathwork-feldspathic" %}">lathwork feldspathic</a>; <a href="{% url "superfabric-type" "microphaneritic" %}">microphaneritic</a>; <a href="{% url "superfabric-type" "microphaneritic-feldspathic" %}">microphaneritic feldspathic</a>; <a href="{% url "superfabric-type" "vitric" %}">vitric</a>; <a href="{% url "superfabric-type" "vitric-feldspathic" %}">vitric feldspathic</a>; and <a href="{% url "superfabric-type" "metavolcanic" %}">metavolcanic</a> fabrics.</p>
+ <p>See <a href="https://pubs.geoscienceworld.org/gsa/books/book/553/Temper-Sands-in-Prehistoric-Oceanian-Pottery">Dickinson (2006) pg. 22, 26</a>, Strekeisen (2006-2020) on <a href="http://www.alexstrekeisen.it/english/pluto/index.php">plutonic</a>, <a href="http://www.alexstrekeisen.it/english/vulc/index.php">volcanic</a>, or <a href="https://geo.libretexts.org/Bookshelves/Geology/Mineralogy_(Perkins_et_al.)/06%3A_Igneous_Rocks_and_Silicate_Minerals">Perkins, (2022) section 6</a>.
+ Matches Getty AAT definition: igneous rock (<a href="http://vocab.getty.edu/page/aat/300011178">300011178</a>), Wikidata: igneous rock (<a href="https://www.wikidata.org/wiki/Q42045">Q42045</a>), and Mindat mineral ID: igneous rock (<a href="https://www.mindat.org/min-48017.html">48017</a>).</p>
+
+  
+<h3 id="vit">Vitric</h3>
+<p> Vitric (glass) fragments are traditionally included as igneous rock fragments, as they derive from magma cooled rapidly, sometimes from pyroclastic debris. The colour of the glass varies from brown or red (from <mark id="maf">mafic</mark> sources, more rich in metals like iron and magnesium) to tan or colourless (from <mark id="fec">felsic</mark>, less ferromagnesian sources).
+Vitric fragments from volcanic ash can show curvilinear and branching, and are generally clear. Vitric fragments from pyroclastic flows have <mark id="eut">eutaxitic</mark> textures with elongated vesicles. Vitric fragments with many vesicles have <mark id="pum">pumiceous </mark> texture.
+Fabrics with vitrics come from areas including, Vanuatu (<a href="{% url "fabric-type" "tpr233" %}">tpr233</a>), Marianas (<a href="{% url "fabric-type" "tpr25" %}">tpr25</a>), Samoa (<a href="{% url "fabric-type" "tpr294" %}">tpr294</a>), Bismarcks (<a href="{% url "fabric-type" "tpr119" %}">tpr119</a>), Tonga (<a href="{% url "fabric-type" "tpr374" %}">tpr374</a>) and Carolines (<a href="{% url "fabric-type" "tpr211" %}">tpr211</a>). </p>
+<p>Fabric types with large proportions of vitric lithic inclusions include: <a href="{% url "superfabric-type" "vitric" %}">vitric</a>; and <a href="{% url "superfabric-type" "vitric-feldspathic" %}">vitric feldspathic</a> fabrics.</p>
+<p>See <a href="https://pubs.geoscienceworld.org/gsa/books/book/553/Temper-Sands-in-Prehistoric-Oceanian-Pottery">Dickinson (2006) pg. 21, 26, 50, 110</a>, or Strekeisen (2006-2020) on <a href="http://www.alexstrekeisen.it/english/vulc/glass.php">glass</a>, <a href="http://www.alexstrekeisen.it/english/vulc/pumice.php">pumice</a>, <a href="http://www.alexstrekeisen.it/english/vulc/vitrophyric.php">vitrophyric</a>.
+Matches Getty AAT definition: volcanic glass (<a href="http://vocab.getty.edu/page/aat/300263800">300263800</a>), Wikidata: volcanic glass (<a href="https://www.wikidata.org/wiki/Q107749">Q107749</a>), and Mindat mineral ID: glassy igneous rock (<a href="https://www.mindat.org/min-50714.html">50714</a>).</p>
+{% include "fabrics/includes/captionF.html" with sherd="RV-21-E2" site="New Georgia, Solomons" sample="Roviana_Lagoon_RV_21_E2" slide="WD_40_24" num="1417" numf="51" extra="Dominated by vitrics."%} 
+{% include "fabrics/includes/captionF.html" with sherd="HAM1" site="Haruku, Maluku" sample="HarukuHAM1" slide="WD_19_16" num="985" numf="126" extra="Dominated by colourless vitrics."%} 
+{% include "fabrics/includes/captionF.html" with sherd="Len4" site="Pohnpei, Carolines" sample="Len4" slide="WD_90_4" num="1094" numf="162" extra="Contains vitrics."%} 
+
+{% include "fabrics/includes/caption.html" with sherd="NECRotaR19" site="Rota, Marianas" sample="NECRotaR19" slide="WD_8_3" num="1240" extra="Dominated by tan vitrics. Origin Guam." %} 
+{% include "fabrics/includes/captionKa.html" with sherd="VA14" site="Vao, Vanuatu" sample="va14" slide="ML_1_1" num="2004" source="M. Leclerc" extra="Fabric with tan vitrics."%} 
+
+<h3 id="fes">Felsitic</h3>
+<p>Felsitic fragments contain crystals with irregular shapes, and mainly derive from <a href="#dac">dacite </a> or felsic <a href="#and"> andesite</a>. They are commonly contain <a href="#fel">plagioclase</a> microphenocrysts in a mosaic microcrystalline quartz-feldspar groundmass formed from devitrified glass. Felsitic fragments can have granular or more seriated textures depending on the pervasiveness of the devitrification.
+  Fabrics containing felsitic fragments occur in most regions, particularly those with <a href="#and"> andesitic </a> or <a href="#dac">dacitic</a> sources including Vanuatu (<a href="{% url "fabric-type" "tpr250" %}">tpr250</a>), Carolines (<a href="{% url "fabric-type" "tpr250" %}">tpr250</a>), Maluku (<a href="{% url "fabric-type" "tpr190" %}">tpr190</a>), Samoa (<a href="{% url "fabric-type" "tpr293a" %}">tpr293a</a>), Solomon Islands (<a href="{% url "fabric-type" "tpr144" %}">tpr144</a>), Bismarcks (<a href="{% url "fabric-type" "tpr179" %}">tpr179</a>), Fiji (<a href="{% url "fabric-type" "tpr343a" %}">tpr343a</a>) and Tonga (<a href="{% url "fabric-type" "tpr209" %}">tpr209</a>).</p>
+ <p>Fabric types with large proportions of felsitic lithic inclusions include: <a href="{% url "superfabric-type" "felsitic-microlitic" %}">felsitic-microlitic</a>; and <a href="{% url "superfabric-type" "felsitic-microlitic-feldspathic" %}">felsitic-microlitic feldspathic</a> fabrics.</p>
+  <p>See <a href="https://pubs.geoscienceworld.org/gsa/books/book/553/Temper-Sands-in-Prehistoric-Oceanian-Pottery">Dickinson (2006) pg. 27</a>, or Strekeisen (2006-2020) on <a href="http://www.alexstrekeisen.it/english/vulc/felsic.php">felsitic</a>.
+Matches Wikidata: felsitic texture (<a href="https://www.wikidata.org/wiki/Q16721473">Q16721473</a>).</p>
+{% include "fabrics/includes/caption.html" with sherd="12-6" site="Malakula, Vanuatu" sample="Tuato12_6" slide="WD_49_10" num="1708" extra="Lithics mainly felsitic." %} 
+{% include "fabrics/includes/caption.html" with sherd="AnirL6" site="Anir, Bismarcks" sample="AnirL6" slide="WD_102_3" num="667" extra="Lithics mainly felsitic." %} 
+
+<h3 id="mic">Microlitic</h3>
+<p>Microlitic fragments contain tiny <a href="#fel">plagioclase</a> (usually) crystals with generally elongated shapes, that can be tightly packed (<mark id="pil">pilotaxitic</mark>), or more spaced out in a glass matrix (<mark id="hya">hyalopilitic</mark>). Those with crystals which became aligned when flowing when the lithic was liquid are called <mark id="tra">trachytic</mark>. 
+They are found primarily in andesitic and basaltic andesites in regions including Vanuatu (<a href="{% url "fabric-type" "tpr248" %}">tpr248</a>), Solomon Islands (<a href="{% url "fabric-type" "tpr172" %}">tpr172</a>), Samoa (<a href="{% url "fabric-type" "tpr293b" %}">tpr293b</a>), Bismarcks (<a href="{% url "fabric-type" "tpr178" %}">tpr178</a>), Futuna (<a href="{% url "fabric-type" "tpr325" %}">tpr325</a>) and Fiji (<a href="{% url "fabric-type" "tpr344" %}">tpr344</a>).</p>
+<p>Fabric types with large proportions of microlitic lithic inclusions include: <a href="{% url "superfabric-type" "felsitic-microlitic" %}">felsitic-microlitic</a>; and <a href="{% url "superfabric-type" "felsitic-microlitic-feldspathic" %}">felsitic-microlitic feldspathic</a> fabrics.</p>
+<p>See <a href="https://pubs.geoscienceworld.org/gsa/books/book/553/Temper-Sands-in-Prehistoric-Oceanian-Pottery">Dickinson (2006) pg. 27</a>, or Strekeisen (2006-2020) on <a href="http://www.alexstrekeisen.it/english/vulc/hyalopilitic.php">hyalopilitic</a>, <a href="https://www.alexstrekeisen.it/english/vulc/pilotassitic.php">pilotaxitic</a>.
+Matches Wikidata: microlitic texture (<a href="https://www.wikidata.org/wiki/Q12131213">Q12131213</a>).</p>
+{% include "fabrics/includes/captionF.html" with sherd="MK13" site="Maskelyne Islands, Vanuatu" sample="MaskelyneMK13" slide="WD_48_11" num="1199" numf="375" extra="Lithics include those with microlitic and vitric textures." %} 
+{% include "fabrics/includes/captionF.html" with sherd="AnirL5" site="New Britain, Bismarcks" sample="AnirL5" slide="WD_102_2" num="665" numf="450" extra="Hyalopilitic microlitics."%} 
+{% include "fabrics/includes/captionF.html" with sherd="FS2-14-94" site="Garua, Bismarcks" sample="GaruaFS2_14_94" slide="WD_41_9" num="939" numf="447" extra="Hyalopilitic microlitics."%} 
+{% include "fabrics/includes/caption.html" with sherd="78-731" site="Taumako" sample="taumako_78_731" slide="WD_105_3" num="1579" extra="Lithics mainly microlitic." %} 
+{% include "fabrics/includes/captionF.html" with sherd="25-4" site="Upolu, Samoa" sample="Sasoaa_25_4" slide="WD_25_8" num="3423" numf="4083" extra="Trachytic microlitic lithics."%} 
+
+
+
+<h3 id="lat">Lathwork</h3>
+<p>Lathwork fragments contain larger (often <a href="#fel">plagioclase</a>, <a href="#pyr">pyroxenes</a> or <a href="#oli">olivine</a>) crystals. They can be intersertal (set in glass) or intergranular (with other crystals such as pyroxenes). If crystals occur within the vitric fragment, they can be described as <mark id="vip">vitrophyric</mark>.
+  They are found primarily in basalt or basanite fabrics in regions including Samoa (<a href="{% url "fabric-type" "tpr294b" %}">tpr294b</a>), Uvea (<a href="{% url "fabric-type" "tpr328" %}">tpr328</a>) and Fiji (<a href="{% url "fabric-type" "tpr333" %}">tpr333</a>).</p>
+ <p>Fabric types with large proportions of lathwork lithic inclusions include: <a href="{% url "superfabric-type" "lathwork" %}">lathwork</a>; and <a href="{% url "superfabric-type" "lathwork-feldspathic" %}">lathwork feldspathic</a> fabrics.</p>
+  <p>See <a href="https://pubs.geoscienceworld.org/gsa/books/book/553/Temper-Sands-in-Prehistoric-Oceanian-Pottery">Dickinson (2006) pg. 27</a>, or Strekeisen (2006-2020) on <a href="http://www.alexstrekeisen.it/english/vulc/Intergranular.php">intergranular</a>, <a href="http://www.alexstrekeisen.it/english/vulc/intersertal.php">intersertal</a>. Wikidata: <a href="https://www.wikidata.org/wiki/Q137423722">Q137423722</a>.</p>
+{% include "fabrics/includes/captionF.html" with sherd="61-1" site="Erromango, Vanuatu" sample="Ponamla61_1" slide="WD_57_1" num="1364" numf="429" extra="Lithics include those with vitric, lathwork and microlitic textures." %} 
+{% include "fabrics/includes/captionK.html" with sherd="29-187" site="Mulifanua, Samoa" sample="Mulifanna_29v187" slide="FP_1_12" num="2414" numf="2910" extra="Microlitic and lathwork lithics." source="F. Petchey"%} 
+
+{% include "fabrics/includes/captionKa.html" with sherd="25-26" site="Mulifanua, Samoa" sample="Mulifanna_disk" slide="FP_1_20" num="2425" extra="Contains vitrophyric, vitric and holocrystalline lithics." source="F. Petchey"%} 
+{% include "fabrics/includes/captionKa.html" with sherd="32-333" site="Mulifanua, Samoa" sample="Mulifanna_32v333" slide="FP_1_18" num="2421" extra="Contains vitric and picritic lathwork lithics." source="F. Petchey"%} 
+
+<h3 id="mph">Microphaneritic</h3>
+<p>Lithics with Dickinson often used the term 'microphaneritic' to include the hypabassal to plutonic spectrum of fragments containing crystals ranging in size.
+  Hypabassal fragments characterise fabrics from Solomon Islands (<a href="{% url "fabric-type" "tpr127" %}">tpr127</a>) and other microphaneritic fabrics include those from Vanuatu (<a href="{% url "fabric-type" "tpr254" %}">tpr254</a>). 
+  Larger plutonic fragments are found in fabrics from PNG (<a href="{% url "fabric-type" "tpr270" %}">tpr270</a>), Bismarcks (<a href="{% url "fabric-type" "tpr314" %}">tpr314</a>) and the Solomon Islands (<a href="{% url "fabric-type" "tpr276" %}">tpr276</a>). </p>
+ <p>Fabric types with large proportions of microphaneritic lithic inclusions include: <a href="{% url "superfabric-type" "microphaneritic" %}">microphaneritic</a>; and <a href="{% url "superfabric-type" "microphaneritic-feldspathic" %}">microphaneritic feldspathic</a> fabrics.</p>
+ <p> See <a href="https://pubs.geoscienceworld.org/gsa/books/book/553/Temper-Sands-in-Prehistoric-Oceanian-Pottery">Dickinson (2006) pg. 26</a>, <a href="http://www.alexstrekeisen.it/english/pluto/index.php">Strekeisen (2006-2020) plutonic</a>, or <a href="https://geo.libretexts.org/Bookshelves/Geology/Mineralogy_(Perkins_et_al.)/14%3A_Mineral_Descriptions/14.01%3A_Silicate_Class/14.1.02%3A_Silicate_Class_-_Sheet_Silicates">Perkins, (2022) section 14.1.2.3</a>. Wikidata: <a href="https://www.wikidata.org/wiki/Q137423722">Q137423785</a>.</p>
+{% include "fabrics/includes/captionF.html" with sherd="12-4" site="Malakula, Vanuatu" sample="PortStanley12_4" slide="WD_49_22" num="1369" numf="369" extra="Lithic fabric with microdiorites."%} 
+
+{% include "fabrics/includes/captionKa.html" with sherd="NVM1" site="Eastern Highlands, PNG" sample="NVM1" slide="KH_1_33" num="1987" source="K. Hardy" extra="Fabric with larger plutonic rock fragments."%} 
+{% include "fabrics/includes/captionF.html" with sherd="6-1" site="Ile Des Pins, New Caledonia" sample="IllsDesPins_6_1" slide="WD_27_6" num="3290" numf="4477" extra="Granite and ultramafic rocks." %} 
+
+
+<h2 id="met">Metavolcanic</h2>
+<h3> Note that the abundances of igneous and metavolcanic rocks are reported together in this database.</h3>
+
+<p>Metavolcanics are igneous rocks that have been altered by high pressures and or temperatures, giving them a foliated appearance. In Pacific fabrics, the 
+  metavolcanics found include actinolite-chlorite-albite greenschists, ultramafic <mark id="sep">serpentinites</mark>, and amphibole-plagioclase <mark id="amh">amphibolites</mark>.</p>
+  <p>Source regions for metavolcanic fabrics include Carolines (<a href="{% url "fabric-type" "tpr272" %}">tpr272</a> with greenschist) and New Caledonia (<a href="{% url "fabric-type" "tpr303" %}">tpr303</a>, featuring amphibolite with feldspar-cummingtonite and <a href="{% url "fabric-type" "tpr310" %}">tpr310</a>, featuring serpentinite).</p>
+<p>Fabric types with large proportions of metavolcanic lithic inclusions include:  <a href="{% url "superfabric-type" "metavolcanic" %}">metavolcanic</a> fabrics.</p>
+<p>See <a href="https://pubs.geoscienceworld.org/gsa/books/book/553/Temper-Sands-in-Prehistoric-Oceanian-Pottery">Dickinson (2006) pg. 27</a>, <a href="http://www.alexstrekeisen.it/english/meta/index.php">Strekeisen (2006-2020)</a>, or <a href="https://geo.libretexts.org/Bookshelves/Geology/Mineralogy_(Perkins_et_al.)/08%3A_Metamorphic_Minerals_and_Metamorphic_Rocks">Perkins, (2022) section 8</a>.
+Matches Getty AAT definition: metavolcanic (<a href="http://vocab.getty.edu/page/aat/300011437">300011437</a>), Wikidata: metavolcanic (<a href="https://www.wikidata.org/wiki/Q6823306">Q6823306</a>) and Mindat mineral ID: metavolcanic (<a href="https://www.mindat.org/min-51450.html">51450</a>).</p>
+{% include "fabrics/includes/captionF.html" with sherd="Ngulu9" site="Ngulu, Carolines" sample="Ngulu9" slide="WD_10_14" num="1262" numf="189" extra="Metavolcanic fabric. Origin Yap." %} 
+{% include "fabrics/includes/captionF.html" with sherd="7-1" site="Ile Des Pins, New Caledonia" sample="IllsDesPins_7_1" slide="WD_27_8" num="3292" numf="4351" extra="Metavolcanic mafic fabric." %} 
+
+
+<h2 id="sed">Sedimentary and Metasedimentary</h2>
+<p>Sedimentary rocks are formed by accumulation/deposition of cemented sediments. They are identified as metasedimentary when they are altered by high pressure or temperature, which generally results in striated crystals.  
+Sedimentary rocks in Pacific fabrics, as per Dickinson, include <mark id="che">chert</mark> (quartz microcrystalline aggregates),
+<mark id="sil">siltstone</mark> (quartz-rich), and <mark id="arg">argillite</mark> (shale or mudrock). <mark id="qze">Quartzite</mark> (quartz polycrystalline aggregates) and <mark id="tec">tectonite</mark> (slate and phyllite) are the two main metasedimentary fragments identified.</p>
+<p>Regions with significant proportion of sedimentary and metasedimentary fabrics include Buru (Maluku <a href="{% url "fabric-type" "tpr69" %}">tpr69</a>), New Caledonia (<a href="{% url "fabric-type" "tpr299" %}">tpr299</a>), Carolines (<a href="{% url "fabric-type" "tpr41" %}">tpr41</a>), PNG (<a href="{% url "fabric-type" "tpr88" %}">tpr88</a>), Fiji (<a href="{% url "fabric-type" "tpr343a" %}">tpr343a</a>), and the Philippines (<a href="{% url "fabric-type" "tpr57" %}">tpr57</a>).</p>
+<p>Fabric types with large proportions of (meta-)sedimentary lithic inclusions include: <a href="{% url "superfabric-type" "lithic-quartzose-feldspathic" %}">lithic quartzose-feldspathic</a>; and <a href="{% url "superfabric-type" "sedimentary" %}">sedimentary</a> fabrics.</p>
+<p>See <a href="https://pubs.geoscienceworld.org/gsa/books/book/553/Temper-Sands-in-Prehistoric-Oceanian-Pottery">Dickinson (2006) pg. 27</a>, Strekeisen (2006-2020) <a href="http://www.alexstrekeisen.it/english/sedi/index.php">sedimentary</a>, <a href="http://www.alexstrekeisen.it/english/meta/phyllite.php">phyllite</a>, <a href="http://www.alexstrekeisen.it/english/meta/quartzite.php">quartzite</a> or <a href="https://geo.libretexts.org/Bookshelves/Geology/Mineralogy_(Perkins_et_al.)/07%3A_Sedimentary_Minerals_and_Sedimentary_Rocks">Perkins, (2022) section 7</a>. 
+Matches Getty AAT definition: sedimentary (<a href="http://vocab.getty.edu/page/aat/300011273">300011273</a>), chert (<a href="http://vocab.getty.edu/page/aat/300011141">300011141</a>), siltstone (<a href="http://vocab.getty.edu/page/aat/300011383">300011383</a>), argillite (<a href="http://vocab.getty.edu/page/aat/300011276">300011276</a>), quartzite (<a href="http://vocab.getty.edu/page/aat/300011623">300011623</a>), slate (<a href="http://vocab.getty.edu/page/aat/300011646">300011646</a>), phyllite (<a href="http://vocab.getty.edu/page/aat/300011622">300011622</a>), Wikidata: sedimentary (<a href="https://www.wikidata.org/wiki/Q82480">Q82480</a>), chert (<a href="https://www.wikidata.org/wiki/Q1070438">Q1070438</a>), siltstone (<a href="https://www.wikidata.org/wiki/Q565731">Q565731</a>), argillite (<a href="https://www.wikidata.org/wiki/Q836062">Q836062</a>), quartzite (<a href="https://www.wikidata.org/wiki/Q237883">Q237883</a>), phyllite (<a href="https://www.wikidata.org/wiki/Q731880">Q731880</a>), slate (<a href="https://www.wikidata.org/wiki/Q207079">Q207079</a>) and Mindat mineral ID: sedimentary (<a href="https://www.mindat.org/min-51426.html">51426</a>), chert (<a href="https://www.mindat.org/min-994.html">994</a>), siltstone (<a href="https://www.mindat.org/min-49448.html">49448</a>), argillite (<a href="https://www.mindat.org/min-49445.html">49445</a>), quartzite (<a href="https://www.mindat.org/min-51087.html">51087</a>), slate (<a href="https://www.mindat.org/min-48638.html">48638</a>), phyllite (<a href="https://www.mindat.org/min-50064.html">50064</a>), tectonite (<a href="https://www.mindat.org/min-52857.html">52857</a>).</p>
+{% include "fabrics/includes/captionF.html" with sherd="VA-C2-97" site="Vasino, Maluku" sample="VasinoVA_C2_97" slide="WD_86_17" num="1775" numf="243" extra=" Lithic fragments of sedimentary rock- dominantly murky argillite (or shale or mudstone)" %} 
+{% include "fabrics/includes/captionF.html" with sherd="BX13" site="Buru, Maluku" sample="BuruBX13" slide="WD_18_2" num="722" numf="324" extra="Contains metasedimentary lithics." %} 
+{% include "fabrics/includes/caption.html" with sherd="52-14-1" site="Huakanshan, Taiwan" sample="Huakanshan_52_14_1" slide="WD_15_19a" num="999" extra="Quartzite, tectonite rich." %} 
+
+
+<h2 id="gro">Grog</h2>
+<p>In the Pacific, the use of broken/crushed pottery (grog) as temper is mainly limited to the Carolines (e.g. <a href="{% url "fabric-type" "tpr39" %}">tpr39</a>) and possibly PNG (<a href="{% url "fabric-type" "tpr179a" %}">tpr179a</a>).
+<p>Fabric types with large proportions of grog inclusions include: <a href="{% url "superfabric-type" "grog" %}">grog</a> fabrics.</p>
+<p>See <a href="https://pubs.geoscienceworld.org/gsa/books/book/553/Temper-Sands-in-Prehistoric-Oceanian-Pottery">Dickinson (2006) pg. 21</a>. Wikidata: <a href="https://www.wikidata.org/wiki/Q1455223">Q1455223</a>. </p>
+{% include "fabrics/includes/captionK.html" with sherd="NM37-93" site="Nan Madol, Carolines" sample="NanMadol_37_93_2" slide="FL_1_89" num="2511" numf="2919" extra="Grog and lithic temper. See also image with higher exposure." source="F. Leach"%} 
+{% include "fabrics/includes/captionF.html" with sherd="UL1" site="Ulong Islet, Carolines" sample="UL1" slide="WD_12_8" num="1723" numf="174" %} 
+
+<h2 id="roc">Rock types</h2>
+<h3 id="bas">Basaltic</h3>
+<p>Basalts are igneous (volcanic) rocks from lava (surface magma) that cooled quickly, above (or near) the earth's surface. The quick cooling leads to fine crystal grains. Basalts have less silica (i.e. less <a href="#qua">quartz</a>) than <a href="#and">andesites</a>, and predominately contain minerals such as <a href="#fel">plagioclase feldspars</a>, <a href="#pyr">clinopyroxene (and orthopyroxene) </a> and <a href="#oli">olivine</a>. These minerals sometimes occur as larger crystal laths, formed before the lava reached the surface.
+Rock fragments described as basaltic, may also include basanites and the more <a href="#fec">felsic</a> hawaiite, as they can be difficult to distinguish visually.</p>
+<p>Basaltic tempers are found in regions including the East Carolines (e.g. <a href="{% url "fabric-type" "tpr211" %}">tpr211</a>), Samoa (e.g. <a href="{% url "fabric-type" "tpr294a" %}">tpr294a</a>) and Uvea (e.g. <a href="{% url "fabric-type" "tpr328" %}">tpr328</a>). </p>
+<p>See <a href="https://pubs.geoscienceworld.org/gsa/books/book/553/Temper-Sands-in-Prehistoric-Oceanian-Pottery">Dickinson (2006) pg. 30</a>, <a href="https://www.alexstrekeisen.it/english/vulc/basalt.php">Strekeisen (2006-2020)</a>, or <a href="https://geo.libretexts.org/Bookshelves/Geology/Mineralogy_(Perkins_et_al.)/06%3A_Igneous_Rocks_and_Silicate_Minerals/6.06%3A_Mineral_Modes">Perkins, (2022) section 6.6</a>.
+Matches Getty AAT definition: basalt (<a href="http://vocab.getty.edu/page/aat/300011222">300011222</a>), Wikidata: basalt (<a href="https://www.wikidata.org/wiki/Q43338">Q43338</a>) and Mindat mineral ID: basalt (<a href="https://www.mindat.org/min-48492.html">48492</a>).</p>
+{% include "fabrics/includes/captionF.html" with sherd="Len4" site="Pohnpei, Carolines" sample="Len4" slide="WD_90_4" num="1094" numf="162" extra="Basaltic lithic fabric." %} 
+{% include "fabrics/includes/captionK.html" with sherd="29-187" site="Mulifanua, Samoa" sample="Mulifanna_29v187" slide="FP_1_12" num="2414" numf="2910" extra="Basaltic lithics with degraded olivines." source="F. Petchey"%} 
+
+<h3 id="and">Andesitic</h3>
+<p>Andesites are <a href="#irf">igneous</a> (volcanic) rocks that have intermediate silica levels (between rhyolite and basalt). They are primarily made of <a href="#fel">plagioclase feldspars</a>, <a href="#pyr">clinopyroxenes</a>, <a href="#amp">hornblendes</a> and <a href="#vit">vitric</a> volcanic rock fragments.</p>
+ <p>Andesitic tempers are found in regions such as Marianas (e.g. <a href="{% url "fabric-type" "tpr21" %}">tpr21</a>), Bismarcks (e.g. <a href="{% url "fabric-type" "tpr191" %}">tpr191</a>), Vanuatu (e.g. <a href="{% url "fabric-type" "tpr214" %}">tpr214</a>), and West Carolines (e.g. <a href="{% url "fabric-type" "tpr53" %}">tpr53</a>).</p>
+ <p>See <a href="https://pubs.geoscienceworld.org/gsa/books/book/553/Temper-Sands-in-Prehistoric-Oceanian-Pottery">Dickinson (2006) pg. 39</a>, <a href="https://www.alexstrekeisen.it/english/vulc/andesite.php">Strekeisen (2006-2020)</a>, or <a href="https://geo.libretexts.org/Bookshelves/Geology/Mineralogy_(Perkins_et_al.)/06%3A_Igneous_Rocks_and_Silicate_Minerals/6.06%3A_Mineral_Modes">Perkins, (2022) section 6.6</a>.
+ Matches Getty AAT definition: andesite (<a href="http://vocab.getty.edu/page/aat/300011213">300011213</a>), Wikidata: andesite (<a href="https://www.wikidata.org/wiki/Q181908">Q181908</a>) and Mindat mineral ID: andesite (<a href="https://www.mindat.org/min-48484.html">48484 </a>).</p>
+  {% include "fabrics/includes/captionF.html" with sherd="49" site="Guam, Marianas" sample="guam_49" slide="WD_7_1" num="953" numf="345" extra="Andesitic lithic fabric from Guam." %} 
+  {% include "fabrics/includes/captionF.html" with sherd="GDE59-4" site="Manus, Bismarcks" sample="GDE59_4" slide="WD_41_7" num="945" numf="435" extra="Andesitic fabric from Manus." %} 
+{% include "fabrics/includes/captionF.html" with sherd="SAN4" site="Santo, Vanuatu" sample="SantoSAN4" slide="WD_57_13" num="1484" numf="378" extra="Andesitic fabric from Vanuatu." %} 
+<h3 id="dac">Dacitic and Rhyolitic</h3>
+<p>Dacitic rocks are similar to <a href="#and">andesitic</a> rocks, but contain higher levels of <a href="#qua">quartz</a>. Within the Marianas, Saipan is the most likely source of dacitic fabrics (such as <a href="{% url "fabric-type" "tpr5" %}">tpr5</a>). The <a href="#fel">feldspars</a> in dacites are primarily plagioclase and similar rocks with more alkali feldspars are called rhyolitic. Rhyolite defines the type of extrusive igneous rock with the highest content of quartz and K-feldspar. Rhyolitic fabrics are found in Haruku, Maluku (e.g. <a href="{% url "fabric-type" "tpr78" %}">tpr78</a>).
+</p>
+<p>See <a href="https://pubs.geoscienceworld.org/gsa/books/book/553/Temper-Sands-in-Prehistoric-Oceanian-Pottery">Dickinson (2006) pg. 39</a>, Strekeisen (2006-2020) on <a href="https://www.alexstrekeisen.it/english/vulc/dacite.php">dacite</a>, <a href="https://www.alexstrekeisen.it/english/vulc/rhyolite.php">rhyolite</a>, or <a href="https://geo.libretexts.org/Bookshelves/Geology/Mineralogy_(Perkins_et_al.)/06%3A_Igneous_Rocks_and_Silicate_Minerals/6.06%3A_Mineral_Modes">Perkins, (2022) section 6.6</a>.
+Matches Getty AAT definition: dacite (<a href="http://vocab.getty.edu/page/aat/300011181">300011181</a>), rhyolite (<a href="http://vocab.getty.edu/page/aat/300011211">300011211</a>), Wikidata: dacite (<a href="https://www.wikidata.org/wiki/Q466481">Q466481</a>), rhylolite (<a href="https://www.wikidata.org/wiki/Q190727">Q190727</a>), and Mindat mineral ID: dacite (<a href="https://www.mindat.org/min-48447.html">48447</a>), rhyolite (<a href="https://www.mindat.org/min-48451.html">48451</a>). </p>
+{% include "fabrics/includes/captionF.html" with sherd="LATTE94" site="Tinian, Marianas" sample="IBB_Tinian94" slide="WD_2_13" num="1007" numf="213" extra="The glassy dacitic fabric indicates that while found on Tinian, the pot this sherd was from probably originated from Saipan." %} 
+{% include "fabrics/includes/captionF.html" with sherd="OAM1" site="Haruku, Maluku" sample="HarukuOAM1" slide="WD_19_19" num="987" numf="141" extra="Rhyolitic fabric, characteristic of Haruku (and Ambon)." %} 
+
+<h2 id="pac">The Pacific fabric types</h2>
+<p>Dickinson classified the non-calcareous fabrics of the Pacific into five main groups: <a href="#oce">oceanic basalt</a>, <a href="#arc">andesitic arc</a>, <a href="#pos">post-arc/back-arc</a>, <a href="#teh">tectonic highland</a> and <a href="#dis">dissected orogen</a>. These are based on the distribution of geological provinces associated with specific geotectonic frameworks. </p>
+<h3 id="oce">Oceanic Basalt</h3>
+<p>The oceanic basalt fabrics of the Pacific, derive from the mantle melt magmas of hot-spot volcanic island chains.
+  They are primarily sourced from alkali olivine <a href="#bas">basalts</a> or basanites, although in some Samoan fabrics, there is some occurrence of the more felsic lithic varieties, from hawaiite to trachyte.
+They mainly contain <a href="#oli">olivines</a>, <a href="#pyr">clinopyroxenes</a> and <a href="#fel">plagioclase</a>, and have <a href="#lat">lathwork</a> and mafic <a href="#vit">vitric</a> lithic fragments. They are only found in East Carolines (e.g. <a href="{% url "fabric-type" "tpr211" %}">tpr211</a>), Samoa (e.g. <a href="{% url "fabric-type" "tpr294a" %}">tpr294a</a>), Uvea/Rotuma (e.g. <a href="{% url "fabric-type" "tpr328" %}">tpr328</a>) and the Marquesas (<a href="{% url "fabric-type" "tpr441" %}">tpr441</a>). </p>
+<p> Go to all <a href="{% url "superfabric-type" "oceanic-basalt" %}">ocean basalt</a> and <a href="{% url "superfabric-type" "oceanic-basalt-trachytic-variant" %}">ocean basalt trachytic</a> fabrics.</p>
+<p>See <a href="https://pubs.geoscienceworld.org/gsa/books/book/553/Temper-Sands-in-Prehistoric-Oceanian-Pottery">Dickinson (2006) pg. 11, 29</a> or <a href="https://media.australian.museum/media/Uploads/Journals/17860/1285_complete.pdf"> Dickinson (1998) pg. 268</a>.  Wikidata: <a href="https://www.wikidata.org/wiki/Q137382425">Q137382425</a> and <a href="https://www.wikidata.org/wiki/Q137388081">Q137388081</a>.</p>
+{% include "fabrics/includes/captionK.html" with sherd="AH-464" site="Sasoa'a, Samoa" sample="Sasoaa_464" slide="FL_1_50" num="2504" numf="2736" extra="Oceanic basalt fabric." source="F. Leach"%} 
+
+{% include "fabrics/includes/captionF.html" with sherd="Len4" site="Pohnpei, Carolines" sample="Len4" slide="WD_90_4" num="1094" numf="162" extra="Oceanic basalt fabric from East Carolines." %} 
+
+<h3  id="arc">Andesitic Arc</h3>
+<p>Andesitic arc fabrics are found in regions such as the Marianas (e.g. <a href="{% url "fabric-type" "tpr13" %}">tpr13</a>), Palau (Carolines, <a href="{% url "fabric-type" "tpr53" %}">tpr53</a>), Bismarcks (e.g. <a href="{% url "fabric-type" "tpr192" %}">tpr192</a>), Solomon Islands (e.g. <a href="{% url "fabric-type" "tpr111" %}">tpr111</a>), Vanuatu (e.g. <a href="{% url "fabric-type" "tpr225" %}">tpr225</a>), Banda (Maluku, <a href="{% url "fabric-type" "tpr203" %}">tpr203</a>), Kadavu (Fiji, <a href="{% url "fabric-type" "tpr348" %}">tpr348</a>) and Tonga (e.g. <a href="{% url "fabric-type" "tpr348" %}">tpr348</a>), where volcanic island arcs were induced by plate subduction. Unlike oceanic basalts, the andesitic arc fabrics can have mineral and rock contributions from mantle sources and the mantle-melt inducing subducting plates. Like the oceanic basalts, they can also have <a href="#plu">plutonic</a>  contributions from intrusive dikes and sills. 
+  The tempers are dominated by <a href="#and">andesite</a> and <a href="#bas">basalt</a> lithic fragments, with <a href="#mic">microlitic</a>, <a href="#fes">felsitic</a> and <a href="#vit">vitric</a> textures, and the andesite minerals (<a href="#fel">plagioclase</a>, <a href="#pyr">clinopyroxene</a> and sometimes <a href="#amp">hornblende</a>). <a href="#qua">Quartz</a> and quartz containing <a href="#dac">dacitic or rhyolitic</a> rocks occur in selected 'andesitic arc' fabrics, 
+  along with crystals of <a href="#pyr">orthopyroxene</a>, <a href="#oli">olivine</a>, <a href="#amp">oxyhornblende</a> and <a href="#mia">biotite</a>. </p>
+<p> Go to all <a href="{% url "superfabric-type" "andesitic-arc" %}">andesitic arc</a> and <a href="{% url "superfabric-type" "andesitic-arc-quartzose-variant" %}">quartzose andesitic arc</a> fabrics.</p>
+<p>See <a href="https://pubs.geoscienceworld.org/gsa/books/book/553/Temper-Sands-in-Prehistoric-Oceanian-Pottery">Dickinson (2006) pg. 13, 38</a> or <a href="https://media.australian.museum/media/Uploads/Journals/17860/1285_complete.pdf"> Dickinson (1998) pg. 268</a>. Wikidata: <a href="https://www.wikidata.org/wiki/Q137391782">Q137391782</a> and <a href="https://www.wikidata.org/wiki/Q137391856">Q137391856</a>.</p>
+  <a class="linked" title="MagentaGreen, CC BY-SA 3.0 &lt;https://creativecommons.org/licenses/by-sa/3.0&gt;, via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File:Volcanic_Arc_System_SVG_en.svg"><img width="512" alt="Volcanic Arc System SVG en" src="{% static "fabrics/images/Volcanic_Arc_System_SVG_en.svg" %}"></a>
+  <a href="https://commons.wikimedia.org/wiki/File:Volcanic_Arc_System_SVG_en.svg">MagentaGreen</a>, <a href="https://creativecommons.org/licenses/by-sa/3.0">CC BY-SA 3.0</a>, via Wikimedia Commons
+ 
+  {% include "fabrics/includes/captionF.html" with sherd="Jose95" site="Trinian, Marianas" sample="Jose95" slide="WD_8_7" num="1034" numf="216" extra="Mariana's andesitic arc fabric." %} 
+  {% include "fabrics/includes/captionF.html" with sherd="TC5" site="Efate, Vanuatu" sample="TeoumaTC5" slide="WD_42_3" num="1625" numf="396" extra="Andesitic fabric in sherd from Vanuatu." %} 
+  {% include "fabrics/includes/captionF.html" with sherd="FS2-14-94" site="Garua, Bismarcks" sample="GaruaFS2_14_94" slide="WD_41_9" num="939" numf="447" extra="Andesitic arc fabric from sherd made in New Britain." %} 
+
+ <h3  id="pos">Post-arc and Back-arc</h3>
+ <p>Post-arc and back-arc fabrics come from volcanic eruptions occurring in extinct volcanic arcs, that are not due to plate subduction i.e. dormant island arcs. Post-arc eruptions occur through rifted island arcs, due to geological events such as tectonic rotation and seafloor spreading. Back-arc eruptions occur through the oceanic crust due to crust spreading.
+  Post-arc tempers are indigenous to the Tabar-Lihir-Tanga-Feni (TLTF) Bismarck island chain (<a href="{% url "fabric-type" "tpr134" %}">tpr134</a>), Futuna/Alofi (e.g. <a href="{% url "fabric-type" "tpr327" %}">tpr327</a>) and multiple areas in Fiji (e.g. <a href="{% url "fabric-type" "tpr364" %}">tpr364</a>). Back-arc tempers are found in Tikopia/Anuta (e.g. <a href="{% url "fabric-type" "tpr245" %}">tpr245</a>) and the Admiralty Group in the Bismarcks (e.g. <a href="{% url "fabric-type" "tpr94" %}">tpr94</a>). 
+  <a href="#pyr">Clinopyroxenes</a>, <a href="#fel">plagioclase</a>, and lithics of <a href="#bas">basalts</a> or shoshonite (a basaltic trachyandesite), dominate both tempers.</p>
+ <p> Go to all <a href="{% url "superfabric-type" "postarc" %}">post-arc</a>, <a href="{% url "superfabric-type" "backarc" %}">back arc</a> and <a href="{% url "superfabric-type" "backarc-quartzose" %}">quartzose back arc</a> fabrics.</p>
+  <p>See <a href="https://pubs.geoscienceworld.org/gsa/books/book/553/Temper-Sands-in-Prehistoric-Oceanian-Pottery">Dickinson (2006) pg. 13, 75</a>. Wikidata: <a href="https://www.wikidata.org/wiki/Q137391923">Q137391923</a>, <a href="https://www.wikidata.org/wiki/Q137391958">Q137391958</a>, and <a href="https://www.wikidata.org/wiki/Q137391967">Q137391967</a>.</p>
+ 
+  {% include "fabrics/includes/captionF.html" with sherd="DFF2" site="Nissan Island" sample="DFF2" slide="WD_38_14" num="1296" numf="438" extra="Post-arc temper. Likely from the Tabar-Lihir-Tanga-Feni (TLTF) island chain." %} 
+  {% include "fabrics/includes/captionK.html" with sherd="3-33" site="Lakeba, Fiji" sample="Lakeba_8v47" slide="SB_8_47" num="2375" numf="2916" extra="Post-arc temper with pyroxenes." source="S. Best"%} 
+
+  {% include "fabrics/includes/captionF.html" with sherd="ECA67-2-10" site="Eloaua, Mussau" sample="ECA67_2_10" slide="WD_37_2" num="801" numf="19" extra="Back-arc temper, originally from Admiralty Islands." %} 
+
+
+<h3  id="hig">Tectonic Highland</h3> 
+ <p>Tectonic highland fabrics derive from subducted plate rocks, that have been uplifted and eroded, i.e. subduction complexes. Uplifting of <a href="#sed">metasedimentary</a> strata from melanges and underthrust continental crust, has resulted in <a href="#qua">quartzose</a> fabrics, with <a href="#che">chert/metachert</a> and slate/phyllite lithics 
+  (including those from Aru, Maluku (<a href="{% url "fabric-type" "tpr63c" %}">tpr63c</a>) and outer Banda Arc, Maluku (<a href="{% url "fabric-type" "tpr80" %}">tpr80</a>), New Caledonia (e.g. <a href="{% url "fabric-type" "tpr296" %}">tpr296</a>), and D'Entrecasteaux, PNG (e.g. <a href="{% url "fabric-type" "tpr447" %}">tpr447</a>). While that from igneous and metamorphic <a href="#maf">mafic/ultramafic</a> <mark id="oph">ophiolitic</mark> (up-thrusted oceanic basement), has results in variants dominated by <a href="#pyr">clinopyroxene</a>, <a href="#fel">plagioclase</a>, and <a href="#bas">metabasaltic</a> and diorite-gabbro <a href="#plu">plutonic</a> lithics 
+  (such as <a href="{% url "fabric-type" "tpr306" %}">tpr306</a> in New Caledonia, and <a href="{% url "fabric-type" "tpr272" %}">tpr272</a> in Yap, West Carolines). 
+  The ophiolitic variants have diagnostic <a href="#gar">chrome-spinels</a> and the <a href="#met">metavolcanic</a> serpentinite, while the quartzose fabrics have diagnostic <a href="#amp">amphibolic</a> glaucophane. New Caledonia also has fabrics that are mixed quartzose and ophiolitic tectonic highland (e.g. <a href="{% url "fabric-type" "tpr302" %}">tpr302</a>).</p>
+ <p> Go to all <a href="{% url "superfabric-type" "tectonic-highland-quartzose" %}">quartzose tectonic highland</a> and <a href="{% url "superfabric-type" "tectonic-highland-ophiolitic" %}">ophiolitic tectonic highland</a> fabrics.</p>
+ <p> See <a href="https://pubs.geoscienceworld.org/gsa/books/book/553/Temper-Sands-in-Prehistoric-Oceanian-Pottery">Dickinson (2006) pg. 13, 95</a> or <a href="https://media.australian.museum/media/Uploads/Journals/17860/1285_complete.pdf"> Dickinson (1998) pg. 269</a>. Wikidata: <a href="https://www.wikidata.org/wiki/Q137392429">Q137392429</a> and <a href="https://www.wikidata.org/wiki/Q137392471">Q137392471</a>.</p>
+
+{% include "fabrics/includes/captionF.html" with sherd="On8" site="Gorom, Maluku" sample="OndorOn8" slide="WD_18_10" num="1296" numf="330" extra="Quartzose tectonic highland temper from Gorom, Maluku." %} 
+{% include "fabrics/includes/captionF.html" with sherd="19-1" site="Yap, Carolines" sample="yap19_1" slide="WD_9_4" num="1858" numf="195" extra="Ophiolitic tectonic highland temper, with metavolcanic rocks, from Yap, Carolines." %} 
+{% include "fabrics/includes/captionF.html" with sherd="7-3" site="Ile Des Pines" sample="IllsDesPins_7_3" slide="WD_27_9" num="3293" numf="4483" extra="Quartzose tectonic highland temper from Ile Des Pines, New Caledonia." %} 
+{% include "fabrics/includes/captionF.html" with sherd="52-2" site="Mare" sample="Loyalty_52_12" slide="WD_27_21" num="3345" numf="4513" extra="Ophiolitic tectonic highland temper, with metavolcanic rocks, from Mare, New Caledonia." %} 
+{% include "fabrics/includes/captionF.html" with sherd="52-1" site="Mouly" sample="Loyalty_52_1" slide="WD_27_12" num="3327" numf="4660" extra="Ophiolitic quartzose tectonic highland temper, from New Caledonia." %} 
+
+
+<h3 id="dis">Dissected Orogen</h3>
+<p>Dissected orogen fabrics originate from once underground <a href="#plu">plutonic </a> rocks that have been up-lifted and exposed by erosion, i.e. eroded island arcs. As such they are dominated by <a href="#plu">plutonic</a> lithics such as microgranite, and those with <a href="#mph">microphaneritic</a> textures, as well as <a href="#met">metavolcanics</a>. They are the only type to have <a href="#fel">K-feldspars</a> dominate, in addition to <a href="#fel">plagioclase</a>, and <a href="#qua">quartz</a>. 
+They are found in PNG (e.g. <a href="{% url "fabric-type" "tpr186" %}">tpr186</a>), Solomon Islands (e.g. <a href="{% url "fabric-type" "tpr138" %}">tpr138</a>) and southern Viti Levu, Fiji (e.g. <a href="{% url "fabric-type" "tpr341a" %}">341a</a>).</p>
+<p> Go to all <a href="{% url "superfabric-type" "dissected-orogen" %}">dissected orogen</a> fabrics.</p>
+
+<p>See <a href="https://pubs.geoscienceworld.org/gsa/books/book/553/Temper-Sands-in-Prehistoric-Oceanian-Pottery">Dickinson (2006) pg. 13, 87</a> or <a href="https://media.australian.museum/media/Uploads/Journals/17860/1285_complete.pdf"> Dickinson (1998) pg. 269</a>. Wikidata: <a href="https://www.wikidata.org/wiki/Q137392364">Q137392364</a>. </p>
+{% include "fabrics/includes/captionF.html" with sherd="63-2" site="Muyua, PNG" sample="Muyua63_2" slide="WD_41_2" num="1225" numf="69" extra="Dissected orogen temper from PNG." %} 
+{% include "fabrics/includes/caption.html" with sherd="BN-9-A-72" site="Kolombangara, Solomons" sample="taumako_78_731" slide="WD_34_23" num="1061" extra="Dissected orogen temper, originally from Choiseul." %} 
+{% include "fabrics/includes/captionK.html" with sherd="44a-1" site="Viti Levu, Fiji" sample="Sigatoka_44a_1_a" slide="FP_1_22" num="2428" numf="2889" extra="Dissected orogen temper from southern Viti Levu." source="F. Petchey"%} 
+
+<h2 id="pla">Placer</h2>
+<p>Placer fabrics have higher concentrations of high specific gravity inclusions, such as ferromagnesian silicate minerals such as <a href="#opa">iron oxides</a> and <a href="#pyr">pyroxenes</a>. Generally these are derived from stream or beach sands manually added to clay.
+Often sites will show a range of 'placering' in different sherds. For example <a href="{% url "site-type" "teouma" %}">Teouma</a>, Vanuatu has strongly (<a href="{% url "fabric-type" "tpr228" %}">tpr228</a> and <a href="{% url "fabric-type" "tpr229" %}">tpr229</a> ), partially(<a href="{% url "fabric-type" "tpr226" %}">tpr226</a>) and unplacered (<a href="{% url "fabric-type" "tpr225" %}">tpr225</a>) fabrics.</p>
+<p>See <a href="https://pubs.geoscienceworld.org/gsa/books/book/553/Temper-Sands-in-Prehistoric-Oceanian-Pottery">Dickinson (2006) pg. 20</a> or <a href="https://media.australian.museum/media/Uploads/Journals/17860/1285_complete.pdf"> Dickinson (1998) pg. 266</a>.
+Matches Wikidata: placer deposit (<a href="https://www.wikidata.org/wiki/Q2141583">Q2141583</a>).</p>
+{% include "fabrics/includes/captionF.html" with sherd="TC11" site="Teouma, Vanuatu" sample="TeoumaTC11" slide="WD_45_12" num="1635" numf="381" extra="An opaque placer fabric." %} 
+{% include "fabrics/includes/captionF.html" with sherd="SZ8-68-12" site="Nanggu" sample="nendoSZ8_68_12" slide="WD_91_16" num="1242" numf="357" extra="A pyroxene and opaque-rich placer fabric. Exotic to Santa Cruz." %} 
+
+
+
+
+<h2 id="ref">References</h2>
+
+<ol class="refer">
+  
+  <li><a href="https://media.australian.museum/media/Uploads/Journals/17860/1285_complete.pdf"> Dickinson, W.R., 1998, Petrographic temper provinces of prehistoric pottery in Oceania. Records of the Australian Museum 50(3): 263–276. </a></li>
+  <li><a href="https://www.jstor.org/stable/25801160?seq=16"> Dickinson, W.R. & Shutler, R., 2000, Implications of Petrographic Temper Analysis for Oceanian Prehistory. Journal of World Prehistory 14(3): pp. 203-266. </a></li>
+  <li><a href="https://pubs.geoscienceworld.org/gsa/books/book/553/Temper-Sands-in-Prehistoric-Oceanian-Pottery"> Dickinson, W.R., 2006, Temper Sands in Prehistoric Oceanian Pottery: Geotectonics, Sedimentology, Petrography, Provenance. Geological Society of America
+    Geological Society of America, Volume 406 </a></li>
+  <li><a href="https://viva.pressbooks.pub/petrology">Johnson, E.A. & Liu, J.C., Introduction to Petrology.
+  <li><a href="https://www.cambridge.org/au/universitypress/subjects/earth-and-environmental-science/mineralogy-petrology-and-volcanology/earth-materials-introduction-mineralogy-and-petrology-2nd-edition?format=AR&isbn=9781316608852"> Klein, C. & Philpotts, A., 2017, Earth Materials: Introduction to Mineralogy and Petrology. 2nd Ed. Cambridge Press. Cambridge </a></li>
+  <li><a href="http://www.labotka.net/310/Atlas/table-of-contents.html"> Labotka, T.C., 2014, Geology 310 </a></li>
+  <li><a href="https://www.taylorfrancis.com/books/mono/10.1201/9781315116365/rocks-minerals-thin-section-brodie-mackenzie-adams"> MacKenzie, W.S., Adams, A.E. & Brodie, K.H., 2017, Rocks and Minerals in Thin Section. CRC Press, London</a></li>
+  <li><a href="https://www2.tulane.edu/~sanelson/eens211/index.html"> Nelson, S.A., 2017, Earth & Environmental Sciences 2110 Mineralogy </a></li> 
+  <li><a href="https://geo.libretexts.org/Bookshelves/Geology/Mineralogy_(Perkins_et_al.)">Perkins, D. 2022, Mineralogy</a></li>
+  <li><a href="http://www.ucl.ac.uk/~ucfbrxs/PLM/PLMhome.html">Siddall, R., 2014, Minerals Menu: a catalogue of minerals & textures in thin section.</a></li>
+  <li><a href="https://www.science.smith.edu/geosciences/petrology/petrography/mineral_list.html">Smith College Students, Petrographic Data Files.</a></li>
+  <li><a href="https://www.alexstrekeisen.it/english/index.php">Strekeisen, A., 2006-2020</a></li>
+</ol>
+{% include "fabrics/includes/footer.html" %}
+{% endblock %}

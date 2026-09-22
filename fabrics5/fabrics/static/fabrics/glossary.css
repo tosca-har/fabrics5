@@ -1,0 +1,82 @@
+h1 {
+    margin: auto;
+    width: 50%; 
+}
+.linked {
+    margin-left: 3rem;
+}
+p {
+    color: #f1eeee;
+}
+figcaption {
+    font-size: 0.8rem;
+    color: #f8e64f;
+    
+    font-style: italic;
+}
+a {
+    color:  #db7f3d;
+}
+a:hover {
+    color: #8e0101;
+}
+
+figcaption a {
+    color:  #db7f3d;
+    text-decoration: none;
+}
+
+figcaption a:hover,
+figcaption a:active {
+    color: #8e0101;
+}
+
+
+ul {
+    float: left;
+    list-style: none;
+    margin: 0rem 2rem;
+    width: 10%;
+    max-width: 50rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.26);
+    padding: 1rem;
+    border-radius: 16px;
+    background-color: #f1eeee; 
+}
+
+
+li{
+    margin: 1rem 0;
+    text-align: left;
+    font-size: 0.8rem;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: .5rem;
+
+}
+
+li a {
+    text-decoration: none;
+    color: #8e0101;
+}
+
+li a:hover,
+li a:active {
+    color: #db7f3d;
+}
+
+ol {
+    float: none;
+    list-style: none;
+    margin: 0rem 2rem 0rem 0rem;
+    width: 100%;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.26);
+    padding: 1rem;
+    border-radius: 16px;
+    background-color: #f1eeee; 
+}
+
+mark {
+    background-color: transparent;
+    color: #ccc;
+    font-style: italic;
+}

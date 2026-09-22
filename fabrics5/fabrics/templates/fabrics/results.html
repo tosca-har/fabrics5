@@ -1,0 +1,201 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block css_files %}
+  <link rel="stylesheet" href="{% static "fabrics2/fabric.css" %}">
+  <link rel="stylesheet" href="{% static "fabrics2/fabrics.css" %}">
+  <link rel="stylesheet" href="{% static "fabrics2/abuntable.css" %}">
+  <link rel="stylesheet" href="{% static "fabrics2/header.css" %}">
+  <link rel="stylesheet" href="{% static "fabrics2/leaflet.css" %}">
+  <link rel="stylesheet" href="{% static "fabrics2/map.css" %}">
+  <script src="{% static "fabrics2/leaflet.js"%}"></script>
+  <script src="{% static "fabrics2/map.js" %}"></script>
+{% endblock %}
+
+{% block page_title %}
+  Fabrics
+{% endblock %}
+
+{% block content %}
+  {% include "fabrics2/includes/header.html" %}
+    <p> {{ query }}
+    {% if wiki != " " %}
+      (<a href="https://www.wikidata.org/wiki/{{ wiki }}" target="_blank">{{ wiki }}</a>)
+    {% endif %}
+    </p>
+    <p> {{ query2 }} </p>
+    <div id="map"></div>
+    <div> <p id="targetSite"></p><div>
+    <script> 
+      var picon = "{% static "fabrics2/images/redPot2.png" %}";
+      var bicon = "{% static "fabrics2/images/ltgreyPot.png" %}";
+      var ricon = "{% static "fabrics2/images/tanPot.png" %}";
+       var blackv = "{% static "fabrics2/images/black-tri.png" %}";
+    var orangev = "{% static "fabrics2/images/orange-tri.png" %}";
+    var purplev = "{% static "fabrics2/images/purple-tri.png" %}";
+    var brownv = "{% static "fabrics2/images/brown-tri.png" %}";
+    var redv = "{% static "fabrics2/images/red-tri.png" %}";
+    var bluev = "{% static "fabrics2/images/blue-tri.png" %}";
+    var pinkv = "{% static "fabrics2/images/pink-tri.png" %}";
+    var greenv = "{% static "fabrics2/images/green-tri.png" %}";
+
+      let mbsu = "{{mbsu}}";
+      let thsu = "{{thsu}}";
+      let siteNames = [];
+      let siteLat = [];
+      let siteLng = [];
+      let siteLinks = [];
+      let siteFabrics = [];
+      let siteColour = [];
+      let siteview = false; 
+      let mapcentre =  [-4.5, 150];
+        let volcNames = [];
+    let volcLat = [];
+    let volcLng= [];
+    let volcType = [];
+    let volcDetails= [];
+    let volcLinks = [];
+      {% for site in sites %}
+        siteNames.push("{{site.name}}");
+        siteLat.push({{site.lat}});
+        siteLng.push({{site.lng}});
+        siteLinks.push("{% url "site-type" site.slug %}");
+        siteFabrics.push("");
+        siteColour.push(1);
+      {% endfor %}
+       {% for volc in volcanoes %}
+      volcNames.push("{{volc.name}}");
+      volcLat.push({{volc.lat}});
+      volcLng.push({{volc.lng}});
+      volcLinks.push("{{volc.number}}");
+      volcDetails.push("{{volc.rock_type}} - {{volc.volcano_landform}} type - {{volc.type}}");
+      volcType.push("{{volc.rock_type}}")
+    {% endfor %}
+
+        getMap(); 
+      </script> 
+      <p>Note that to see the 'Geology' layer (layer options in top right corner) you may have to zoom out. </p>
+     <div class ="after-map">
+    <p>Many fabrics have a range of abundances. The range maximum (top) and minimum (bottom) are shown. </p>
+    <p>** Has full slide image available.</p> 
+    {% include "fabrics2/includes/abuntable.html" %}
+    <br>
+    <table class = "fabrictable">
+      <th>Name </th> <th>Cal.</th> <th>Quartz</th><th>Feldspar</th> <th>Pyroxene</th> <th>Amphibole</th> 
+      <th>Opaques</th> <th>Olivine</th><th>Biotite</th> <th>Muscovite</th> <th>Epidote</th> 
+      <th>Garnet/ Spinel</th><th>Ig./Met. Rocks</th> <th>Sed. Rocks</th> <th>Grog</th>  <th>Lithics/ Region</th>
+      {% for fabric in fabrics %}
+         <tr>
+            <td><a href="{% url "fabric-type" fabric.slug %}">{{ fabric.slug }}{% if fabric.has_full %} ** {% endif%} </a></td>
+            <td data-tag="{{fabric.calcareous_max}}"> {{fabric.calcareous_max}}</td>
+            <td data-tag="{{fabric.quartz_max}}"> {{fabric.quartz_max}}</td>
+            <td data-tag="{{fabric.feldspar_max}}">{{fabric.feldspar_max}}</td>
+            <td data-tag="{{fabric.pyroxene_max}}">{{fabric.pyroxene_max}}</td>
+            <td data-tag="{{fabric.amphibole_max}}">{{fabric.amphibole_max}}</td>
+            <td data-tag="{{fabric.opaque_max}}"> {{fabric.opaque_max}}</td>
+            <td data-tag="{{fabric.olivine_max}}"> {{fabric.olivine_max}}</td>
+            <td data-tag="{{fabric.biotite_max}}">{{fabric.biotite_max}}</td>
+            <td data-tag="{{fabric.muscovite_max}}">{{fabric.muscovite_max}}</td>
+            <td data-tag="{{fabric.epidote_max}}">{{fabric.epidote_max}}</td>
+            <td data-tag="{{fabric.garnet_max}}"> {{fabric.garnet_max}}</td>
+            <td data-tag="{{fabric.igneous_rock_fragments_max}}">{{fabric.igneous_rock_fragments_max}}</td>
+            <td data-tag="{{fabric.sedimentary_metasedimentary_max}}">{{fabric.sedimentary_metasedimentary_max}}</td>
+            <td data-tag="{{fabric.grog_max}}">{{fabric.grog_max}}</td>
+            <td> {{fabric.lithics}}</td>
+            </tr>
+            <tr>
+              <td>{{ fabric.desc }}</a></td>
+              <td data-tag="{{fabric.calcareous_min}}"> {{fabric.calcareous_min}}</td>
+              <td data-tag="{{fabric.quartz_min}}"> {{fabric.quartz_min}}</td>
+              <td data-tag="{{fabric.feldspar_min}}">{{fabric.feldspar_min}}</td>
+              <td data-tag="{{fabric.pyroxene_min}}">{{fabric.pyroxene_min}}</td>
+              <td data-tag="{{fabric.amphibole_min}}">{{fabric.amphibole_min}}</td>
+              <td data-tag="{{fabric.opaque_min}}"> {{fabric.opaque_min}}</td>
+              <td data-tag="{{fabric.olivine_min}}"> {{fabric.olivine_min}}</td>
+              <td data-tag="{{fabric.biotite_min}}">{{fabric.biotite_min}}</td>
+              <td data-tag="{{fabric.muscovite_min}}">{{fabric.muscovite_min}}</td>
+              <td data-tag="{{fabric.epidote_min}}">{{fabric.epidote_min}}</td>
+              <td data-tag="{{fabric.garnet_min}}"> {{fabric.garnet_min}}</td>
+              <td data-tag="{{fabric.igneous_rock_fragments_min}}">{{fabric.igneous_rock_fragments_min}}</td>
+              <td data-tag="{{fabric.sedimentary_metasedimentary_min}}">{{fabric.sedimentary_metasedimentary_min}}</td>
+              <td data-tag="{{fabric.grog_min}}">{{fabric.grog_min}}</td>
+              <td> {{fabric.region}}</td>
+              </tr>
+      {% endfor %}
+    </table>
+  </div>
+  <h2>All slides available for those fabrics: </h2>
+{% if slides %}
+  <table class = "slidetable">
+    <th>Slide </th> <th>Fabric</th> <th>Possible Origin</th><th>Ware</th><th>Cal.</th> <th>Quartz</th><th>Feldspar</th> <th>Pyroxene</th> <th>Amphibole</th> 
+    <th>Opaques</th> <th>Olivine</th><th>Biotite</th> <th>Muscovite</th> <th>Epidote</th> 
+    <th>Garnet/ Spinel</th> <th>Ig./Met. Rocks</th> <th>Sed. Rocks</th> <th>Grog</th>  <th>Lithics</th>
+  {% for slide in slides %}
+    <tr>
+    <td><a href="{% url "slide-type" slide.slug %}">{{slide.name}}</a></td>
+    <td>{{slide.fabric }}</td>
+    <td>{{slide.sherd_origin_site}}</td>
+    <td>{% if slide.ceramic_period %} <a href="{% url "period" slide.ceramic_period.slug %}">{{ slide.ceramic_period}}</a>{% endif %}</td>
+    <td data-tag="{{slide.calcareous}}"> {{slide.calcareous}}</td>
+    <td data-tag="{{slide.quartz}}"> {{slide.quartz}}</td>
+    <td data-tag="{{slide.feldspar}}">{{slide.feldspar}}</td>
+    <td data-tag="{{slide.pyroxene}}">{{slide.pyroxene}}</td>
+    <td data-tag="{{slide.amphibole}}">{{slide.amphibole}}</td>
+    <td data-tag="{{slide.opaque}}"> {{slide.opaque}}</td>
+    <td data-tag="{{slide.olivine}}"> {{slide.olivine}}</td>
+    <td data-tag="{{slide.biotite}}">{{slide.biotite}}</td>
+    <td data-tag="{{slide.muscovite}}">{{slide.muscovite}}</td>
+    <td data-tag="{{slide.epidote}}">{{slide.epidote}}</td>
+    <td data-tag="{{slide.garnet}}"> {{slide.garnet}}</td>
+    <td data-tag="{{slide.igneous_rock_fragments}}">{{slide.igneous_rock_fragments}}</td>
+    <td data-tag="{{slide.sedimentary_metasedimentary}}">{{slide.sedimentary_metasedimentary}}</td>
+    <td data-tag="{{slide.grog}}">{{slide.grog}}</td>
+    <td> {{slide.lithics}}</td>
+    </tr> 
+  {% endfor %}
+{% else %}
+  <p>No representative slide details available.</p>
+{% endif%} 
+ 
+  </table>  
+  {% for slide in slides %}
+    <h3><a href="{% url "slide-type" slide.slug %}">{{slide.name}}</a></h3>
+    {% if slide.image_name and slide.full_image_name and slide.full_image_oe_omero_id %}
+    <figure><img src="{% static "fabrics2/images/slides/"|add:slide.image_name|add:"_x4_PPL.jpeg" %}" alt={{ slide.image_name }} height:"50">
+      <img src="{% static "fabrics2/images/slides/"|add:slide.image_name|add:"_x4_XPL.jpeg" %}" alt= {{ slide.image_name }} height:"50">
+      <figcaption> Sherd {{ slide.sherd }} from {{ slide.site }}. Slide {{slide.name }} from {{ slide.source }}. x4 Magnification PPL (left) XPL (right). Scale bar: 0.5mm. <a class="caplink" href="https://kuden.anu.edu.au/webclient/img_detail/{{slide.image_omero_id}}" target="_blank">High resolution image</a> 
+       or <a class="caplink" href="https://kuden.anu.edu.au/webclient/img_detail/{{slide.full_image_omero_id}}" target="_blank">full slide in VIMIPO (user: Guest pwd: Guest)</a> with <a class="caplink" href="https://kuden.anu.edu.au/webclient/img_detail/{{slide.full_image_oe_omero_id}}" target="_blank"> higher exposure.</a> Imaged by K. Hardy and M. Leclerc, ANU.
+      </figcaption>
+    </figure>
+    {% elif slide.image_name and slide.full_image_name %}
+      <figure><img src="{% static "fabrics2/images/slides/"|add:slide.image_name|add:"_x4_PPL.jpeg" %}" alt={{ slide.image_name }} height:"50">
+        <img src="{% static "fabrics2/images/slides/"|add:slide.image_name|add:"_x4_XPL.jpeg" %}" alt= {{ slide.image_name }} height:"50">
+        <figcaption> Sherd {{ slide.sherd }} from {{ slide.site }}. Slide {{slide.name }} from {{ slide.source }}. x4 Magnification PPL (left) XPL (right). Scale bar: 0.5mm. <a class="caplink" href="https://kuden.anu.edu.au/webclient/img_detail/{{slide.image_omero_id}}" target="_blank">High resolution image</a> 
+         or <a class="caplink" href="https://kuden.anu.edu.au/webclient/img_detail/{{slide.full_image_omero_id}}" target="_blank">full slide in VIMIPO (user: Guest pwd: Guest).</a> Imaged by K. Hardy and M. Leclerc, ANU.
+        </figcaption>
+      </figure>
+    {% elif slide.image_name %}
+      <figure><img src="{% static "fabrics2/images/slides/"|add:slide.image_name|add:"_x4_PPL.jpeg" %}" alt={{ slide.image_name }} height:"50">
+        <img src="{% static "fabrics2/images/slides/"|add:slide.image_name|add:"_x4_XPL.jpeg" %}" alt= {{ slide.image_name }} height:"50">
+        <figcaption> Sherd {{ slide.sherd }} from {{ slide.site }}. Slide {{slide.name }} from {{ slide.source }}. x4 Magnification PPL (left) XPL (right). Scale bar: 0.5mm. <a class="caplink" href="https://kuden.anu.edu.au/webclient/img_detail/{{slide.image_omero_id}}" target="_blank">High resolution image in VIMIPO (user: Guest pwd: Guest).</a> Imaged by K. Hardy and M. Leclerc, ANU.
+        </figcaption>
+      </figure>
+    {% elif slide.full_image_name %}
+      <p><a class="caplink" href="https://kuden.anu.edu.au/webclient/img_detail/{{slide.full_image_omero_id}}" target="_blank">{{ slide.sherd }} has a full slide scan available (user: Guest pwd: Guest).</a> Imaged by K. Hardy and M. Leclerc, ANU.</p>
+    {% else %}
+    <p>No images available.</p>
+    {% endif%}
+    <p> {{ slide.desc |capfirst}} </p>
+    <br>
+  {% endfor %}
+  
+ {% if ceramic_periods %} 
+<h2>Ceramic Wares </h2>
+{% for period in ceramic_periods %}
+ <p> <a href="{% url "period" period.slug %}">{{ period}}</a></p>
+   {% endfor %}
+  {% endif %}
+
+
+  {% include "fabrics2/includes/footer.html" %}
+{% endblock %}

@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block css_files %}
+  <link rel="stylesheet" href="{% static "fabrics2/fabrics.css" %}">
+  <link rel="stylesheet" href="{% static "fabrics2/header.css" %}">
+  <link rel="stylesheet" href="{% static "fabrics2/leaflet.css" %}">
+  <link rel="stylesheet" href="{% static "fabrics2/map.css" %}">
+ 
+  <script src="{% static "fabrics2/leaflet.js"%}"></script>
+  <script src="{% static "fabrics2/map.js" %}"></script>
+{% endblock %}
+
+{% block page_title %}
+  Sites
+{% endblock %}
+
+{% block content %}
+  {% include "fabrics2/includes/header.html" %}
+  <h1>Sites</h1>
+  <div id="map"></div>
+  <div class="key"> 
+    <img src="{% static "fabrics2/images/brownPot.png" %}" alt="brown pot" height="50"> Site has a full slide image. <br>
+    <br>
+    <img src="{% static "fabrics2/images/tanPot.png" %}" alt="brown pot" height="50"> Site has an image.  <br>
+    <br>
+    <img src="{% static "fabrics2/images/bluePot2.png" %}" alt="brown pot" height="50"> No images for this site. 
+    <p id="targetSite"></p> </div>
+  <script> 
+    var picon = "{% static "fabrics2/images/brownPot.png" %}";
+    var bicon = "{% static "fabrics2/images/bluePot2.png" %}";
+    var ricon = "{% static "fabrics2/images/tanPot.png" %}";
+    let mbsu = "{{mbsu}}";
+    let thsu = "{{thsu}}";
+    let siteNames = [];
+    let siteLat = [];
+    let siteLng = [];
+    let siteLinks = [];
+    let siteFabrics = [];
+    let siteColour = [];
+    let siteview = true; 
+    let mapcentre =  [-4.5, 150];
+    {% for site in sites %}
+      siteNames.push("{{site.name}}");
+      siteLat.push({{site.lat}});
+      siteLng.push({{site.lng}});
+      siteLinks.push("{% url "site-type" site.slug %}");
+      siteFabrics.push("{{site.fabric_string}}");
+      {% if site.has_full %} siteColour.push(1);
+      {% elif site.has_image %} siteColour.push(2);
+      {% else %} siteColour.push(0);
+      {% endif %}
+
+    {% endfor %}
+      getMap(); 
+    </script> 
+   
+    
+    <form method="POST">
+      {% csrf_token %}
+      <div class ="after-map">
+        <br>
+        <br>
+        <h2>Select multiple sites: </h2> </div>
+      <div id="site-form">
+        {{ form.sites_to_include.errors }}
+        {{ form.sites_to_include }}
+        <div class = "submit">
+          <input type="submit" value="Submit"> 
+          <input type="reset">
+      </div>
+ 
+      </div>
+    </form>
+    <br>
+    <br>
+    <h2>Or chose one site: </h2>
+    <ul id="maplist">
+
+      {% for site in sites %}
+         <li><a href="{% url "site-type" site.slug %}">{{ site.name }}</a></li>
+      {% endfor %}
+    </ul>
+    {% include "fabrics2/includes/footer.html" %}   
+{% endblock %}

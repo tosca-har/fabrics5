@@ -1,0 +1,683 @@
+{% extends "base.html" %} 
+{% load static %}
+
+{% block css_files %}
+  <link rel="stylesheet" href="{% static "fabrics2/fabric.css" %}">
+  <link rel="stylesheet" href="{% static "fabrics2/abuntable.css" %}">
+  <link rel="stylesheet" href="{% static "fabrics2/header.css" %}">
+{% endblock %}
+
+{% block page_title %} Fabric Details {% endblock %}
+{% block content %} {% include "fabrics2/includes/header.html" %}
+
+
+<h2>{{ report.fullname }}</h2>
+<h2>{{ report.author_list }}</h2>
+<h2>{{ report.details }}</h2>
+<h2>{{ report.link }}</h2>
+<h3>{{ report.summary }}</h3>
+{% if report.has_data_table %}
+  <h2>Visualisation: </h2>
+  <table class = "abuntable">
+    <tr><td data-tag="0"> None (0) </td>  <td data-tag="1"> Some (1) </td>  <td data-tag="2"> Low (2) </td> <td data-tag="3"> Low-Medium (3) </td> <td data-tag="4"> Medium (4) </td> <td data-tag="5"> High (5) </td> <td data-tag="6"> Very High (6) </td> </tr>
+  </table>
+  <table class = "slidetable">
+    <th>{{report.header_0}} </th> 
+    {% if report.header_1 %} <th><a href="{% url "fabric-type" report.header_1 %}">{{ report.header_1 }} </a></th> {% endif %}
+    {% if report.header_2 %} <th><a href="{% url "fabric-type" report.header_2 %}">{{ report.header_2 }} </a></th> {% endif %}
+    {% if report.header_3 %} <th><a href="{% url "fabric-type" report.header_3 %}">{{ report.header_3 }} </a></th> {% endif %}
+    {% if report.header_4 %} <th><a href="{% url "fabric-type" report.header_4 %}">{{ report.header_4 }} </a></th> {% endif %}
+    {% if report.header_5 %} <th><a href="{% url "fabric-type" report.header_5 %}">{{ report.header_5 }} </a></th> {% endif %}
+    {% if report.header_6 %} <th><a href="{% url "fabric-type" report.header_6 %}">{{ report.header_6 }} </a></th> {% endif %}
+    {% if report.header_7 %} <th><a href="{% url "fabric-type" report.header_7 %}">{{ report.header_7 }} </a></th> {% endif %}
+    {% if report.header_8 %} <th><a href="{% url "fabric-type" report.header_8 %}">{{ report.header_8 }} </a></th> {% endif %}
+    {% if report.header_9 %} <th><a href="{% url "fabric-type" report.header_9 %}">{{ report.header_9 }} </a></th> {% endif %}
+    {% if report.header_10 %} <th><a href="{% url "fabric-type" report.header_10 %}">{{ report.header_10 }} </a></th> {% endif %}
+    {% if report.header_11 %} <th><a href="{% url "fabric-type" report.header_11 %}">{{ report.header_11 }} </a></th> {% endif %}
+    {% if report.header_12 %} <th><a href="{% url "fabric-type" report.header_12 %}">{{ report.header_12 }} </a></th> {% endif %}
+    {% if report.header_13 %} <th><a href="{% url "fabric-type" report.header_13 %}">{{ report.header_13 }} </a></th> {% endif %}
+    {% if report.header_14 %} <th><a href="{% url "fabric-type" report.header_14 %}">{{ report.header_14 }} </a></th> {% endif %}
+    {% if report.header_15 %} <th><a href="{% url "fabric-type" report.header_15 %}">{{ report.header_15 }} </a></th> {% endif %}
+     
+    {% if report.row_1 %} 
+    <tr>
+      <td>{{report.row_1}}</td>
+      {% if report.header_1 %} <td data-tag="{{report.cell_1_1}}"> {{report.cell_1_1}}</td> {% endif %}
+      {% if report.header_2 %}<td data-tag="{{report.cell_1_2}}"> {{report.cell_1_2}}</td> {% endif %}
+      {% if report.header_3 %}<td data-tag="{{report.cell_1_3}}"> {{report.cell_1_3}}</td> {% endif %}
+      {% if report.header_4 %}<td data-tag="{{report.cell_1_4}}"> {{report.cell_1_4}}</td> {% endif %}
+      {% if report.header_5 %}<td data-tag="{{report.cell_1_5}}"> {{report.cell_1_5}}</td>{% endif %} 
+      {% if report.header_6 %} <td data-tag="{{report.cell_1_6}}"> {{report.cell_1_6}}</td> {% endif %}
+      {% if report.header_7 %}<td data-tag="{{report.cell_1_7}}"> {{report.cell_1_7}}</td> {% endif %}
+      {% if report.header_8 %}<td data-tag="{{report.cell_1_8}}"> {{report.cell_1_8}}</td> {% endif %}
+      {% if report.header_9 %}<td data-tag="{{report.cell_1_9}}"> {{report.cell_1_9}}</td> {% endif %}
+      {% if report.header_10 %}<td data-tag="{{report.cell_1_10}}"> {{report.cell_1_10}}</td>{% endif %} 
+      {% if report.header_11 %} <td data-tag="{{report.cell_1_11}}"> {{report.cell_1_11}}</td> {% endif %}
+      {% if report.header_12 %}<td data-tag="{{report.cell_1_12}}"> {{report.cell_1_12}}</td> {% endif %}
+      {% if report.header_13 %}<td data-tag="{{report.cell_1_13}}"> {{report.cell_1_13}}</td> {% endif %}
+      {% if report.header_14 %}<td data-tag="{{report.cell_1_14}}"> {{report.cell_1_14}}</td> {% endif %}
+      {% if report.header_15 %}<td data-tag="{{report.cell_1_15}}"> {{report.cell_1_15}}</td>{% endif %} 
+    </tr>
+    {% endif %}
+    {% if report.row_2 %} 
+    <tr>
+      <td>{{report.row_2}}</td>
+      {% if report.header_1 %}<td data-tag="{{report.cell_2_1}}"> {{report.cell_2_1}}</td>{% endif %}
+      {% if report.header_2 %}<td data-tag="{{report.cell_2_2}}"> {{report.cell_2_2}}</td>{% endif %}
+      {% if report.header_3 %}<td data-tag="{{report.cell_2_3}}"> {{report.cell_2_3}}</td>{% endif %}
+      {% if report.header_4 %}<td data-tag="{{report.cell_2_4}}"> {{report.cell_2_4}}</td>{% endif %}
+      {% if report.header_5 %}<td data-tag="{{report.cell_2_5}}"> {{report.cell_2_5}}</td>{% endif %}
+      {% if report.header_6 %} <td data-tag="{{report.cell_2_6}}"> {{report.cell_2_6}}</td> {% endif %}
+      {% if report.header_7 %}<td data-tag="{{report.cell_2_7}}"> {{report.cell_2_7}}</td> {% endif %}
+      {% if report.header_8 %}<td data-tag="{{report.cell_2_8}}"> {{report.cell_2_8}}</td> {% endif %}
+      {% if report.header_9 %}<td data-tag="{{report.cell_2_9}}"> {{report.cell_2_9}}</td> {% endif %}
+      {% if report.header_10 %}<td data-tag="{{report.cell_2_10}}"> {{report.cell_2_10}}</td>{% endif %} 
+      {% if report.header_11 %} <td data-tag="{{report.cell_2_11}}"> {{report.cell_2_11}}</td> {% endif %}
+      {% if report.header_12 %}<td data-tag="{{report.cell_2_12}}"> {{report.cell_2_12}}</td> {% endif %}
+      {% if report.header_13 %}<td data-tag="{{report.cell_2_13}}"> {{report.cell_2_13}}</td> {% endif %}
+      {% if report.header_14 %}<td data-tag="{{report.cell_2_14}}"> {{report.cell_2_14}}</td> {% endif %}
+      {% if report.header_15 %}<td data-tag="{{report.cell_2_15}}"> {{report.cell_2_15}}</td>{% endif %} 
+    </tr>
+    {% endif %}
+    {% if report.row_3 %} 
+    <tr>
+      <td>{{report.row_3}}</td>
+      {% if report.header_1 %}<td data-tag="{{report.cell_3_1}}"> {{report.cell_3_1}}</td>{% endif %}
+      {% if report.header_2 %}<td data-tag="{{report.cell_3_2}}"> {{report.cell_3_2}}</td>{% endif %}
+      {% if report.header_3 %}<td data-tag="{{report.cell_3_3}}"> {{report.cell_3_3}}</td>{% endif %}
+      {% if report.header_4 %}<td data-tag="{{report.cell_3_4}}"> {{report.cell_3_4}}</td>{% endif %}
+      {% if report.header_5 %}<td data-tag="{{report.cell_3_5}}"> {{report.cell_3_5}}</td>{% endif %}
+      {% if report.header_6 %} <td data-tag="{{report.cell_3_6}}"> {{report.cell_3_6}}</td> {% endif %}
+      {% if report.header_7 %}<td data-tag="{{report.cell_3_7}}"> {{report.cell_3_7}}</td> {% endif %}
+      {% if report.header_8 %}<td data-tag="{{report.cell_3_8}}"> {{report.cell_3_8}}</td> {% endif %}
+      {% if report.header_9 %}<td data-tag="{{report.cell_3_9}}"> {{report.cell_3_9}}</td> {% endif %}
+      {% if report.header_10 %}<td data-tag="{{report.cell_3_10}}"> {{report.cell_3_10}}</td>{% endif %} 
+      {% if report.header_11 %} <td data-tag="{{report.cell_3_11}}"> {{report.cell_3_11}}</td> {% endif %}
+      {% if report.header_12 %}<td data-tag="{{report.cell_3_12}}"> {{report.cell_3_12}}</td> {% endif %}
+      {% if report.header_13 %}<td data-tag="{{report.cell_3_13}}"> {{report.cell_3_13}}</td> {% endif %}
+      {% if report.header_14 %}<td data-tag="{{report.cell_3_14}}"> {{report.cell_3_14}}</td> {% endif %}
+      {% if report.header_15 %}<td data-tag="{{report.cell_3_15}}"> {{report.cell_3_15}}</td>{% endif %} 
+    </tr>
+    {% endif %}
+    {% if report.row_4 %} 
+    <tr>
+      <td>{{report.row_4}}</td>
+      {% if report.header_1 %} <td data-tag="{{report.cell_4_1}}"> {{report.cell_4_1}}</td> {% endif %}
+      {% if report.header_2 %}<td data-tag="{{report.cell_4_2}}"> {{report.cell_4_2}}</td> {% endif %}
+      {% if report.header_3 %}<td data-tag="{{report.cell_4_3}}"> {{report.cell_4_3}}</td> {% endif %}
+      {% if report.header_4 %}<td data-tag="{{report.cell_4_4}}"> {{report.cell_4_4}}</td> {% endif %}
+      {% if report.header_5 %}<td data-tag="{{report.cell_4_5}}"> {{report.cell_4_5}}</td>{% endif %} 
+      {% if report.header_6 %} <td data-tag="{{report.cell_4_6}}"> {{report.cell_4_6}}</td> {% endif %}
+      {% if report.header_7 %}<td data-tag="{{report.cell_4_7}}"> {{report.cell_4_7}}</td> {% endif %}
+      {% if report.header_8 %}<td data-tag="{{report.cell_4_8}}"> {{report.cell_4_8}}</td> {% endif %}
+      {% if report.header_9 %}<td data-tag="{{report.cell_4_9}}"> {{report.cell_4_9}}</td> {% endif %}
+      {% if report.header_10 %}<td data-tag="{{report.cell_4_10}}"> {{report.cell_4_10}}</td>{% endif %} 
+      {% if report.header_11 %} <td data-tag="{{report.cell_4_11}}"> {{report.cell_4_11}}</td> {% endif %}
+      {% if report.header_12 %}<td data-tag="{{report.cell_4_12}}"> {{report.cell_4_12}}</td> {% endif %}
+      {% if report.header_13 %}<td data-tag="{{report.cell_4_13}}"> {{report.cell_4_13}}</td> {% endif %}
+      {% if report.header_14 %}<td data-tag="{{report.cell_4_14}}"> {{report.cell_4_14}}</td> {% endif %}
+      {% if report.header_15 %}<td data-tag="{{report.cell_4_15}}"> {{report.cell_4_15}}</td>{% endif %} 
+    </tr>
+    {% endif %}
+    {% if report.row_5 %} 
+    <tr>
+      <td>{{report.row_5}}</td>
+      {% if report.header_1 %}<td data-tag="{{report.cell_5_1}}"> {{report.cell_5_1}}</td>{% endif %}
+      {% if report.header_2 %}<td data-tag="{{report.cell_5_2}}"> {{report.cell_5_2}}</td>{% endif %}
+      {% if report.header_3 %}<td data-tag="{{report.cell_5_3}}"> {{report.cell_5_3}}</td>{% endif %}
+      {% if report.header_4 %}<td data-tag="{{report.cell_5_4}}"> {{report.cell_5_4}}</td>{% endif %}
+      {% if report.header_5 %}<td data-tag="{{report.cell_5_5}}"> {{report.cell_5_5}}</td>{% endif %}
+      {% if report.header_6 %} <td data-tag="{{report.cell_5_6}}"> {{report.cell_5_6}}</td> {% endif %}
+      {% if report.header_7 %}<td data-tag="{{report.cell_5_7}}"> {{report.cell_5_7}}</td> {% endif %}
+      {% if report.header_8 %}<td data-tag="{{report.cell_5_8}}"> {{report.cell_5_8}}</td> {% endif %}
+      {% if report.header_9 %}<td data-tag="{{report.cell_5_9}}"> {{report.cell_5_9}}</td> {% endif %}
+      {% if report.header_10 %}<td data-tag="{{report.cell_5_10}}"> {{report.cell_5_10}}</td>{% endif %} 
+      {% if report.header_11 %} <td data-tag="{{report.cell_5_11}}"> {{report.cell_5_11}}</td> {% endif %}
+      {% if report.header_12 %}<td data-tag="{{report.cell_5_12}}"> {{report.cell_5_12}}</td> {% endif %}
+      {% if report.header_13 %}<td data-tag="{{report.cell_5_13}}"> {{report.cell_5_13}}</td> {% endif %}
+      {% if report.header_14 %}<td data-tag="{{report.cell_5_14}}"> {{report.cell_5_14}}</td> {% endif %}
+      {% if report.header_15 %}<td data-tag="{{report.cell_5_15}}"> {{report.cell_5_15}}</td>{% endif %} 
+    </tr>
+    {% endif %}
+    {% if report.row_6 %} 
+    <tr>
+      <td>{{report.row_6}}</td>
+      {% if report.header_1 %}<td data-tag="{{report.cell_6_1}}"> {{report.cell_6_1}}</td>{% endif %}
+      {% if report.header_2 %}<td data-tag="{{report.cell_6_2}}"> {{report.cell_6_2}}</td>{% endif %}
+      {% if report.header_3 %}<td data-tag="{{report.cell_6_3}}"> {{report.cell_6_3}}</td>{% endif %}
+      {% if report.header_4 %}<td data-tag="{{report.cell_6_4}}"> {{report.cell_6_4}}</td>{% endif %}
+      {% if report.header_5 %}<td data-tag="{{report.cell_6_5}}"> {{report.cell_6_5}}</td>{% endif %}
+      {% if report.header_6 %} <td data-tag="{{report.cell_6_6}}"> {{report.cell_6_6}}</td> {% endif %}
+      {% if report.header_7 %}<td data-tag="{{report.cell_6_7}}"> {{report.cell_6_7}}</td> {% endif %}
+      {% if report.header_8 %}<td data-tag="{{report.cell_6_8}}"> {{report.cell_6_8}}</td> {% endif %}
+      {% if report.header_9 %}<td data-tag="{{report.cell_6_9}}"> {{report.cell_6_9}}</td> {% endif %}
+      {% if report.header_10 %}<td data-tag="{{report.cell_6_10}}"> {{report.cell_6_10}}</td>{% endif %} 
+      {% if report.header_11 %} <td data-tag="{{report.cell_6_11}}"> {{report.cell_6_11}}</td> {% endif %}
+      {% if report.header_12 %}<td data-tag="{{report.cell_6_12}}"> {{report.cell_6_12}}</td> {% endif %}
+      {% if report.header_13 %}<td data-tag="{{report.cell_6_13}}"> {{report.cell_6_13}}</td> {% endif %}
+      {% if report.header_14 %}<td data-tag="{{report.cell_6_14}}"> {{report.cell_6_14}}</td> {% endif %}
+      {% if report.header_15 %}<td data-tag="{{report.cell_6_15}}"> {{report.cell_6_15}}</td>{% endif %} 
+    </tr>
+    {% endif %}
+    {% if report.row_7 %} 
+    <tr>
+      <td>{{report.row_7}}</td>
+      {% if report.header_1 %} <td data-tag="{{report.cell_7_1}}"> {{report.cell_7_1}}</td> {% endif %}
+      {% if report.header_2 %}<td data-tag="{{report.cell_7_2}}"> {{report.cell_7_2}}</td> {% endif %}
+      {% if report.header_3 %}<td data-tag="{{report.cell_7_3}}"> {{report.cell_7_3}}</td> {% endif %}
+      {% if report.header_4 %}<td data-tag="{{report.cell_7_4}}"> {{report.cell_7_4}}</td> {% endif %}
+      {% if report.header_5 %}<td data-tag="{{report.cell_7_5}}"> {{report.cell_7_5}}</td>{% endif %} 
+      {% if report.header_6 %} <td data-tag="{{report.cell_7_6}}"> {{report.cell_7_6}}</td> {% endif %}
+      {% if report.header_7 %}<td data-tag="{{report.cell_7_7}}"> {{report.cell_7_7}}</td> {% endif %}
+      {% if report.header_8 %}<td data-tag="{{report.cell_7_8}}"> {{report.cell_7_8}}</td> {% endif %}
+      {% if report.header_9 %}<td data-tag="{{report.cell_7_9}}"> {{report.cell_7_9}}</td> {% endif %}
+      {% if report.header_10 %}<td data-tag="{{report.cell_7_10}}"> {{report.cell_7_10}}</td>{% endif %} 
+      {% if report.header_11 %} <td data-tag="{{report.cell_7_11}}"> {{report.cell_7_11}}</td> {% endif %}
+      {% if report.header_12 %}<td data-tag="{{report.cell_7_12}}"> {{report.cell_7_12}}</td> {% endif %}
+      {% if report.header_13 %}<td data-tag="{{report.cell_7_13}}"> {{report.cell_7_13}}</td> {% endif %}
+      {% if report.header_14 %}<td data-tag="{{report.cell_7_14}}"> {{report.cell_7_14}}</td> {% endif %}
+      {% if report.header_15 %}<td data-tag="{{report.cell_7_15}}"> {{report.cell_7_15}}</td>{% endif %} 
+    </tr>
+    {% endif %}
+    {% if report.row_8 %} 
+    <tr>
+      <td>{{report.row_8}}</td>
+      {% if report.header_1 %}<td data-tag="{{report.cell_8_1}}"> {{report.cell_8_1}}</td>{% endif %}
+      {% if report.header_2 %}<td data-tag="{{report.cell_8_2}}"> {{report.cell_8_2}}</td>{% endif %}
+      {% if report.header_3 %}<td data-tag="{{report.cell_8_3}}"> {{report.cell_8_3}}</td>{% endif %}
+      {% if report.header_4 %}<td data-tag="{{report.cell_8_4}}"> {{report.cell_8_4}}</td>{% endif %}
+      {% if report.header_5 %}<td data-tag="{{report.cell_8_5}}"> {{report.cell_8_5}}</td>{% endif %}
+      {% if report.header_6 %}<td data-tag="{{report.cell_8_6}}"> {{report.cell_8_6}}</td> {% endif %}
+      {% if report.header_7 %}<td data-tag="{{report.cell_8_7}}"> {{report.cell_8_7}}</td> {% endif %}
+      {% if report.header_8 %}<td data-tag="{{report.cell_8_8}}"> {{report.cell_8_8}}</td> {% endif %}
+      {% if report.header_9 %}<td data-tag="{{report.cell_8_9}}"> {{report.cell_8_9}}</td> {% endif %}
+      {% if report.header_10 %}<td data-tag="{{report.cell_8_10}}"> {{report.cell_8_10}}</td>{% endif %} 
+      {% if report.header_11 %}<td data-tag="{{report.cell_8_11}}"> {{report.cell_8_11}}</td> {% endif %}
+      {% if report.header_12 %}<td data-tag="{{report.cell_8_12}}"> {{report.cell_8_12}}</td> {% endif %}
+      {% if report.header_13 %}<td data-tag="{{report.cell_8_13}}"> {{report.cell_8_13}}</td> {% endif %}
+      {% if report.header_14 %}<td data-tag="{{report.cell_8_14}}"> {{report.cell_8_14}}</td> {% endif %}
+      {% if report.header_15 %}<td data-tag="{{report.cell_8_15}}"> {{report.cell_8_15}}</td>{% endif %} 
+    </tr>
+    {% endif %}
+    {% if report.row_9 %} 
+    <tr>
+      <td>{{report.row_9}}</td>
+      {% if report.header_1 %}<td data-tag="{{report.cell_9_1}}"> {{report.cell_9_1}}</td>{% endif %}
+      {% if report.header_2 %}<td data-tag="{{report.cell_9_2}}"> {{report.cell_9_2}}</td>{% endif %}
+      {% if report.header_3 %}<td data-tag="{{report.cell_9_3}}"> {{report.cell_9_3}}</td>{% endif %}
+      {% if report.header_4 %}<td data-tag="{{report.cell_9_4}}"> {{report.cell_9_4}}</td>{% endif %}
+      {% if report.header_5 %}<td data-tag="{{report.cell_9_5}}"> {{report.cell_9_5}}</td>{% endif %}
+      {% if report.header_6 %} <td data-tag="{{report.cell_9_6}}"> {{report.cell_9_6}}</td> {% endif %}
+      {% if report.header_7 %}<td data-tag="{{report.cell_9_7}}"> {{report.cell_9_7}}</td> {% endif %}
+      {% if report.header_8 %}<td data-tag="{{report.cell_9_8}}"> {{report.cell_9_8}}</td> {% endif %}
+      {% if report.header_9 %}<td data-tag="{{report.cell_9_9}}"> {{report.cell_9_9}}</td> {% endif %}
+      {% if report.header_10 %}<td data-tag="{{report.cell_9_10}}"> {{report.cell_9_10}}</td>{% endif %} 
+      {% if report.header_11 %} <td data-tag="{{report.cell_9_11}}"> {{report.cell_9_11}}</td> {% endif %}
+      {% if report.header_12 %}<td data-tag="{{report.cell_9_12}}"> {{report.cell_9_12}}</td> {% endif %}
+      {% if report.header_13 %}<td data-tag="{{report.cell_9_13}}"> {{report.cell_9_13}}</td> {% endif %}
+      {% if report.header_14 %}<td data-tag="{{report.cell_9_14}}"> {{report.cell_9_14}}</td> {% endif %}
+      {% if report.header_15 %}<td data-tag="{{report.cell_9_15}}"> {{report.cell_9_15}}</td>{% endif %} 
+    </tr>
+    {% endif %}
+
+    {% if report.row_10 %} 
+    <tr>
+      <td>{{report.row_10}}</td>
+      {% if report.header_1 %}<td data-tag="{{report.cell_10_1}}"> {{report.cell_10_1}}</td>{% endif %}
+      {% if report.header_2 %}<td data-tag="{{report.cell_10_2}}"> {{report.cell_10_2}}</td>{% endif %}
+      {% if report.header_3 %}<td data-tag="{{report.cell_10_3}}"> {{report.cell_10_3}}</td>{% endif %}
+      {% if report.header_4 %}<td data-tag="{{report.cell_10_4}}"> {{report.cell_10_4}}</td>{% endif %}
+      {% if report.header_5 %}<td data-tag="{{report.cell_10_5}}"> {{report.cell_10_5}}</td>{% endif %}
+      {% if report.header_6 %} <td data-tag="{{report.cell_10_6}}"> {{report.cell_10_6}}</td> {% endif %}
+      {% if report.header_7 %}<td data-tag="{{report.cell_10_7}}"> {{report.cell_10_7}}</td> {% endif %}
+      {% if report.header_8 %}<td data-tag="{{report.cell_10_8}}"> {{report.cell_10_8}}</td> {% endif %}
+      {% if report.header_9 %}<td data-tag="{{report.cell_10_9}}"> {{report.cell_10_9}}</td> {% endif %}
+      {% if report.header_10 %}<td data-tag="{{report.cell_10_10}}"> {{report.cell_10_10}}</td>{% endif %} 
+      {% if report.header_11 %} <td data-tag="{{report.cell_10_11}}"> {{report.cell_10_11}}</td> {% endif %}
+      {% if report.header_12 %}<td data-tag="{{report.cell_10_12}}"> {{report.cell_10_12}}</td> {% endif %}
+      {% if report.header_13 %}<td data-tag="{{report.cell_10_13}}"> {{report.cell_10_13}}</td> {% endif %}
+      {% if report.header_14 %}<td data-tag="{{report.cell_10_14}}"> {{report.cell_10_14}}</td> {% endif %}
+      {% if report.header_15 %}<td data-tag="{{report.cell_10_15}}"> {{report.cell_10_15}}</td>{% endif %}
+    </tr>
+    {% endif %}
+
+    {% if report.row_11 %} 
+    <tr>
+      <td>{{report.row_11}}</td>
+      {% if report.header_1 %} <td data-tag="{{report.cell_11_1}}"> {{report.cell_11_1}}</td> {% endif %}
+      {% if report.header_2 %}<td data-tag="{{report.cell_11_2}}"> {{report.cell_11_2}}</td> {% endif %}
+      {% if report.header_3 %}<td data-tag="{{report.cell_11_3}}"> {{report.cell_11_3}}</td> {% endif %}
+      {% if report.header_4 %}<td data-tag="{{report.cell_11_4}}"> {{report.cell_11_4}}</td> {% endif %}
+      {% if report.header_5 %}<td data-tag="{{report.cell_11_5}}"> {{report.cell_11_5}}</td>{% endif %} 
+      {% if report.header_6 %} <td data-tag="{{report.cell_11_6}}"> {{report.cell_11_6}}</td> {% endif %}
+      {% if report.header_7 %}<td data-tag="{{report.cell_11_7}}"> {{report.cell_11_7}}</td> {% endif %}
+      {% if report.header_8 %}<td data-tag="{{report.cell_11_8}}"> {{report.cell_11_8}}</td> {% endif %}
+      {% if report.header_9 %}<td data-tag="{{report.cell_11_9}}"> {{report.cell_11_9}}</td> {% endif %}
+      {% if report.header_10 %}<td data-tag="{{report.cell_11_10}}"> {{report.cell_11_10}}</td>{% endif %} 
+      {% if report.header_11 %} <td data-tag="{{report.cell_11_11}}"> {{report.cell_11_11}}</td> {% endif %}
+      {% if report.header_12 %}<td data-tag="{{report.cell_11_12}}"> {{report.cell_11_12}}</td> {% endif %}
+      {% if report.header_13 %}<td data-tag="{{report.cell_11_13}}"> {{report.cell_11_13}}</td> {% endif %}
+      {% if report.header_14 %}<td data-tag="{{report.cell_11_14}}"> {{report.cell_11_14}}</td> {% endif %}
+      {% if report.header_15 %}<td data-tag="{{report.cell_11_15}}"> {{report.cell_11_15}}</td>{% endif %} 
+    </tr>
+    {% endif %}
+    {% if report.row_12 %} 
+    <tr>
+      <td>{{report.row_12}}</td>
+      {% if report.header_1 %}<td data-tag="{{report.cell_12_1}}"> {{report.cell_12_1}}</td>{% endif %}
+      {% if report.header_2 %}<td data-tag="{{report.cell_12_2}}"> {{report.cell_12_2}}</td>{% endif %}
+      {% if report.header_3 %}<td data-tag="{{report.cell_12_3}}"> {{report.cell_12_3}}</td>{% endif %}
+      {% if report.header_4 %}<td data-tag="{{report.cell_12_4}}"> {{report.cell_12_4}}</td>{% endif %}
+      {% if report.header_5 %}<td data-tag="{{report.cell_12_5}}"> {{report.cell_12_5}}</td>{% endif %}
+      {% if report.header_6 %} <td data-tag="{{report.cell_12_6}}"> {{report.cell_12_6}}</td> {% endif %}
+      {% if report.header_7 %}<td data-tag="{{report.cell_12_7}}"> {{report.cell_12_7}}</td> {% endif %}
+      {% if report.header_8 %}<td data-tag="{{report.cell_12_8}}"> {{report.cell_12_8}}</td> {% endif %}
+      {% if report.header_9 %}<td data-tag="{{report.cell_12_9}}"> {{report.cell_12_9}}</td> {% endif %}
+      {% if report.header_10 %}<td data-tag="{{report.cell_12_10}}"> {{report.cell_12_10}}</td>{% endif %} 
+      {% if report.header_11 %} <td data-tag="{{report.cell_12_11}}"> {{report.cell_12_11}}</td> {% endif %}
+      {% if report.header_12 %}<td data-tag="{{report.cell_12_12}}"> {{report.cell_12_12}}</td> {% endif %}
+      {% if report.header_13 %}<td data-tag="{{report.cell_12_13}}"> {{report.cell_12_13}}</td> {% endif %}
+      {% if report.header_14 %}<td data-tag="{{report.cell_12_14}}"> {{report.cell_12_14}}</td> {% endif %}
+      {% if report.header_15 %}<td data-tag="{{report.cell_12_15}}"> {{report.cell_12_15}}</td>{% endif %} 
+    </tr>
+    {% endif %}
+    {% if report.row_13 %} 
+    <tr>
+      <td>{{report.row_13}}</td>
+      {% if report.header_1 %}<td data-tag="{{report.cell_13_1}}"> {{report.cell_13_1}}</td>{% endif %}
+      {% if report.header_2 %}<td data-tag="{{report.cell_13_2}}"> {{report.cell_13_2}}</td>{% endif %}
+      {% if report.header_3 %}<td data-tag="{{report.cell_13_3}}"> {{report.cell_13_3}}</td>{% endif %}
+      {% if report.header_4 %}<td data-tag="{{report.cell_13_4}}"> {{report.cell_13_4}}</td>{% endif %}
+      {% if report.header_5 %}<td data-tag="{{report.cell_13_5}}"> {{report.cell_13_5}}</td>{% endif %}
+      {% if report.header_6 %} <td data-tag="{{report.cell_13_6}}"> {{report.cell_13_6}}</td> {% endif %}
+      {% if report.header_7 %}<td data-tag="{{report.cell_13_7}}"> {{report.cell_13_7}}</td> {% endif %}
+      {% if report.header_8 %}<td data-tag="{{report.cell_13_8}}"> {{report.cell_13_8}}</td> {% endif %}
+      {% if report.header_9 %}<td data-tag="{{report.cell_13_9}}"> {{report.cell_13_9}}</td> {% endif %}
+      {% if report.header_10 %}<td data-tag="{{report.cell_13_10}}"> {{report.cell_13_10}}</td>{% endif %} 
+      {% if report.header_11 %} <td data-tag="{{report.cell_13_11}}"> {{report.cell_13_11}}</td> {% endif %}
+      {% if report.header_12 %}<td data-tag="{{report.cell_13_12}}"> {{report.cell_13_12}}</td> {% endif %}
+      {% if report.header_13 %}<td data-tag="{{report.cell_13_13}}"> {{report.cell_13_13}}</td> {% endif %}
+      {% if report.header_14 %}<td data-tag="{{report.cell_13_14}}"> {{report.cell_13_14}}</td> {% endif %}
+      {% if report.header_15 %}<td data-tag="{{report.cell_13_15}}"> {{report.cell_13_15}}</td>{% endif %} 
+    </tr>
+    {% endif %}
+    {% if report.row_14 %} 
+    <tr>
+      <td>{{report.row_14}}</td>
+      {% if report.header_1 %} <td data-tag="{{report.cell_14_1}}"> {{report.cell_14_1}}</td> {% endif %}
+      {% if report.header_2 %}<td data-tag="{{report.cell_14_2}}"> {{report.cell_14_2}}</td> {% endif %}
+      {% if report.header_3 %}<td data-tag="{{report.cell_14_3}}"> {{report.cell_14_3}}</td> {% endif %}
+      {% if report.header_4 %}<td data-tag="{{report.cell_14_4}}"> {{report.cell_14_4}}</td> {% endif %}
+      {% if report.header_5 %}<td data-tag="{{report.cell_14_5}}"> {{report.cell_14_5}}</td>{% endif %} 
+      {% if report.header_6 %} <td data-tag="{{report.cell_14_6}}"> {{report.cell_14_6}}</td> {% endif %}
+      {% if report.header_7 %}<td data-tag="{{report.cell_14_7}}"> {{report.cell_14_7}}</td> {% endif %}
+      {% if report.header_8 %}<td data-tag="{{report.cell_14_8}}"> {{report.cell_14_8}}</td> {% endif %}
+      {% if report.header_9 %}<td data-tag="{{report.cell_14_9}}"> {{report.cell_14_9}}</td> {% endif %}
+      {% if report.header_10 %}<td data-tag="{{report.cell_14_10}}"> {{report.cell_14_10}}</td>{% endif %} 
+      {% if report.header_11 %} <td data-tag="{{report.cell_14_11}}"> {{report.cell_14_11}}</td> {% endif %}
+      {% if report.header_12 %}<td data-tag="{{report.cell_14_12}}"> {{report.cell_14_12}}</td> {% endif %}
+      {% if report.header_13 %}<td data-tag="{{report.cell_14_13}}"> {{report.cell_14_13}}</td> {% endif %}
+      {% if report.header_14 %}<td data-tag="{{report.cell_14_14}}"> {{report.cell_14_14}}</td> {% endif %}
+      {% if report.header_15 %}<td data-tag="{{report.cell_14_15}}"> {{report.cell_14_15}}</td>{% endif %} 
+    </tr>
+    {% endif %}
+    {% if report.row_15 %} 
+    <tr>
+      <td>{{report.row_15}}</td>
+      {% if report.header_1 %}<td data-tag="{{report.cell_15_1}}"> {{report.cell_15_1}}</td>{% endif %}
+      {% if report.header_2 %}<td data-tag="{{report.cell_15_2}}"> {{report.cell_15_2}}</td>{% endif %}
+      {% if report.header_3 %}<td data-tag="{{report.cell_15_3}}"> {{report.cell_15_3}}</td>{% endif %}
+      {% if report.header_4 %}<td data-tag="{{report.cell_15_4}}"> {{report.cell_15_4}}</td>{% endif %}
+      {% if report.header_5 %}<td data-tag="{{report.cell_15_5}}"> {{report.cell_15_5}}</td>{% endif %}
+      {% if report.header_6 %} <td data-tag="{{report.cell_15_6}}"> {{report.cell_15_6}}</td> {% endif %}
+      {% if report.header_7 %}<td data-tag="{{report.cell_15_7}}"> {{report.cell_15_7}}</td> {% endif %}
+      {% if report.header_8 %}<td data-tag="{{report.cell_15_8}}"> {{report.cell_15_8}}</td> {% endif %}
+      {% if report.header_9 %}<td data-tag="{{report.cell_15_9}}"> {{report.cell_15_9}}</td> {% endif %}
+      {% if report.header_10 %}<td data-tag="{{report.cell_15_10}}"> {{report.cell_15_10}}</td>{% endif %} 
+      {% if report.header_11 %} <td data-tag="{{report.cell_15_11}}"> {{report.cell_15_11}}</td> {% endif %}
+      {% if report.header_12 %}<td data-tag="{{report.cell_15_12}}"> {{report.cell_15_12}}</td> {% endif %}
+      {% if report.header_13 %}<td data-tag="{{report.cell_15_13}}"> {{report.cell_15_13}}</td> {% endif %}
+      {% if report.header_14 %}<td data-tag="{{report.cell_15_14}}"> {{report.cell_15_14}}</td> {% endif %}
+      {% if report.header_15 %}<td data-tag="{{report.cell_15_15}}"> {{report.cell_15_15}}</td>{% endif %} 
+    </tr>
+    {% endif %}
+    {% if report.row_16 %} 
+    <tr>
+      <td>{{report.row_16}}</td>
+      {% if report.header_1 %}<td data-tag="{{report.cell_16_1}}"> {{report.cell_16_1}}</td>{% endif %}
+      {% if report.header_2 %}<td data-tag="{{report.cell_16_2}}"> {{report.cell_16_2}}</td>{% endif %}
+      {% if report.header_3 %}<td data-tag="{{report.cell_16_3}}"> {{report.cell_16_3}}</td>{% endif %}
+      {% if report.header_4 %}<td data-tag="{{report.cell_16_4}}"> {{report.cell_16_4}}</td>{% endif %}
+      {% if report.header_5 %}<td data-tag="{{report.cell_16_5}}"> {{report.cell_16_5}}</td>{% endif %}
+      {% if report.header_6 %} <td data-tag="{{report.cell_16_6}}"> {{report.cell_16_6}}</td> {% endif %}
+      {% if report.header_7 %}<td data-tag="{{report.cell_16_7}}"> {{report.cell_16_7}}</td> {% endif %}
+      {% if report.header_8 %}<td data-tag="{{report.cell_16_8}}"> {{report.cell_16_8}}</td> {% endif %}
+      {% if report.header_9 %}<td data-tag="{{report.cell_16_9}}"> {{report.cell_16_9}}</td> {% endif %}
+      {% if report.header_10 %}<td data-tag="{{report.cell_16_10}}"> {{report.cell_16_10}}</td>{% endif %} 
+      {% if report.header_11 %} <td data-tag="{{report.cell_16_11}}"> {{report.cell_16_11}}</td> {% endif %}
+      {% if report.header_12 %}<td data-tag="{{report.cell_16_12}}"> {{report.cell_16_12}}</td> {% endif %}
+      {% if report.header_13 %}<td data-tag="{{report.cell_16_13}}"> {{report.cell_16_13}}</td> {% endif %}
+      {% if report.header_14 %}<td data-tag="{{report.cell_16_14}}"> {{report.cell_16_14}}</td> {% endif %}
+      {% if report.header_15 %}<td data-tag="{{report.cell_16_15}}"> {{report.cell_16_15}}</td>{% endif %} 
+    </tr>
+    {% endif %}
+    {% if report.row_17 %} 
+    <tr>
+      <td>{{report.row_17}}</td>
+      {% if report.header_1 %} <td data-tag="{{report.cell_17_1}}"> {{report.cell_17_1}}</td> {% endif %}
+      {% if report.header_2 %}<td data-tag="{{report.cell_17_2}}"> {{report.cell_17_2}}</td> {% endif %}
+      {% if report.header_3 %}<td data-tag="{{report.cell_17_3}}"> {{report.cell_17_3}}</td> {% endif %}
+      {% if report.header_4 %}<td data-tag="{{report.cell_17_4}}"> {{report.cell_17_4}}</td> {% endif %}
+      {% if report.header_5 %}<td data-tag="{{report.cell_17_5}}"> {{report.cell_17_5}}</td>{% endif %} 
+      {% if report.header_6 %} <td data-tag="{{report.cell_17_6}}"> {{report.cell_17_6}}</td> {% endif %}
+      {% if report.header_7 %}<td data-tag="{{report.cell_17_7}}"> {{report.cell_17_7}}</td> {% endif %}
+      {% if report.header_8 %}<td data-tag="{{report.cell_17_8}}"> {{report.cell_17_8}}</td> {% endif %}
+      {% if report.header_9 %}<td data-tag="{{report.cell_17_9}}"> {{report.cell_17_9}}</td> {% endif %}
+      {% if report.header_10 %}<td data-tag="{{report.cell_17_10}}"> {{report.cell_17_10}}</td>{% endif %} 
+      {% if report.header_11 %} <td data-tag="{{report.cell_17_11}}"> {{report.cell_17_11}}</td> {% endif %}
+      {% if report.header_12 %}<td data-tag="{{report.cell_17_12}}"> {{report.cell_17_12}}</td> {% endif %}
+      {% if report.header_13 %}<td data-tag="{{report.cell_17_13}}"> {{report.cell_17_13}}</td> {% endif %}
+      {% if report.header_14 %}<td data-tag="{{report.cell_17_14}}"> {{report.cell_17_14}}</td> {% endif %}
+      {% if report.header_15 %}<td data-tag="{{report.cell_17_15}}"> {{report.cell_17_15}}</td>{% endif %} 
+    </tr>
+    {% endif %}
+    {% if report.row_18 %} 
+    <tr>
+      <td>{{report.row_18}}</td>
+      {% if report.header_1 %}<td data-tag="{{report.cell_18_1}}"> {{report.cell_18_1}}</td>{% endif %}
+      {% if report.header_2 %}<td data-tag="{{report.cell_18_2}}"> {{report.cell_18_2}}</td>{% endif %}
+      {% if report.header_3 %}<td data-tag="{{report.cell_18_3}}"> {{report.cell_18_3}}</td>{% endif %}
+      {% if report.header_4 %}<td data-tag="{{report.cell_18_4}}"> {{report.cell_18_4}}</td>{% endif %}
+      {% if report.header_5 %}<td data-tag="{{report.cell_18_5}}"> {{report.cell_18_5}}</td>{% endif %}
+      {% if report.header_6 %}<td data-tag="{{report.cell_18_6}}"> {{report.cell_18_6}}</td> {% endif %}
+      {% if report.header_7 %}<td data-tag="{{report.cell_18_7}}"> {{report.cell_18_7}}</td> {% endif %}
+      {% if report.header_8 %}<td data-tag="{{report.cell_18_8}}"> {{report.cell_18_8}}</td> {% endif %}
+      {% if report.header_9 %}<td data-tag="{{report.cell_18_9}}"> {{report.cell_18_9}}</td> {% endif %}
+      {% if report.header_10 %}<td data-tag="{{report.cell_18_10}}"> {{report.cell_18_10}}</td>{% endif %} 
+      {% if report.header_11 %}<td data-tag="{{report.cell_18_11}}"> {{report.cell_18_11}}</td> {% endif %}
+      {% if report.header_12 %}<td data-tag="{{report.cell_18_12}}"> {{report.cell_18_12}}</td> {% endif %}
+      {% if report.header_13 %}<td data-tag="{{report.cell_18_13}}"> {{report.cell_18_13}}</td> {% endif %}
+      {% if report.header_14 %}<td data-tag="{{report.cell_18_14}}"> {{report.cell_18_14}}</td> {% endif %}
+      {% if report.header_15 %}<td data-tag="{{report.cell_18_15}}"> {{report.cell_18_15}}</td>{% endif %} 
+    </tr>
+    {% endif %}
+    {% if report.row_19 %} 
+    <tr>
+      <td>{{report.row_19}}</td>
+      {% if report.header_1 %}<td data-tag="{{report.cell_19_1}}"> {{report.cell_19_1}}</td>{% endif %}
+      {% if report.header_2 %}<td data-tag="{{report.cell_19_2}}"> {{report.cell_19_2}}</td>{% endif %}
+      {% if report.header_3 %}<td data-tag="{{report.cell_19_3}}"> {{report.cell_19_3}}</td>{% endif %}
+      {% if report.header_4 %}<td data-tag="{{report.cell_19_4}}"> {{report.cell_19_4}}</td>{% endif %}
+      {% if report.header_5 %}<td data-tag="{{report.cell_19_5}}"> {{report.cell_19_5}}</td>{% endif %}
+      {% if report.header_6 %} <td data-tag="{{report.cell_19_6}}"> {{report.cell_19_6}}</td> {% endif %}
+      {% if report.header_7 %}<td data-tag="{{report.cell_19_7}}"> {{report.cell_19_7}}</td> {% endif %}
+      {% if report.header_8 %}<td data-tag="{{report.cell_19_8}}"> {{report.cell_19_8}}</td> {% endif %}
+      {% if report.header_9 %}<td data-tag="{{report.cell_19_9}}"> {{report.cell_19_9}}</td> {% endif %}
+      {% if report.header_10 %}<td data-tag="{{report.cell_19_10}}"> {{report.cell_19_10}}</td>{% endif %} 
+      {% if report.header_11 %} <td data-tag="{{report.cell_19_11}}"> {{report.cell_19_11}}</td> {% endif %}
+      {% if report.header_12 %}<td data-tag="{{report.cell_19_12}}"> {{report.cell_19_12}}</td> {% endif %}
+      {% if report.header_13 %}<td data-tag="{{report.cell_19_13}}"> {{report.cell_19_13}}</td> {% endif %}
+      {% if report.header_14 %}<td data-tag="{{report.cell_19_14}}"> {{report.cell_19_14}}</td> {% endif %}
+      {% if report.header_15 %}<td data-tag="{{report.cell_19_15}}"> {{report.cell_19_15}}</td>{% endif %} 
+    </tr>
+    {% endif %}
+    {% if report.row_20 %} 
+    <tr>
+      <td>{{report.row_20}}</td>
+      {% if report.header_1 %}<td data-tag="{{report.cell_20_1}}"> {{report.cell_20_1}}</td>{% endif %}
+      {% if report.header_2 %}<td data-tag="{{report.cell_20_2}}"> {{report.cell_20_2}}</td>{% endif %}
+      {% if report.header_3 %}<td data-tag="{{report.cell_20_3}}"> {{report.cell_20_3}}</td>{% endif %}
+      {% if report.header_4 %}<td data-tag="{{report.cell_20_4}}"> {{report.cell_20_4}}</td>{% endif %}
+      {% if report.header_5 %}<td data-tag="{{report.cell_20_5}}"> {{report.cell_20_5}}</td>{% endif %}
+      {% if report.header_6 %} <td data-tag="{{report.cell_20_6}}"> {{report.cell_20_6}}</td> {% endif %}
+      {% if report.header_7 %}<td data-tag="{{report.cell_20_7}}"> {{report.cell_20_7}}</td> {% endif %}
+      {% if report.header_8 %}<td data-tag="{{report.cell_20_8}}"> {{report.cell_20_8}}</td> {% endif %}
+      {% if report.header_9 %}<td data-tag="{{report.cell_20_9}}"> {{report.cell_20_9}}</td> {% endif %}
+      {% if report.header_10 %}<td data-tag="{{report.cell_20_10}}"> {{report.cell_20_10}}</td>{% endif %} 
+      {% if report.header_11 %} <td data-tag="{{report.cell_20_11}}"> {{report.cell_20_11}}</td> {% endif %}
+      {% if report.header_12 %}<td data-tag="{{report.cell_20_12}}"> {{report.cell_20_12}}</td> {% endif %}
+      {% if report.header_13 %}<td data-tag="{{report.cell_20_13}}"> {{report.cell_20_13}}</td> {% endif %}
+      {% if report.header_14 %}<td data-tag="{{report.cell_20_14}}"> {{report.cell_20_14}}</td> {% endif %}
+      {% if report.header_15 %}<td data-tag="{{report.cell_20_15}}"> {{report.cell_20_15}}</td>{% endif %} 
+    </tr>
+    {% endif %}
+
+    {% if report.row_21 %} 
+    <tr>
+      <td>{{report.row_21}}</td>
+      {% if report.header_1 %} <td data-tag="{{report.cell_21_1}}"> {{report.cell_21_1}}</td> {% endif %}
+      {% if report.header_2 %}<td data-tag="{{report.cell_21_2}}"> {{report.cell_21_2}}</td> {% endif %}
+      {% if report.header_3 %}<td data-tag="{{report.cell_21_3}}"> {{report.cell_21_3}}</td> {% endif %}
+      {% if report.header_4 %}<td data-tag="{{report.cell_21_4}}"> {{report.cell_21_4}}</td> {% endif %}
+      {% if report.header_5 %}<td data-tag="{{report.cell_21_5}}"> {{report.cell_21_5}}</td>{% endif %} 
+      {% if report.header_6 %} <td data-tag="{{report.cell_21_6}}"> {{report.cell_21_6}}</td> {% endif %}
+      {% if report.header_7 %}<td data-tag="{{report.cell_21_7}}"> {{report.cell_21_7}}</td> {% endif %}
+      {% if report.header_8 %}<td data-tag="{{report.cell_21_8}}"> {{report.cell_21_8}}</td> {% endif %}
+      {% if report.header_9 %}<td data-tag="{{report.cell_21_9}}"> {{report.cell_21_9}}</td> {% endif %}
+      {% if report.header_10 %}<td data-tag="{{report.cell_21_10}}"> {{report.cell_21_10}}</td>{% endif %} 
+      {% if report.header_11 %} <td data-tag="{{report.cell_21_11}}"> {{report.cell_21_11}}</td> {% endif %}
+      {% if report.header_12 %}<td data-tag="{{report.cell_21_12}}"> {{report.cell_21_12}}</td> {% endif %}
+      {% if report.header_13 %}<td data-tag="{{report.cell_21_13}}"> {{report.cell_21_13}}</td> {% endif %}
+      {% if report.header_14 %}<td data-tag="{{report.cell_21_14}}"> {{report.cell_21_14}}</td> {% endif %}
+      {% if report.header_15 %}<td data-tag="{{report.cell_21_15}}"> {{report.cell_21_15}}</td>{% endif %} 
+    </tr>
+    {% endif %}
+    {% if report.row_22 %} 
+    <tr>
+      <td>{{report.row_22}}</td>
+      {% if report.header_1 %}<td data-tag="{{report.cell_22_1}}"> {{report.cell_22_1}}</td>{% endif %}
+      {% if report.header_2 %}<td data-tag="{{report.cell_22_2}}"> {{report.cell_22_2}}</td>{% endif %}
+      {% if report.header_3 %}<td data-tag="{{report.cell_22_3}}"> {{report.cell_22_3}}</td>{% endif %}
+      {% if report.header_4 %}<td data-tag="{{report.cell_22_4}}"> {{report.cell_22_4}}</td>{% endif %}
+      {% if report.header_5 %}<td data-tag="{{report.cell_22_5}}"> {{report.cell_22_5}}</td>{% endif %}
+      {% if report.header_6 %} <td data-tag="{{report.cell_22_6}}"> {{report.cell_22_6}}</td> {% endif %}
+      {% if report.header_7 %}<td data-tag="{{report.cell_22_7}}"> {{report.cell_22_7}}</td> {% endif %}
+      {% if report.header_8 %}<td data-tag="{{report.cell_22_8}}"> {{report.cell_22_8}}</td> {% endif %}
+      {% if report.header_9 %}<td data-tag="{{report.cell_22_9}}"> {{report.cell_22_9}}</td> {% endif %}
+      {% if report.header_10 %}<td data-tag="{{report.cell_22_10}}"> {{report.cell_22_10}}</td>{% endif %} 
+      {% if report.header_11 %} <td data-tag="{{report.cell_22_11}}"> {{report.cell_22_11}}</td> {% endif %}
+      {% if report.header_12 %}<td data-tag="{{report.cell_22_12}}"> {{report.cell_22_12}}</td> {% endif %}
+      {% if report.header_13 %}<td data-tag="{{report.cell_22_13}}"> {{report.cell_22_13}}</td> {% endif %}
+      {% if report.header_14 %}<td data-tag="{{report.cell_22_14}}"> {{report.cell_22_14}}</td> {% endif %}
+      {% if report.header_15 %}<td data-tag="{{report.cell_22_15}}"> {{report.cell_22_15}}</td>{% endif %} 
+    </tr>
+    {% endif %}
+    {% if report.row_23 %} 
+    <tr>
+      <td>{{report.row_23}}</td>
+      {% if report.header_1 %}<td data-tag="{{report.cell_23_1}}"> {{report.cell_23_1}}</td>{% endif %}
+      {% if report.header_2 %}<td data-tag="{{report.cell_23_2}}"> {{report.cell_23_2}}</td>{% endif %}
+      {% if report.header_3 %}<td data-tag="{{report.cell_23_3}}"> {{report.cell_23_3}}</td>{% endif %}
+      {% if report.header_4 %}<td data-tag="{{report.cell_23_4}}"> {{report.cell_23_4}}</td>{% endif %}
+      {% if report.header_5 %}<td data-tag="{{report.cell_23_5}}"> {{report.cell_23_5}}</td>{% endif %}
+      {% if report.header_6 %} <td data-tag="{{report.cell_23_6}}"> {{report.cell_23_6}}</td> {% endif %}
+      {% if report.header_7 %}<td data-tag="{{report.cell_23_7}}"> {{report.cell_23_7}}</td> {% endif %}
+      {% if report.header_8 %}<td data-tag="{{report.cell_23_8}}"> {{report.cell_23_8}}</td> {% endif %}
+      {% if report.header_9 %}<td data-tag="{{report.cell_23_9}}"> {{report.cell_23_9}}</td> {% endif %}
+      {% if report.header_10 %}<td data-tag="{{report.cell_23_10}}"> {{report.cell_23_10}}</td>{% endif %} 
+      {% if report.header_11 %} <td data-tag="{{report.cell_23_11}}"> {{report.cell_23_11}}</td> {% endif %}
+      {% if report.header_12 %}<td data-tag="{{report.cell_23_12}}"> {{report.cell_23_12}}</td> {% endif %}
+      {% if report.header_13 %}<td data-tag="{{report.cell_23_13}}"> {{report.cell_23_13}}</td> {% endif %}
+      {% if report.header_14 %}<td data-tag="{{report.cell_23_14}}"> {{report.cell_23_14}}</td> {% endif %}
+      {% if report.header_15 %}<td data-tag="{{report.cell_23_15}}"> {{report.cell_23_15}}</td>{% endif %} 
+    </tr>
+    {% endif %}
+    {% if report.row_24 %} 
+    <tr>
+      <td>{{report.row_24}}</td>
+      {% if report.header_1 %} <td data-tag="{{report.cell_24_1}}"> {{report.cell_24_1}}</td> {% endif %}
+      {% if report.header_2 %}<td data-tag="{{report.cell_24_2}}"> {{report.cell_24_2}}</td> {% endif %}
+      {% if report.header_3 %}<td data-tag="{{report.cell_24_3}}"> {{report.cell_24_3}}</td> {% endif %}
+      {% if report.header_4 %}<td data-tag="{{report.cell_24_4}}"> {{report.cell_24_4}}</td> {% endif %}
+      {% if report.header_5 %}<td data-tag="{{report.cell_24_5}}"> {{report.cell_24_5}}</td>{% endif %} 
+      {% if report.header_6 %} <td data-tag="{{report.cell_24_6}}"> {{report.cell_24_6}}</td> {% endif %}
+      {% if report.header_7 %}<td data-tag="{{report.cell_24_7}}"> {{report.cell_24_7}}</td> {% endif %}
+      {% if report.header_8 %}<td data-tag="{{report.cell_24_8}}"> {{report.cell_24_8}}</td> {% endif %}
+      {% if report.header_9 %}<td data-tag="{{report.cell_24_9}}"> {{report.cell_24_9}}</td> {% endif %}
+      {% if report.header_10 %}<td data-tag="{{report.cell_24_10}}"> {{report.cell_24_10}}</td>{% endif %} 
+      {% if report.header_11 %} <td data-tag="{{report.cell_24_11}}"> {{report.cell_24_11}}</td> {% endif %}
+      {% if report.header_12 %}<td data-tag="{{report.cell_24_12}}"> {{report.cell_24_12}}</td> {% endif %}
+      {% if report.header_13 %}<td data-tag="{{report.cell_24_13}}"> {{report.cell_24_13}}</td> {% endif %}
+      {% if report.header_14 %}<td data-tag="{{report.cell_24_14}}"> {{report.cell_24_14}}</td> {% endif %}
+      {% if report.header_15 %}<td data-tag="{{report.cell_24_15}}"> {{report.cell_24_15}}</td>{% endif %} 
+    </tr>
+    {% endif %}
+    {% if report.row_25 %} 
+    <tr>
+      <td>{{report.row_25}}</td>
+      {% if report.header_1 %}<td data-tag="{{report.cell_25_1}}"> {{report.cell_25_1}}</td>{% endif %}
+      {% if report.header_2 %}<td data-tag="{{report.cell_25_2}}"> {{report.cell_25_2}}</td>{% endif %}
+      {% if report.header_3 %}<td data-tag="{{report.cell_25_3}}"> {{report.cell_25_3}}</td>{% endif %}
+      {% if report.header_4 %}<td data-tag="{{report.cell_25_4}}"> {{report.cell_25_4}}</td>{% endif %}
+      {% if report.header_5 %}<td data-tag="{{report.cell_25_5}}"> {{report.cell_25_5}}</td>{% endif %}
+      {% if report.header_6 %} <td data-tag="{{report.cell_25_6}}"> {{report.cell_25_6}}</td> {% endif %}
+      {% if report.header_7 %}<td data-tag="{{report.cell_25_7}}"> {{report.cell_25_7}}</td> {% endif %}
+      {% if report.header_8 %}<td data-tag="{{report.cell_25_8}}"> {{report.cell_25_8}}</td> {% endif %}
+      {% if report.header_9 %}<td data-tag="{{report.cell_25_9}}"> {{report.cell_25_9}}</td> {% endif %}
+      {% if report.header_10 %}<td data-tag="{{report.cell_25_10}}"> {{report.cell_25_10}}</td>{% endif %} 
+      {% if report.header_11 %} <td data-tag="{{report.cell_25_11}}"> {{report.cell_25_11}}</td> {% endif %}
+      {% if report.header_12 %}<td data-tag="{{report.cell_25_12}}"> {{report.cell_25_12}}</td> {% endif %}
+      {% if report.header_13 %}<td data-tag="{{report.cell_25_13}}"> {{report.cell_25_13}}</td> {% endif %}
+      {% if report.header_14 %}<td data-tag="{{report.cell_25_14}}"> {{report.cell_25_14}}</td> {% endif %}
+      {% if report.header_15 %}<td data-tag="{{report.cell_25_15}}"> {{report.cell_25_15}}</td>{% endif %} 
+    </tr>
+    {% endif %}
+    {% if report.row_26 %} 
+    <tr>
+      <td>{{report.row_26}}</td>
+      {% if report.header_1 %}<td data-tag="{{report.cell_26_1}}"> {{report.cell_26_1}}</td>{% endif %}
+      {% if report.header_2 %}<td data-tag="{{report.cell_26_2}}"> {{report.cell_26_2}}</td>{% endif %}
+      {% if report.header_3 %}<td data-tag="{{report.cell_26_3}}"> {{report.cell_26_3}}</td>{% endif %}
+      {% if report.header_4 %}<td data-tag="{{report.cell_26_4}}"> {{report.cell_26_4}}</td>{% endif %}
+      {% if report.header_5 %}<td data-tag="{{report.cell_26_5}}"> {{report.cell_26_5}}</td>{% endif %}
+      {% if report.header_6 %} <td data-tag="{{report.cell_26_6}}"> {{report.cell_26_6}}</td> {% endif %}
+      {% if report.header_7 %}<td data-tag="{{report.cell_26_7}}"> {{report.cell_26_7}}</td> {% endif %}
+      {% if report.header_8 %}<td data-tag="{{report.cell_26_8}}"> {{report.cell_26_8}}</td> {% endif %}
+      {% if report.header_9 %}<td data-tag="{{report.cell_26_9}}"> {{report.cell_26_9}}</td> {% endif %}
+      {% if report.header_10 %}<td data-tag="{{report.cell_26_10}}"> {{report.cell_26_10}}</td>{% endif %} 
+      {% if report.header_11 %} <td data-tag="{{report.cell_26_11}}"> {{report.cell_26_11}}</td> {% endif %}
+      {% if report.header_12 %}<td data-tag="{{report.cell_26_12}}"> {{report.cell_26_12}}</td> {% endif %}
+      {% if report.header_13 %}<td data-tag="{{report.cell_26_13}}"> {{report.cell_26_13}}</td> {% endif %}
+      {% if report.header_14 %}<td data-tag="{{report.cell_26_14}}"> {{report.cell_26_14}}</td> {% endif %}
+      {% if report.header_15 %}<td data-tag="{{report.cell_26_15}}"> {{report.cell_26_15}}</td>{% endif %} 
+    </tr>
+    {% endif %}
+    {% if report.row_27 %} 
+    <tr>
+      <td>{{report.row_27}}</td>
+      {% if report.header_1 %} <td data-tag="{{report.cell_27_1}}"> {{report.cell_27_1}}</td> {% endif %}
+      {% if report.header_2 %}<td data-tag="{{report.cell_27_2}}"> {{report.cell_27_2}}</td> {% endif %}
+      {% if report.header_3 %}<td data-tag="{{report.cell_27_3}}"> {{report.cell_27_3}}</td> {% endif %}
+      {% if report.header_4 %}<td data-tag="{{report.cell_27_4}}"> {{report.cell_27_4}}</td> {% endif %}
+      {% if report.header_5 %}<td data-tag="{{report.cell_27_5}}"> {{report.cell_27_5}}</td>{% endif %} 
+      {% if report.header_6 %} <td data-tag="{{report.cell_27_6}}"> {{report.cell_27_6}}</td> {% endif %}
+      {% if report.header_7 %}<td data-tag="{{report.cell_27_7}}"> {{report.cell_27_7}}</td> {% endif %}
+      {% if report.header_8 %}<td data-tag="{{report.cell_27_8}}"> {{report.cell_27_8}}</td> {% endif %}
+      {% if report.header_9 %}<td data-tag="{{report.cell_27_9}}"> {{report.cell_27_9}}</td> {% endif %}
+      {% if report.header_10 %}<td data-tag="{{report.cell_27_10}}"> {{report.cell_27_10}}</td>{% endif %} 
+      {% if report.header_11 %} <td data-tag="{{report.cell_27_11}}"> {{report.cell_27_11}}</td> {% endif %}
+      {% if report.header_12 %}<td data-tag="{{report.cell_27_12}}"> {{report.cell_27_12}}</td> {% endif %}
+      {% if report.header_13 %}<td data-tag="{{report.cell_27_13}}"> {{report.cell_27_13}}</td> {% endif %}
+      {% if report.header_14 %}<td data-tag="{{report.cell_27_14}}"> {{report.cell_27_14}}</td> {% endif %}
+      {% if report.header_15 %}<td data-tag="{{report.cell_27_15}}"> {{report.cell_27_15}}</td>{% endif %} 
+    </tr>
+    {% endif %}
+    {% if report.row_28 %} 
+    <tr>
+      <td>{{report.row_28}}</td>
+      {% if report.header_1 %}<td data-tag="{{report.cell_28_1}}"> {{report.cell_28_1}}</td>{% endif %}
+      {% if report.header_2 %}<td data-tag="{{report.cell_28_2}}"> {{report.cell_28_2}}</td>{% endif %}
+      {% if report.header_3 %}<td data-tag="{{report.cell_28_3}}"> {{report.cell_28_3}}</td>{% endif %}
+      {% if report.header_4 %}<td data-tag="{{report.cell_28_4}}"> {{report.cell_28_4}}</td>{% endif %}
+      {% if report.header_5 %}<td data-tag="{{report.cell_28_5}}"> {{report.cell_28_5}}</td>{% endif %}
+      {% if report.header_6 %}<td data-tag="{{report.cell_28_6}}"> {{report.cell_28_6}}</td> {% endif %}
+      {% if report.header_7 %}<td data-tag="{{report.cell_28_7}}"> {{report.cell_28_7}}</td> {% endif %}
+      {% if report.header_8 %}<td data-tag="{{report.cell_28_8}}"> {{report.cell_28_8}}</td> {% endif %}
+      {% if report.header_9 %}<td data-tag="{{report.cell_28_9}}"> {{report.cell_28_9}}</td> {% endif %}
+      {% if report.header_10 %}<td data-tag="{{report.cell_28_10}}"> {{report.cell_28_10}}</td>{% endif %} 
+      {% if report.header_11 %}<td data-tag="{{report.cell_28_11}}"> {{report.cell_28_11}}</td> {% endif %}
+      {% if report.header_12 %}<td data-tag="{{report.cell_28_12}}"> {{report.cell_28_12}}</td> {% endif %}
+      {% if report.header_13 %}<td data-tag="{{report.cell_28_13}}"> {{report.cell_28_13}}</td> {% endif %}
+      {% if report.header_14 %}<td data-tag="{{report.cell_28_14}}"> {{report.cell_28_14}}</td> {% endif %}
+      {% if report.header_15 %}<td data-tag="{{report.cell_28_15}}"> {{report.cell_28_15}}</td>{% endif %} 
+    </tr>
+    {% endif %}
+    {% if report.row_29 %} 
+    <tr>
+      <td>{{report.row_29}}</td>
+      {% if report.header_1 %}<td data-tag="{{report.cell_29_1}}"> {{report.cell_29_1}}</td>{% endif %}
+      {% if report.header_2 %}<td data-tag="{{report.cell_29_2}}"> {{report.cell_29_2}}</td>{% endif %}
+      {% if report.header_3 %}<td data-tag="{{report.cell_29_3}}"> {{report.cell_29_3}}</td>{% endif %}
+      {% if report.header_4 %}<td data-tag="{{report.cell_29_4}}"> {{report.cell_29_4}}</td>{% endif %}
+      {% if report.header_5 %}<td data-tag="{{report.cell_29_5}}"> {{report.cell_29_5}}</td>{% endif %}
+      {% if report.header_6 %} <td data-tag="{{report.cell_29_6}}"> {{report.cell_29_6}}</td> {% endif %}
+      {% if report.header_7 %}<td data-tag="{{report.cell_29_7}}"> {{report.cell_29_7}}</td> {% endif %}
+      {% if report.header_8 %}<td data-tag="{{report.cell_29_8}}"> {{report.cell_29_8}}</td> {% endif %}
+      {% if report.header_9 %}<td data-tag="{{report.cell_29_9}}"> {{report.cell_29_9}}</td> {% endif %}
+      {% if report.header_10 %}<td data-tag="{{report.cell_29_10}}"> {{report.cell_29_10}}</td>{% endif %} 
+      {% if report.header_11 %} <td data-tag="{{report.cell_29_11}}"> {{report.cell_29_11}}</td> {% endif %}
+      {% if report.header_12 %}<td data-tag="{{report.cell_29_12}}"> {{report.cell_29_12}}</td> {% endif %}
+      {% if report.header_13 %}<td data-tag="{{report.cell_29_13}}"> {{report.cell_29_13}}</td> {% endif %}
+      {% if report.header_14 %}<td data-tag="{{report.cell_29_14}}"> {{report.cell_29_14}}</td> {% endif %}
+      {% if report.header_15 %}<td data-tag="{{report.cell_29_15}}"> {{report.cell_29_15}}</td>{% endif %} 
+    </tr>
+    {% endif %}
+    {% if report.row_30 %} 
+    <tr>
+      <td>{{report.row_30}}</td>
+      {% if report.header_1 %}<td data-tag="{{report.cell_30_1}}"> {{report.cell_30_1}}</td>{% endif %}
+      {% if report.header_2 %}<td data-tag="{{report.cell_30_2}}"> {{report.cell_30_2}}</td>{% endif %}
+      {% if report.header_3 %}<td data-tag="{{report.cell_30_3}}"> {{report.cell_30_3}}</td>{% endif %}
+      {% if report.header_4 %}<td data-tag="{{report.cell_30_4}}"> {{report.cell_30_4}}</td>{% endif %}
+      {% if report.header_5 %}<td data-tag="{{report.cell_30_5}}"> {{report.cell_30_5}}</td>{% endif %}
+      {% if report.header_6 %} <td data-tag="{{report.cell_30_6}}"> {{report.cell_30_6}}</td> {% endif %}
+      {% if report.header_7 %}<td data-tag="{{report.cell_30_7}}"> {{report.cell_30_7}}</td> {% endif %}
+      {% if report.header_8 %}<td data-tag="{{report.cell_30_8}}"> {{report.cell_30_8}}</td> {% endif %}
+      {% if report.header_9 %}<td data-tag="{{report.cell_30_9}}"> {{report.cell_30_9}}</td> {% endif %}
+      {% if report.header_10 %}<td data-tag="{{report.cell_30_10}}"> {{report.cell_30_10}}</td>{% endif %} 
+      {% if report.header_11 %} <td data-tag="{{report.cell_30_11}}"> {{report.cell_30_11}}</td> {% endif %}
+      {% if report.header_12 %}<td data-tag="{{report.cell_30_12}}"> {{report.cell_30_12}}</td> {% endif %}
+      {% if report.header_13 %}<td data-tag="{{report.cell_30_13}}"> {{report.cell_30_13}}</td> {% endif %}
+      {% if report.header_14 %}<td data-tag="{{report.cell_30_14}}"> {{report.cell_30_14}}</td> {% endif %}
+      {% if report.header_15 %}<td data-tag="{{report.cell_30_15}}"> {{report.cell_30_15}}</td>{% endif %}
+    </tr>
+    {% endif %}
+  </table>
+  
+{% endif%}
+
+
+<h2>Fabrics: </h2>
+{% for fabric in report_fabrics %}
+<li><a href="{% url "fabric-type" fabric.slug %}">{{ fabric.slug }}</a> {{fabric.desc}} </li>
+{% endfor %}
+<h2>Sites: </h2>
+{% for site in report_sites %}
+<li><a href="{% url "site-type" site.slug %}">{{ site }}</a> </li>
+{% endfor %}
+<h2>Slides: </h2>
+{% for slide in report_slides %}
+    <h3>{{slide.name }}</h3>
+    {% if slide.image_name and slide.full_image_name %}
+    <figure><img src="{% static "fabrics2/images/slides/"|add:slide.image_name|add:"_x4_PPL.jpeg" %}" alt={{ slide.image_name }} height:"50">
+        <img src="{% static "fabrics2/images/slides/"|add:slide.image_name|add:"_x4_XPL.jpeg" %}" alt= {{ slide.image_name }} height:"50">
+        <figcaption> Sherd {{ slide.sherd }} from {{ slide.site }}. Slide {{slide.name }} from {{ slide.source }}. x4 Magnification PPL (left) XPL (right). Scale bar: 0.5mm. <a class="caplink" href="https://kuden.anu.edu.au/webclient/img_detail/{{slide.image_omero_id}}">High resolution image in VIMIPO (user: Guest pwd: Guest).</a> 
+        <a class="caplink" href="https://kuden.anu.edu.au/webclient/img_detail/{{slide.full_image_omero_id}}">Full slide in VIMIPO (user: Guest pwd: Guest).</a> Imaged by K. Hardy and M. Leclerc, ANU.
+        </figcaption>
+     </figure>
+     {% elif slide.image_name %}
+     <figure><img src="{% static "fabrics2/images/slides/"|add:slide.image_name|add:"_x4_PPL.jpeg" %}" alt={{ slide.image_name }} height:"50">
+         <img src="{% static "fabrics2/images/slides/"|add:slide.image_name|add:"_x4_XPL.jpeg" %}" alt= {{ slide.image_name }} height:"50">
+         <figcaption> Sherd {{ slide.sherd }} from {{ slide.site }}. Slide {{slide.name }} from {{ slide.source }}. x4 Magnification PPL (left) XPL (right). Scale bar: 0.5mm. <a class="caplink" href="https://kuden.anu.edu.au/webclient/img_detail/{{slide.image_omero_id}}">High resolution image in VIMIPO (user: Guest pwd: Guest).</a> Imaged by K. Hardy and M. Leclerc, ANU.
+         </figcaption>
+      </figure>
+    {% elif slide.full_image_name %}
+    <p><a class="caplink" href="https://kuden.anu.edu.au/webclient/img_detail/{{slide.full_image_omero_id}}">{{ slide.sherd }} has a full slide scan available (user: Guest pwd: Guest).</a> Imaged by K. Hardy and M. Leclerc, ANU.</p>
+    {% else %}
+     <p>No images available.</p>
+    {% endif%}
+{% endfor %}
+
+
+{% include "fabrics2/includes/footer.html" %}
+{% endblock %}

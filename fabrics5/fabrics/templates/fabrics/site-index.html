@@ -1,0 +1,1004 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block css_files %}
+  <link rel="stylesheet" href="{% static "fabrics2/fabrics.css" %}">
+  <link rel="stylesheet" href="{% static "fabrics2/header.css" %}">
+  <link rel="stylesheet" href="{% static "fabrics2/leaflet.css" %}">
+  <link rel="stylesheet" href="{% static "fabrics2/map.css" %}">
+ 
+  <script src="{% static "fabrics2/leaflet.js"%}"></script>
+  <script src="{% static "fabrics2/map.js" %}"></script>
+{% endblock %}
+
+{% block page_title %}
+  Sites
+{% endblock %}
+
+{% block content %}
+  {% include "fabrics2/includes/header.html" %}
+  <h1>Sites</h1>
+  <div id="map"></div>
+  <div class="key"> 
+    <img src="{% static "fabrics2/images/brownPot.png" %}" alt="brown pot" height="50"> Site has a full slide image. <br>
+    <br>
+    <img src="{% static "fabrics2/images/tanPot.png" %}" alt="brown pot" height="50"> Site has an image.  <br>
+    <br>
+    <img src="{% static "fabrics2/images/bluePot2.png" %}" alt="brown pot" height="50"> No images for this site. 
+    <p id="targetSite"></p> </div>
+  <script> 
+    var picon = "{% static "fabrics2/images/brownPot.png" %}";
+    var bicon = "{% static "fabrics2/images/bluePot2.png" %}";
+    var ricon = "{% static "fabrics2/images/tanPot.png" %}";
+    var blackv = "{% static "fabrics2/images/black-tri.png" %}";
+    var orangev = "{% static "fabrics2/images/orange-tri.png" %}";
+    var purplev = "{% static "fabrics2/images/purple-tri.png" %}";
+    var brownv = "{% static "fabrics2/images/brown-tri.png" %}";
+    var redv = "{% static "fabrics2/images/red-tri.png" %}";
+    var bluev = "{% static "fabrics2/images/blue-tri.png" %}";
+    var pinkv = "{% static "fabrics2/images/pink-tri.png" %}";
+    var greenv = "{% static "fabrics2/images/green-tri.png" %}";
+    let mbsu = "{{mbsu}}";
+    let thsu = "{{thsu}}";
+    let siteNames = [];
+    let siteLat = [];
+    let siteLng = [];
+    let siteLinks = [];
+    let siteFabrics = [];
+    let siteColour = [];
+    let siteview = true; 
+    let mapcentre =  [-4.5, 150];
+    let volcNames = [];
+    let volcLat = [];
+    let volcLng= [];
+    let volcType = [];
+    let volcDetails= [];
+    let volcLinks = [];
+
+    {% for site in sites %}
+      siteNames.push("{{site.name}}");
+      siteLat.push({{site.lat}});
+      siteLng.push({{site.lng}});
+      siteLinks.push("{% url "site-type" site.slug %}");
+      siteFabrics.push("{{site.fabric_string}}");
+      {% if site.has_full %} siteColour.push(1);
+      {% elif site.has_image %} siteColour.push(2);
+      {% else %} siteColour.push(0);
+      {% endif %}
+    {% endfor %}
+
+    {% for volc in volcanoes %}
+      volcNames.push("{{volc.name}}");
+      volcLat.push({{volc.lat}});
+      volcLng.push({{volc.lng}});
+      volcLinks.push("{{volc.number}}");
+      volcDetails.push("{{volc.rock_type}} - {{volc.volcano_landform}} type - {{volc.type}}");
+      volcType.push("{{volc.rock_type}}")
+    {% endfor %}
+      getMap(); 
+    </script> 
+   <p>Note that to see the 'Geology' layer (layer options in top right corner) you may have to zoom out. </p>
+   <div class = "site">
+    <p> Site lists: <a href="#aus"> Australia </a> * <a href="#bis">Bismarcks and Non-mainland Papua New Guinea </a> *  <a href="#caro"> Caroline Islands </a> * <a href="#cook">Cook Islands </a>  * <a href="#fiji">Fiji</a> * 
+      <a href="#jap"> Japan </a> * <a href="#mal">Maluku and Timor</a> 
+      * <a href="#mari"> Mariana Islands </a> * <a href="#marq"> Marquesas </a> * <a href="#new"> New Caledonia  </a>   *  <a href="#png">Papua New Guinea (Main Island) </a> * 
+     <a href="#phil"> Philippines </a> *
+      <a href="#sam">Samoan Islands</a> * <a href="#sol">Solomon Islands</a> * <a href="#tai"> Taiwan </a> *
+   <a href="#ton"> Tonga  </a> * <a href="#tuv"> Tuvalu and Tokelau </a> * <a href="#van"> Vanuatu  </a> * <a href="#wal"> Walis and Futuna  </a> </p></div>
+    <div class = "site" >
+    <ul >
+      <li id="mal"> Maluku/Timor 
+        <ul class = "insites">
+          <li> <a href="{% url "wikisite-type" "q5094" %}"> North Maluku Province </a>
+            <ul class = "insites">
+              <li><a href="{% url "site-type" "halmahera" %}"> Halmahera </a> </li>
+              <li><a href="{% url "site-type" "makian" %}"> Makian </a> </li>
+              <li><a href="{% url "site-type" "kayoa" %}"> Kayoa </a> </li>
+              <li><a href="{% url "site-type" "gebe" %}"> Gebe </a> </li>
+            </ul>
+          </li>
+          <li> <a href="{% url "wikisite-type" "q5093" %}"> Maluku Province </a>
+            <ul class = "insites">
+              <li><a href="{% url "site-type" "buru" %}"> Buru </a> </li>
+              <li><a href="{% url "site-type" "ambon" %}"> Ambon </a> </li>
+              <li> <a href="{% url "wikisite-type" "q2236460" %}"> Lease Islands </a>
+                <ul> 
+                  <li><a href="{% url "wikisite-type" "q1587817" %}"> Haruku Island </a> 
+                    <ul>
+                      <li><a href="{% url "site-type" "oma" %}"> Oma </a> </li>
+                      <li><a href="{% url "site-type" "haruku" %}"> Haruku </a> </li> 
+                    </ul>
+                  </li>
+                  <li><a href="{% url "site-type" "saparua" %}"> Saparua </a> </li>
+                </ul>
+              </li>             
+              <li><a href="{% url "site-type" "seram" %}"> Seram </a> </li>
+              <li><a href="{% url "site-type" "gorom" %}"> Gorom </a>
+              </li>
+              <li><a href="{% url "wikisite-type" "q739411" %}"> Banda Islands </a>
+                <ul>
+                  <li><a href="{% url "site-type" "ay-islet" %}"> Ay Islet </a> </li>
+                  <li><a href="{% url "site-type" "banda-naira-islet" %}"> Banda Naira Islet </a> </li> 
+                </ul>                      
+              </li>
+              <li><a href="{% url "wikisite-type" "q1323403" %}"> Kai Islands </a>
+                <ul>
+                  <li><a href="{% url "site-type" "kai" %}"> Kai Island </a> </li>
+                </ul>                      
+              </li>
+              <li> <a href="{% url "wikisite-type" "q47455969" %}"> Aru Islands </a>
+                <ul> 
+                  <li><a href="{% url "wikisite-type" "q2422910" %}"> Wamar Island </a> 
+                    <ul>
+                      <li><a href="{% url "site-type" "wangil" %}"> Wangil </a> </li>
+                      <li><a href="{% url "site-type" "karkur" %}"> Karkur </a> </li> 
+                    </ul>
+                  </li>
+                  <li><a href="{% url "wikisite-type" "q1617697" %}"> Kobroor Island </a> 
+                    <ul>
+                      <li><a href="{% url "site-type" "nabulei-lisa" %}"> Nabulei Lisa </a> </li>
+                    </ul>
+                  </li>
+                  <li><a href="{% url "site-type" "aru" %}"> Aru </a> </li> 
+                </ul>
+              </li> 
+            </ul>
+          </li>
+          <li> <a href="{% url "wikisite-type" "q83067" %}"> Timor Island </a>
+            <ul class = "insites">
+              <li><a href="{% url "site-type" "vasino" %}"> Vasino </a> </li>
+              <li><a href="{% url "site-type" "ira-ara" %}"> Ira Ara </a> </li>
+              <li><a href="{% url "site-type" "macapainara" %}"> Macapainara </a> </li>
+              <li><a href="{% url "site-type" "telepunu" %}"> Telepunu </a> </li>
+              <li><a href="{% url "site-type" "tutuala" %}"> Tutuala </a> </li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li id="png"> Papua New Guinea Main Island 
+          <ul class = "insites">
+            <li> <a href="{% url "wikisite-type" "q753689" %}"> Sandaun (West Sepik) Province </a>
+            <ul class = "insites">
+              <li><a href="{% url "site-type" "watinglo" %}"> Watinglo </a> </li>
+              <li><a href="{% url "site-type" "lachitu" %}"> Lachitu </a> </li>
+              <li><a href="{% url "site-type" "leitre" %}"> Leitre </a> </li>
+              <li><a href="{% url "site-type" "serra" %}"> Serra </a> </li>
+              <li><a href="{% url "site-type" "ramu" %}"> Ramu </a> </li>
+              <li><a href="{% url "site-type" "wom" %}"> Wom </a> </li>
+              <li><a href="{% url "site-type" "aitape" %}"> Aitape </a> </li>
+              <li><a href="{% url "site-type" "tumleo" %}"> Tumleo </a> </li>
+              <li><a href="{% url "site-type" "ali" %}"> Ali </a> </li>
+            </ul>
+            </li>
+          <li> <a href="{% url "wikisite-type" "q690880" %}"> East Sepik Province </a>
+            <ul class = "insites">
+              <li><a href="{% url "site-type" "kep" %}"> Kep </a> </li>
+              <li><a href="{% url "site-type" "walis" %}"> Walis </a> </li>
+              <li><a href="{% url "site-type" "tarawai" %}"> Tarawai </a> </li>
+            </ul></li>
+          <li> <a href="{% url "wikisite-type" "q326254" %}"> Madang Province </a>
+            <ul class = "insites">
+              <li><a href="{% url "site-type" "yabob" %}"> Yabob </a> </li>
+              <li><a href="{% url "site-type" "tavultae" %}"> Tavultae </a> </li>
+              <li><a href="{% url "site-type" "mindiri" %}"> Mindiri </a> </li>
+              <li><a href="{% url "site-type" "moap" %}"> Moap </a> </li>
+              <li><a href="{% url "site-type" "bili-bili" %}"> Bili Bili </a> </li>
+              <li><a href="{% url "site-type" "arop-island" %}"> Arop Island </a> </li>
+            </ul>
+          </li>
+          <li> <a href="{% url "wikisite-type" "q849812" %}"> Eastern Highlands Province </a>
+              <ul class = "insites">
+              <li><a href="{% url "site-type" "arona" %}"> Arona </a> </li>
+              <li><a href="{% url "site-type" "eastern-highlands" %}"> Eastern Highlands </a> </li>
+            </ul></li>
+          <li> <a href="{% url "wikisite-type" "q853664" %}"> Morobe Province </a>
+          <ul class = "insites">
+              <li><a href="{% url "site-type" "finschhafen" %}"> Finschhafen </a> </li>
+              <li><a href="{% url "site-type" "sialum" %}"> Sialum </a> </li>
+              <li><a href="{% url "site-type" "gitua" %}"> Gitua </a> </li>
+              <li><a href="{% url "site-type" "nambariwa" %}"> Nambariwa </a> </li>
+              <li><a href="{% url "site-type" "sio" %}"> Sio </a> </li>
+              <li> <a href="{% url "wikisite-type" "q971705" %}"> Siassi Islands </a>
+              <ul>
+                <li><a href="{% url "site-type" "tuam" %}"> Tuam </a> </li>
+                <li><a href="{% url "site-type" "malai" %}"> Malai </a> </li>
+              </ul>
+              </li>
+              <li><a href="{% url "site-type" "tami" %}"> Tami </a> </li>
+            </ul></li>
+          
+          <li> <a href="{% url "wikisite-type" "q753686" %}"> Oro Province </a>
+              <ul class = "insites">
+              <li><a href="{% url "site-type" "wanigela" %}"> Wanigela </a> </li>
+              </ul>
+          </li>
+          <li> <a href="{% url "wikisite-type" "q874942" %}"> Central Province </a>
+              <ul class = "insites">
+              <li><a href="{% url "site-type" "lea-lea" %}"> Lea Lea </a> </li>
+              <li><a href="{% url "site-type" "boera" %}"> Boera </a> </li>
+              </ul>         
+          </li>
+          <li> <a href="{% url "wikisite-type" "q1378310" %}"> National Capital Province </a>
+              <ul class = "insites">
+              <li><a href="{% url "site-type" "motupore" %}"> Motupore Island </a> </li>
+              <li><a href="{% url "site-type" "port-moresby" %}"> Port Moresby </a> </li>
+              </ul></li>
+          <li> <a href="{% url "wikisite-type" "q874980" %}"> Gulf Province </a>
+              <ul class = "insites">
+              <li><a href="{% url "site-type" "kikiniu" %}"> Kikiniu </a> </li>
+              <li><a href="{% url "site-type" "kerema" %}"> Kerema </a> </li>
+              <li><a href="{% url "site-type" "mailovera" %}"> Mailovera </a> </li>
+              <li><a href="{% url "site-type" "iokea" %}"> Iokea </a> </li>
+              </ul>
+          </li>
+          <li> <a href="{% url "wikisite-type" "q874962" %}"> Milne Bay Province </a>           
+            <ul class = "insites">
+              <li> <a href="{% url "wikisite-type" "q855297" %}"> D'Entrecasteaux Islands </a>
+              <ul class = "insites">
+              <li><a href="{% url "site-type" "goodenough-is" %}"> Goodenough Island </a> </li>
+              <li><a href="{% url "site-type" "amphlett-islands" %}"> Amphlett Islands </a> </li>
+               </ul> </li>
+               <li><a href="{% url "site-type" "trobriand-is" %}"> Trobriand Islands </a> </li>
+              <li> <a href="{% url "wikisite-type" "q15061978" %}"> Woodlark Islands </a>
+              <ul class = "insites">
+              <li><a href="{% url "site-type" "muyua" %}"> Muyua </a> </li>              
+              </ul> </li>
+              <li> <a href="{% url "wikisite-type" "q1127200" %}"> Louisiade Archipelago </a>
+              <ul class = "insites">
+              <li> <a href="{% url "wikisite-type" "q1027533" %}"> Calvados Chain </a>
+                <ul class = "insites">
+                <li><a href="{% url "site-type" "utian" %}"> Utian </a> </li>              
+                </ul>
+              </li>
+              <li><a href="{% url "site-type" "nimowa-island" %}"> Nimowa Island </a> </li>  
+              <li><a href="{% url "site-type" "wule" %}"> Wule Island </a> </li> 
+              <li> <a href="{% url "wikisite-type" "q2002440" %}"> Rossel Island </a>
+              <ul class = "insites">
+              <li><a href="{% url "site-type" "pambwa" %}"> Pambwa </a> </li>
+              <li><a href="{% url "site-type" "ghakpo" %}"> Ghakpo </a> </li>  
+              <li><a href="{% url "site-type" "morpa" %}"> Morpa </a> </li>                
+              </ul></li>
+              </ul> </li>
+            </ul></li>
+          </ul>
+      </li>
+      <li id="bis">Papua New Guinea Bismarcks 
+          <ul class = "insites">
+          <li> <a href="{% url "wikisite-type" "q874935" %}"> Manus Province </a>  
+            <ul class = "insites">
+            <li> <a href="{% url "wikisite-type" "q119230" %}"> Admiralty Islands </a>  
+              <ul class = "insites">
+              <li><a href="{% url "site-type" "mbuke" %}"> M'buke </a> </li>
+              <li><a href="{% url "site-type" "manus" %}"> Manus </a> </li>
+              <li><a href="{% url "site-type" "lou-island" %}"> Lou Island</a> </li>
+              <li><a href="{% url "site-type" "hus-island" %}"> Hus Island</a> </li>
+              <li><a href="{% url "site-type" "baluan-island" %}"> Baluan Island</a> </li>
+              </ul> </li>
+            </ul>
+          </li>
+          <li> <a href="{% url "wikisite-type" "q838690" %}"> New Ireland Province </a>  
+            <ul class = "insites">
+            <li> <a href="{% url "wikisite-type" "q1401458" %}"> St Matthias Islands </a>  
+              <ul class = "insites">
+              <li> <a href="{% url "wikisite-type" "q49637595" %}"> Emananus Island </a>  
+                <ul class = "insites"> 
+                  <li><a href="{% url "site-type" "etapakengaroasa" %}"> Etapakengaroasa </a> </li>
+                </ul> </li>
+              <li> <a href="{% url "wikisite-type" "q49637577" %}"> Eloaua Island </a> 
+                <ul class = "insites">   
+                  <li><a href="{% url "site-type" "talepakemalai" %}"> Talepakemalai </a> </li>
+                </ul> </li>
+              </ul>
+            </li>
+            <li> <a href="{% url "wikisite-type" "q215089" %}"> New Ireland Island </a>  
+              <ul class = "insites">
+                <li><a href="{% url "site-type" "fissoa" %}"> Fissoa </a> </li>
+                <li><a href="{% url "site-type" "lossu" %}"> Lossu </a> </li>
+                <li><a href="{% url "site-type" "lasigi" %}"> Lasigi </a> </li>
+              </ul>
+            </li>
+            <li> <a href="{% url "wikisite-type" "q1401361" %}"> Tanga Group </a>  
+              <ul class = "insites">
+                <li><a href="{% url "site-type" "boeng-islet" %}"> Boeng Islet </a> </li>
+                <li><a href="{% url "site-type" "malendok-islet" %}"> Malendok Islet </a> </li>
+                <li><a href="{% url "site-type" "lif" %}"> Lif </a> </li>
+                <li><a href="{% url "site-type" "tefa" %}"> Tefa </a> </li>
+              </ul>
+            </li>
+            <li> <a href="{% url "wikisite-type" "q1401407" %}"> Feni Group </a>  
+              <ul class = "insites">
+                <li><a href="{% url "site-type" "ambitle" %}"> Ambitle </a> </li>
+                 <li> <a href="{% url "wikisite-type" "q797590" %}"> Babase </a>  
+                  <ul class = "insites">
+                  <li><a href="{% url "site-type" "kamgot" %}"> Kamgot </a> </li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          </li>
+          <li> <a href="{% url "wikisite-type" "q18826" %}"> Bougainville Province </a>   
+            <ul class = "insites">
+            <li> <a href="{% url "wikisite-type" "q1544622" %}"> Green Islands </a> 
+              <ul class = "insites">
+              <li><a href="{% url "site-type" "nissan" %}"> Nissan </a> </li>
+              </ul>
+            </li>
+            <li><a href="{% url "site-type" "buka" %}"> Buka Island</a> </li>
+            <li><a href="{% url "site-type" "teop-islet" %}"> Teop Islet </a> </li>
+            <li> <a href="{% url "wikisite-type" "q201766" %}"> Bougainville Island </a>   
+              <ul class = "insites">
+              <li><a href="{% url "site-type" "pidia" %}"> Pidia </a> </li>
+              <li><a href="{% url "site-type" "asio" %}"> Asio </a> </li>
+              <li><a href="{% url "site-type" "meinakapa" %}"> Meinakapa </a> </li>
+              <li><a href="{% url "site-type" "paubake-buin" %}"> Paubake (Buin) </a> </li>
+              </ul>
+            </li>
+            </ul>
+          </li>
+          <li> <a href="{% url "wikisite-type" "q753702" %}"> East New Britain Province </a>   
+            <ul class = "insites">
+             <li> <a href="{% url "wikisite-type" "q1796807" %}"> Watom </a>  
+                <ul class = "insites">
+                <li><a href="{% url "site-type" "reber-rakival" %}"> Reber-Rakival </a> </li>
+                </ul>
+             </li>
+            </ul>
+          </li>
+          <li> <a href="{% url "wikisite-type" "q667468" %}"> West New Britain Province </a>   
+            <ul class = "insites">
+              <li><a href="{% url "site-type" "garua" %}"> Garua </a> </li>
+              <li><a href="{% url "site-type" "boduna" %}"> Boduna </a> </li>
+              <li> <a href="{% url "wikisite-type" "q1753444" %}"> Arawe </a>  
+                <ul class = "insites">
+                <li><a href="{% url "site-type" "apalo" %}"> Apalo </a> </li>
+                </ul>
+              </li>
+              <li> <a href="{% url "wikisite-type" "q59771" %}"> New Britain Island </a>  
+                <ul class = "insites">
+                <li><a href="{% url "site-type" "kreslo" %}"> Kreslo </a> </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+        </ul>         
+      </li>
+
+      <li id="sol"> <a href="{% url "wikisite-type" "q685" %}"> Solomon Islands  </a> 
+        <ul class = "insites">
+        
+        <li> <a href="{% url "wikisite-type" "q399063" %}"> Choiseul Province </a>  
+            <ul class = "insites">
+              <li><a href="{% url "site-type" "choiseul" %}"> Choiseul Island </a> </li>
+              <li><a href="{% url "site-type" "nuatambu" %}"> Nuatambu Islet </a> </li>
+              <li><a href="{% url "site-type" "wagina" %}"> Wagina Island </a> </li>
+              <li><a href="{% url "site-type" "laena" %}"> Laena Island </a> </li>
+            </ul>
+        </li>
+        <li> <a href="{% url "wikisite-type" "q1139082" %}"> Isabel Province </a>  
+            <ul class = "insites">
+              <li> <a href="{% url "wikisite-type" "q4794461" %}"> Arnarvon Islands </a> 
+                <ul class = "insites">
+                  <li><a href="{% url "site-type" "sikopo" %}"> Sikopo </a> </li>
+                </ul>
+              </li>
+            </ul>
+        </li>
+        <li> <a href="{% url "wikisite-type" "q1190896" %}"> Malaita Province </a>  
+                <ul class = "insites">
+                <li><a href="{% url "site-type" "ontong-java" %}"> Ontong Java Island </a> </li>
+                </ul>
+        </li>
+        <li> <a href="{% url "wikisite-type" "q1116700" %}"> Makira-Ulawa Province </a>  
+                <ul class = "insites">
+                <li> <a href="{% url "wikisite-type" "q2042567" %}"> Santa Ana Island </a>  
+                <ul class = "insites">
+                <li><a href="{% url "site-type" "feru" %}"> Feru Rockshelter </a> </li>
+                </ul></li>
+                </ul>
+        </li>
+             <li> <a href="{% url "wikisite-type" "q936088" %}"> Temotu Province </a>  
+                <ul class = "insites">
+                <li><a href="{% url "site-type" "tikopia" %}"> Tikopia Island</a> </li>
+                <li> <a href="{% url "wikisite-type" "q1263965" %}"> Duff Islands </a>  
+                <ul class = "insites">
+                <li><a href="{% url "site-type" "taumako" %}"> Taumako Island </a> </li>
+                </ul></li>
+                <li> <a href="{% url "wikisite-type" "q148839" %}"> Santa Cruz Islands </a>  
+                <ul class = "insites">
+                <li><a href="{% url "site-type" "santa-cruz" %}"> Santa Cruz Islands </a> </li>
+                <li><a href="{% url "site-type" "vanikoro" %}"> Vanikoro Island </a> </li>
+                <li> <a href="{% url "wikisite-type" "q1267157" %}"> Nendo Island </a>  
+                <ul class = "insites">
+                <li><a href="{% url "site-type" "nanggu" %}"> Nanggu </a> </li>
+                <li><a href="{% url "site-type" "graciosa-bay" %}"> Graciosa Bay </a> </li>
+                </ul></li>
+                <li> <a href="{% url "wikisite-type" "q3014134" %}"> Tomotu Neo </a>  
+                <ul class = "insites">
+                <li><a href="{% url "site-type" "trevanion-islet" %}"> Trevanion Islet </a> </li>
+                </ul></li>
+                </ul></li>
+                <li><a href="{% url "site-type" "reef" %}"> Reef Islands </a> </li>
+                </ul>
+              </li>
+              <li> <a href="{% url "wikisite-type" "q150325" %}"> Western Province </a>  
+            <ul class = "insites">
+              <li> <a href="{% url "wikisite-type" "q1200493" %}"> Shortland Islands </a>  
+              <ul class = "insites">
+              <li><a href="{% url "site-type" "alu-shortland" %}"> Alu Island </a> </li>
+              </ul>
+              </li>
+              <li> <a href="{% url "wikisite-type" "q1187334" %}"> Treasury Islands </a>  
+              <ul class = "insites">
+              <li><a href="{% url "site-type" "mono" %}"> Mono Island </a> </li>
+              </ul>
+              </li>
+              <li> <a href="{% url "wikisite-type" "q383986" %}"> New Georgia Group </a>  
+              <ul class = "insites">
+              <li><a href="{% url "site-type" "vella-lavella" %}"> Vella Lavella Island</a> </li>
+              <li><a href="{% url "site-type" "kolombangara" %}"> Kolombangara Island</a> </li>
+              <li><a href="{% url "site-type" "roviana" %}"> Roviana Island</a> </li>
+              <li><a href="{% url "site-type" "tetepare" %}"> Tetepare Island</a> </li>
+              </ul>
+          </li>
+          </ul>
+        </li>
+      </ul>
+      </li>
+      <li id="van"> <a href="{% url "wikisite-type" "q686" %}"> Vanuatu  </a> 
+        <ul class = "insites">
+          <li> <a href="{% url "wikisite-type" "q822514" %}"> Torba Province </a>  
+                <ul class = "insites">
+                <li> <a href="{% url "wikisite-type" "q537817" %}"> Banks Islands </a>  
+                <ul class = "insites">
+                <li><a href="{% url "site-type" "pakea-islet" %}"> Pakea Islet </a> </li>
+                </ul>
+                </li>
+            </ul></li>
+          <li> <a href="{% url "wikisite-type" "q740640" %}"> Sanma Province </a>  
+                <ul class = "insites">
+                <li> <a href="{% url "wikisite-type" "q337524" %}"> Espiritu Santo Island </a>  
+                <ul class = "insites">
+                <li><a href="{% url "site-type" "wusi" %}"> Wusi </a> </li>
+                <li><a href="{% url "site-type" "santo" %}"> Santo </a> </li>
+                </ul></li>
+                <li><a href="{% url "site-type" "malo" %}"> Malo Island </a> </li>
+                </ul></li>
+          <li> <a href="{% url "wikisite-type" "q836649" %}"> Penama Province </a>  
+                <ul class = "insites">
+                <li><a href="{% url "site-type" "ambae" %}"> Ambae Island </a> </li>
+                </ul></li>
+          <li> <a href="{% url "wikisite-type" "q740656" %}"> Malampa Province </a>  
+                <ul class = "insites">
+                 <li> <a href="{% url "wikisite-type" "q618594" %}"> Malakula Island </a>  
+                <ul class = "insites">
+                <li><a href="{% url "site-type" "amok" %}"> Amok </a> </li>
+                <li><a href="{% url "site-type" "lakatoro" %}"> Lakatoro </a> </li>
+                <li><a href="{% url "site-type" "malakula" %}"> Malakula </a> </li>             
+                </ul></li> 
+                <li><a href="{% url "site-type" "vao" %}"> Vao Island </a> </li>
+                <li><a href="{% url "site-type" "atchin" %}"> Atchin Island </a> </li>
+                <li><a href="{% url "site-type" "wala" %}"> Wala Island </a> </li>
+                <li><a href="{% url "site-type" "rano" %}"> Rano Island </a> </li>
+                <li><a href="{% url "site-type" "uripiv" %}"> Uripiv Island</a> </li>
+                <li><a href="{% url "site-type" "maskelyne-islands" %}"> Maskelyne Islands </a> </li>
+
+                </ul></li>
+          <li> <a href="{% url "wikisite-type" "q650617" %}"> Shefa Province </a>  
+                <ul class = "insites">
+                <li><a href="{% url "site-type" "epi" %}"> Epi Island </a> </li>
+                <li> <a href="{% url "wikisite-type" "q1520048" %}"> Shepherd Islands </a>  
+                <ul class = "insites">
+                <li><a href="{% url "site-type" "tongoa" %}"> Tongoa Island </a> </li>
+                <li><a href="{% url "site-type" "emae" %}"> Emae Island </a> </li>               
+                </ul></li>
+               <li> <a href="{% url "wikisite-type" "q266594" %}"> Efate Island </a>  
+                <ul class = "insites">
+                <li><a href="{% url "site-type" "mangaasi" %}"> Mangaasi </a> </li>
+                <li><a href="{% url "site-type" "mele-plain" %}"> Mele Plain </a> </li>
+                <li><a href="{% url "site-type" "teouma" %}"> Teouma </a> </li>
+                <li><a href="{% url "site-type" "erueti" %}"> Erueti </a> </li>  
+                <li><a href="{% url "site-type" "efate" %}"> Efate </a> </li>                
+                </ul></li>
+                <li><a href="{% url "site-type" "lelepa" %}"> Lelepa </a> </li>
+                <li><a href="{% url "site-type" "eretoka" %}"> Eretoka </a> </li>  
+                <li><a href="{% url "site-type" "ifira" %}"> Ifira </a> </li> 
+                </ul></li>
+          <li> <a href="{% url "wikisite-type" "q576417" %}"> Tafea Province </a>  
+              <ul class = "insites">
+                <li> <a href="{% url "wikisite-type" "q859646" %}"> Erromango Island </a>  
+                <ul class = "insites">
+                <li><a href="{% url "site-type" "ponamla" %}"> Ponamla </a> </li>
+                <li><a href="{% url "site-type" "ifo" %}"> Ifo </a> </li>
+                <li><a href="{% url "site-type" "erromango" %}"> Erromango </a> </li>              
+                </ul></li>
+              <li><a href="{% url "site-type" "aneityum" %}"> Aneityum </a> </li>  </ul></li>
+        </ul></li>
+      <li id="new"> <a href="{% url "wikisite-type" "q33788" %}"> New Caledonia  </a>  
+          <ul class = "insites">
+          <li> <a href="{% url "wikisite-type" "q256293" %}"> Grande Terre </a>  
+            <ul class = "insites">
+            <li> <a href="{% url "wikisite-type" "q1612920" %}"> North Province </a>  
+              <ul class = "insites">
+              <li><a href="{% url "site-type" "koumac" %}"> Koumac </a> </li>
+              <li><a href="{% url "site-type" "boyen-taom" %}"> Boyen Taom </a> </li>
+              <li><a href="{% url "site-type" "vavouto" %}"> Vavouto </a> </li> 
+              <li><a href="{% url "site-type" "lapita" %}"> Lapita </a> </li>
+              <li><a href="{% url "site-type" "hienghene" %}"> Hienghene </a> </li>   
+              <li><a href="{% url "site-type" "poindimie" %}"> Poindimie </a> </li>
+              <li><a href="{% url "site-type" "nonhoue" %}"> Nonhoue </a> </li>                
+              </ul></li>
+            <li> <a href="{% url "wikisite-type" "q965632" %}"> South Province </a>  
+              <ul class = "insites">
+              <li><a href="{% url "site-type" "bourail" %}"> Bourail </a> </li>
+              <li><a href="{% url "site-type" "st-vincent-bay" %}"> St Vincent Bay </a> </li>
+              <li><a href="{% url "site-type" "noumea" %}"> Noumea </a> </li> 
+              <li><a href="{% url "site-type" "goro" %}"> Goro </a> </li>               
+              </ul></li>
+        </ul></li>
+            <li> <a href="{% url "wikisite-type" "q136027338" %}"> Île-des-Pins Island group </a>  
+            <ul class = "insites">
+              <li><a href="{% url "site-type" "ile-des-pins" %}"> Île-des-Pins </a> </li>
+        </ul></li>
+        <li> <a href="{% url "wikisite-type" "q913470" %}"> Loyalty Islands </a>  
+            <ul class = "insites">
+            <li> <a href="{% url "wikisite-type" "q9729" %}"> Mare Island </a>  
+            <ul class = "insites">
+              <li><a href="{% url "site-type" "wabao" %}"> Wabao </a> </li>
+              <li><a href="{% url "site-type" "kurin" %}"> Kurin </a> </li>
+        </ul></li>
+        <li> <a href="{% url "wikisite-type" "q18655796" %}"> Ouvea Island </a>  
+            <ul class = "insites">
+              <li><a href="{% url "site-type" "mouly" %}"> Mouly </a> </li>
+        </ul></li>
+        </ul></li>
+      </ul>
+      </li>
+      <li id="fiji"> <a href="{% url "wikisite-type" "q712" %}"> Fiji </a>   
+              <ul class = "insites">
+                <li> <a href="{% url "wikisite-type" "q1062438" %}"> Lau Group </a>  
+            <ul class = "insites">
+              <li><a href="{% url "site-type" "kabara" %}"> Kabara </a> </li>
+              <li><a href="{% url "site-type" "aiwa" %}"> Aiwa </a> </li>
+              <li><a href="{% url "site-type" "lakeba" %}"> Lakeba </a> </li>
+              <li><a href="{% url "site-type" "nayau" %}"> Nayau </a> </li>
+              <li><a href="{% url "site-type" "mago" %}"> Mago </a> </li>
+              <li><a href="{% url "site-type" "vanua-balavu" %}"> Vanua Balavu </a> </li>
+              
+              <li> <a href="{% url "wikisite-type" "q1859145" %}"> Moala Group </a>  
+                <ul class = "insites">
+                <li><a href="{% url "site-type" "totoya" %}"> Totoya </a> </li>
+               </ul></li> 
+            </ul></li>
+              <li> <a href="{% url "wikisite-type" "q2756586" %}"> Vanua Levu Group </a>  
+            <ul class = "insites">
+              <li><a href="{% url "site-type" "laucala" %}"> Laucala </a> </li>
+              <li><a href="{% url "site-type" "taveuni" %}"> Taveuni </a> </li>
+              <li> <a href="{% url "wikisite-type" "q327733" %}"> Vanua Levu Island </a>  
+                <ul class = "insites">
+                <li><a href="{% url "site-type" "malau" %}"> Malau </a> </li>
+                <li><a href="{% url "site-type" "vaturekuka" %}"> Vaturekuka </a> </li>
+                <li><a href="{% url "site-type" "nukubalavu" %}"> Nukubalavu </a> </li>
+              </ul></li>
+            <li><a href="{% url "site-type" "vorovoro" %}"> Vorovoro </a> </li>
+            <li><a href="{% url "site-type" "kavewa" %}"> Kavewa </a> </li> 
+            <li><a href="{% url "site-type" "cikobia" %}"> Cikobia </a> </li>
+            </ul></li>
+            <li> <a href="{% url "wikisite-type" "q934813" %}"> Rotuma Group </a>  
+            <ul class = "insites">
+              <li> <a href="{% url "wikisite-type" "q2169106" %}"> Rotuma Island </a>  
+                <ul class = "insites">
+                <li><a href="{% url "site-type" "maka-bay" %}"> Maka Bay </a> </li>
+                <li><a href="{% url "site-type" "rotuma" %}"> Rotuma </a> </li>
+                </ul></li>
+            </ul></li>
+            <li> <a href="{% url "wikisite-type" "q136769" %}"> Yasawa Group </a>  
+            <ul class = "insites">
+              <li> <a href="{% url "wikisite-type" "q3055364" %}"> Yasawa Island </a>  
+                <ul class = "insites">
+                <li><a href="{% url "site-type" "yasawairara" %}"> Yasawairara </a> </li>
+                </ul></li>
+                <li><a href="{% url "site-type" "nacula" %}"> Nacula </a> </li>
+                <li><a href="{% url "site-type" "nanuya-lailai" %}"> Nanuya Lailai </a> </li>
+                <li><a href="{% url "site-type" "naviti" %}"> Naviti </a> </li>
+                <li><a href="{% url "site-type" "waya" %}"> Waya </a> </li>
+            </ul></li>
+            <li> <a href="{% url "wikisite-type" "q1754342" %}"> Mamanuca Group </a>  
+            <ul class = "insites">
+                <li><a href="{% url "site-type" "mana" %}"> Mana </a> </li>
+                <li><a href="{% url "site-type" "malolo" %}"> Malolo </a> </li>
+            </ul></li>
+            <li> <a href="{% url "wikisite-type" "q1778643" %}"> Viti Levu Group </a>  
+            <ul class = "insites">
+              <li> <a href="{% url "wikisite-type" "q208198" %}"> Viti Levu Island </a>  
+                <ul class = "insites">
+                <li><a href="{% url "site-type" "vuda" %}"> Vuda </a> </li>
+                <li><a href="{% url "site-type" "natunuku" %}"> Natunuku </a> </li>
+                <li><a href="{% url "site-type" "navatu" %}"> Navatu </a> </li>
+                <li><a href="{% url "site-type" "qaqaruku-rockshelter" %}"> Qaqaruku Rockshelter </a> </li>
+                <li><a href="{% url "site-type" "nasilai" %}"> Nasilai </a> </li>
+                <li><a href="{% url "site-type" "navua-delta" %}"> Navua Delta </a> </li>
+                <li><a href="{% url "site-type" "karobo" %}"> Karobo </a> </li>
+                <li><a href="{% url "site-type" "tagape" %}"> Tagape </a> </li>
+                <li><a href="{% url "site-type" "sigatoka" %}"> Sigatoka </a> </li>
+                <li><a href="{% url "site-type" "yadua" %}"> Yadua </a> </li>
+                <li><a href="{% url "site-type" "yanuca" %}"> Yanuca </a> </li>
+                <li><a href="{% url "site-type" "bourewa" %}"> Bourewa </a> </li>
+                </ul></li>
+                <li><a href="{% url "site-type" "nananu" %}"> Nananu </a> </li>
+                <li><a href="{% url "site-type" "naigani" %}"> Naigani </a> </li>
+                 <li> <a href="{% url "wikisite-type" "q135986740" %}"> Beqa Group </a>  
+                <ul class = "insites">
+                <li><a href="{% url "site-type" "beqa" %}"> Beqa Island </a> </li>
+                <li><a href="{% url "site-type" "ugaga" %}"> Ugaga Island </a> </li>
+            </ul></li>
+            </ul></li>
+            <li> <a href="{% url "wikisite-type" "q1141620" %}"> Lomaiviti Group </a>  
+              <ul class = "insites">
+              <li> <a href="{% url "wikisite-type" "q135986816" %}"> Ovalau Group </a>  
+                <ul class = "insites">
+                  <li> <a href="{% url "wikisite-type" "q2189562" %}"> Moturiki Island </a>  
+                    <ul class = "insites">
+                      <li><a href="{% url "site-type" "naitabale" %}"> Naitabale </a> </li>
+                      <li><a href="{% url "site-type" "soulevu" %}"> Soulevu </a> </li>
+                  </ul></li>
+                </ul></li>
+            </ul></li>
+            <li> <a href="{% url "wikisite-type" "q2300084" %}"> Kadavu Group </a>  
+            <ul class = "insites">
+              <li><a href="{% url "site-type" "yaukuvelevu" %}"> Yaukuvelevu Island</a> </li>
+              <li><a href="{% url "site-type" "buliya" %}"> Buliya Island</a> </li>
+              <li><a href="{% url "site-type" "ono" %}"> Ono Island</a> </li>
+              <li> <a href="{% url "wikisite-type" "q1048944" %}"> Kadavu Island </a>  
+                <ul class = "insites">
+                <li><a href="{% url "site-type" "tiliva" %}"> Tiliva</a> </li>
+                <li><a href="{% url "site-type" "numbulevu-creek" %}"> Numbulevu Creek</a> </li>
+                <li><a href="{% url "site-type" "vunisea" %}"> Vunisea</a> </li>
+                <li><a href="{% url "site-type" "tavuki" %}"> Tavuki</a> </li>
+                <li><a href="{% url "site-type" "nalotu" %}"> Nalotu</a> </li>
+                <li><a href="{% url "site-type" "burelevu" %}"> Burelevu</a> </li>
+                <li><a href="{% url "site-type" "muani" %}"> Muani</a> </li>             
+              </ul></li>
+              <li><a href="{% url "site-type" "matanuku" %}"> Matanuku Island</a> </li>
+              <li><a href="{% url "site-type" "galoa-island" %}"> Galoa Island</a> </li>  
+            </ul></li>
+      </ul>
+      </li>
+      <li id="ton"> <a href="{% url "wikisite-type" "q678" %}"> Tonga </a> 
+          <ul class = "insites">
+          <li><a href="{% url "site-type" "ata" %}"> Ata Island</a> </li>  
+          <li> <a href="{% url "wikisite-type" "q49296865" %}"> Tongatapu Group </a>  
+            <ul class = "insites">
+            <li> <a href="{% url "wikisite-type" "q620452" %}"> Tongatapu Island </a>  
+              <ul class = "insites">
+                <li><a href="{% url "site-type" "pea" %}"> Pea</a> </li>
+                <li><a href="{% url "site-type" "haateiho" %}"> Ha'ateiho</a> </li>
+                <li><a href="{% url "site-type" "lapaha" %}"> Lapaha</a> </li>
+                <li><a href="{% url "site-type" "nukuleka" %}"> Nukuleka</a> </li>     
+              </ul></li>
+              <li><a href="{% url "site-type" "eueiki" %}"> Eueiki Island</a> </li> 
+              <li> <a href="{% url "wikisite-type" "q423528" %}"> Eua Island </a>  
+              <ul class = "insites">
+                <li><a href="{% url "site-type" "anatu" %}"> Anatu</a> </li>
+              </ul></li>
+            </ul></li>
+          <li> <a href="{% url "wikisite-type" "q612098" %}"> Ha'apai Group </a>  
+            <ul class = "insites">
+            <li> <a href="{% url "wikisite-type" "q49296396" %}"> Out Mu'omu'a Group</a>  
+              <ul class = "insites">
+                <li><a href="{% url "site-type" "nomuka" %}"> Nomuka</a> </li>     
+               </ul></li>
+            <li> <a href="{% url "wikisite-type" "q49296163" %}"> Kotu Group </a>  
+              <ul class = "insites">
+                <li><a href="{% url "site-type" "tungua" %}"> Tungua</a> </li>
+                <li><a href="{% url "site-type" "kotu" %}"> Kotu</a> </li>  
+                <li><a href="{% url "site-type" "matuku" %}"> Matuku</a> </li>       
+               </ul></li>
+                       
+          <li> <a href="{% url "wikisite-type" "q136055158" %}"> Lifuka Group </a>  
+              <ul class = "insites">
+              <li> <a href="{% url "wikisite-type" "q1107778" %}"> Uiha Island </a>  
+                <ul class = "insites">
+                <li><a href="{% url "site-type" "vaipuna" %}"> Vaipuna</a> </li> 
+            </ul></li>
+            <li><a href="{% url "site-type" "lifuka" %}"> Lifuka Island</a> </li> 
+            <li> <a href="{% url "wikisite-type" "q1002246" %}"> Foa Island </a>  
+                <ul class = "insites">
+                <li><a href="{% url "site-type" "faleloa" %}"> Faleloa</a> </li> 
+            </ul></li>
+            <li> <a href="{% url "wikisite-type" "q1116587" %}"> Ha'ano Island </a>  
+                <ul class = "insites">
+                <li><a href="{% url "site-type" "pukotala" %}"> Pukotala</a> </li> 
+            </ul></li>
+          </ul></li>
+          </ul></li> 
+          <li> <a href="{% url "wikisite-type" "q859666" %}"> Vava'u Group </a>  
+              <ul class = "insites">
+                <li><a href="{% url "site-type" "kapa" %}"> Kapa Island</a> </li>
+                <li><a href="{% url "site-type" "hunga" %}"> Hunga Island</a> </li>
+              </ul></li>
+            <li> <a href="{% url "wikisite-type" "q1200954" %}"> Niuas Group </a>  
+              <ul class = "insites">
+                <li><a href="{% url "site-type" "niuatoputapu" %}"> Niuatoputapu Island</a> </li>
+                <li><a href="{% url "site-type" "tafahi" %}"> Tafahi Island</a> </li>
+              </ul></li>
+
+      </ul>
+      </li>
+      <li id="sam"> <a href="{% url "wikisite-type" "q162126" %}"> Samoan Islands </a> 
+        <ul class = "insites">
+          <li> <a href="{% url "wikisite-type" "q16641" %}"> American Samoa </a> 
+            <ul class = "insites">
+            <li> <a href="{% url "wikisite-type" "q3881068" %}"> Ofu Island </a> 
+              <ul class = "insites">
+              <li><a href="{% url "site-type" "toaga" %}"> Toaga </a> </li>
+              <li><a href="{% url "site-type" "vaota" %}"> Vaota </a> </li>
+            </ul></li>
+            <li><a href="{% url "site-type" "aunuu" %}"> Aunu'u </a> </li>
+            <li> <a href="{% url "wikisite-type" "q269205" %}"> Tutuila Island </a> 
+              <ul class = "insites">
+              <li><a href="{% url "site-type" "tula" %}"> Tula </a> </li>
+              <li><a href="{% url "site-type" "aoa-valley" %}"> Aoa Valley </a> </li>
+              <li><a href="{% url "site-type" "malaeimi-valley" %}"> Malae'imi Valley </a> </li>
+              <li><a href="{% url "site-type" "tataga-matau" %}"> Tataga-Matau </a> </li>
+            </ul></li>
+            </ul>
+          </li>
+          <li> <a href="{% url "wikisite-type" "q683" %}"> Samoa </a> 
+          <ul class = "insites">
+            <li> <a href="{% url "wikisite-type" "q337519" %}"> Savai'i Island</a> 
+              <ul class = "insites">
+              <li><a href="{% url "site-type" "pulemelei" %}"> Pulemelei </a> </li>
+            </ul></li>
+            <li> <a href="{% url "wikisite-type" "q274569" %}"> Upolu Island </a> 
+              <ul class = "insites">
+              <li><a href="{% url "site-type" "mulifanua" %}"> Mulifanua </a> </li>
+              <li><a href="{% url "site-type" "paradise" %}"> Paradise </a> </li>
+              <li><a href="{% url "site-type" "vailele" %}"> Vailele </a> </li>
+              <li><a href="{% url "site-type" "sasoaa" %}"> Sasoa'a </a> </li>
+              <li><a href="{% url "site-type" "janes-camp" %}"> Jane's Camp </a> </li>
+            </ul></li>
+            </ul>
+          </li>
+
+        </ul>
+      </li>
+      <li id="wal"> <a href="{% url "wikisite-type" "q35555" %}"> Walis and Futuna  </a> 
+          <ul class = "insites">
+          <li> <a href="{% url "wikisite-type" "q4338915" %}"> Wallis </a> 
+            <ul class = "insites">
+            <li><a href="{% url "site-type" "uvea" %}"> Uvea </a> </li>
+          </ul></li>
+          <li> <a href="{% url "wikisite-type" "q1628286" %}"> Hoorn Islands (Futuna Islands) </a> 
+            <ul class = "insites">
+            <li><a href="{% url "site-type" "alofi" %}"> Alofi </a> </li>
+            <li> <a href="{% url "wikisite-type" "q664321" %}"> Futuna </a> 
+            <ul class = "insites">
+            <li><a href="{% url "site-type" "asipani" %}"> Asipani </a> </li>
+            <li><a href="{% url "site-type" "vele" %}"> Vele </a> </li>
+            <li><a href="{% url "site-type" "nuku" %}"> Nuku </a> </li>
+            <li><a href="{% url "site-type" "tavai" %}"> Tavai </a> </li>
+          </ul></li>
+          </ul></li>
+
+      </ul>
+      </li>
+      <li id="tuv"> Tuvalu/Tokelau 
+          <ul class = "insites">
+          <li> <a href="{% url "wikisite-type" "q36823" %}"> Tokelau </a> 
+            <ul class = "insites">
+            <li><a href="{% url "site-type" "atafu" %}"> Atafu </a> </li>
+      </ul></li>
+          <li> <a href="{% url "wikisite-type" "q672" %}"> Tuvalu </a> 
+            <ul class = "insites">
+            <li><a href="{% url "site-type" "vaitupu" %}"> Vaitupu </a> </li>
+            <li><a href="{% url "site-type" "nanumanga" %}"> Nanumanga </a> </li>
+            <li><a href="{% url "site-type" "nanumea" %}"> Nanumea </a> </li>
+      </ul></li>
+
+      </ul>
+      </li>
+      <li id="cook"> <a href="{% url "wikisite-type" "q26988" %}"> Cook Islands </a>
+            <ul class = "insites">
+            <li> <a href="{% url "wikisite-type" "q11826289" %}"> Southern Cook Islands </a> 
+            <ul class = "insites">
+            <li><a href="{% url "site-type" "mauke" %}"> Mauke </a> </li>
+            <li><a href="{% url "site-type" "atiu" %}"> Atiu </a> </li>
+      </ul></li>
+       </ul></li>
+      <li id="marq"> <a href="{% url "wikisite-type" "q172697" %}"> Marquesas </a> 
+            <ul class = "insites">
+            <li> <a href="{% url "wikisite-type" "q136002450" %}"> Southern Marquesas group </a> 
+            <ul class = "insites">
+            <li> <a href="{% url "wikisite-type" "q937908" %}"> Hiva Oa </a> 
+            <ul class = "insites">
+            <li><a href="{% url "site-type" "atuona-valley" %}"> 'Atuona Valley </a> </li>
+      </ul></li>
+      </ul></li>
+            <li> <a href="{% url "wikisite-type" "q136002421" %}"> Northern Marquesas group </a> 
+            <ul class = "insites">
+            <li> <a href="{% url "wikisite-type" "q202299" %}"> Ua Huka </a> 
+            <ul class = "insites">
+            <li><a href="{% url "site-type" "hane" %}"> Hane </a> </li>
+      </ul></li>
+            <li> <a href="{% url "wikisite-type" "q21064" %}"> Nuku Hiva </a> 
+            <ul class = "insites">
+            <li><a href="{% url "site-type" "haatuatua" %}"> Ha'atuatua </a> </li>
+            <li><a href="{% url "site-type" "hooumi" %}"> Ho'oumi </a> </li>
+      </ul></li>
+      </ul></li>
+      </ul></li>
+      <li id="caro"> <a href="{% url "wikisite-type" "q118350" %}"> Caroline Islands </a> 
+        <ul class = "insites">
+        <li> <a href="{% url "wikisite-type" "q702" %}"> Federated States of Micronesia </a> 
+          <ul class = "insites">
+            <li> <a href="{% url "wikisite-type" "q1785093" %}"> Kosrae Province</a> 
+            <ul class = "insites">
+            <li><a href="{% url "site-type" "kosrae" %}"> Kosrae Island</a> </li>
+            </ul></li>
+            <li> <a href="{% url "wikisite-type" "q7771127" %}"> Pohnpei Province</a> 
+            <ul class = "insites">
+            <li><a href="{% url "site-type" "lenger" %}"> Lenger Island</a> </li>
+            <li> <a href="{% url "wikisite-type" "q1115001" %}"> Temwen Island</a> 
+            <ul class = "insites">
+              <li><a href="{% url "site-type" "nan-madol" %}"> Nan Madol</a> </li>
+            </ul></li>
+            </ul></li>
+            <li> <a href="{% url "wikisite-type" "q221684" %}"> Chuuk Province</a> 
+            <ul class = "insites">
+              <li> <a href="{% url "wikisite-type" "q2570108" %}"> Fefan Island</a> 
+              <ul class = "insites">
+                <li><a href="{% url "site-type" "sapota" %}"> Sapota</a> </li>
+              </ul></li>
+            </ul></li>
+            <li> <a href="{% url "wikisite-type" "q11342951" %}"> Yap Province</a> 
+            <ul class = "insites">
+            <li><a href="{% url "site-type" "lamotrek" %}"> Lamotrek Island</a> </li>
+            <li><a href="{% url "site-type" "yap" %}"> Yap Island</a> </li>
+            <li><a href="{% url "site-type" "ngulu" %}"> Ngulu Island</a> </li>
+            </ul></li></ul></li>
+            <li> <a href="{% url "wikisite-type" "q695" %}"> Palau</a> 
+              <ul class = "insites">
+                <li><a href="{% url "site-type" "babeldaob" %}"> Babeldaob Island</a> </li>
+                <li> <a href="{% url "wikisite-type" "q871222" %}"> Kayangel </a> 
+              <ul class = "insites">
+                <li><a href="{% url "site-type" "kayangel" %}"> Kayangel Island</a> </li>
+              </ul></li>
+              <li> <a href="{% url "wikisite-type" "q189426" %}"> Koror </a> 
+              <ul class = "insites">
+                <li><a href="{% url "site-type" "ulong-islet" %}"> Ulong Islet</a> </li>
+              </ul></li>
+              <li> <a href="{% url "wikisite-type" "q497981" %}"> Peleliu </a> 
+              <ul class = "insites">
+                <li><a href="{% url "site-type" "peleliu" %}"> Peleliu Island</a> </li>
+              </ul></li>
+              <li> <a href="{% url "wikisite-type" "q530813" %}"> Angaur </a> 
+              <ul class = "insites">
+                <li><a href="{% url "site-type" "angaur" %}"> Angaur Island</a> </li>
+              </ul></li>
+              <li> <a href="{% url "wikisite-type" "q866699" %}"> Sonsorol </a> 
+              <ul class = "insites">
+                <li><a href="{% url "site-type" "fana" %}"> Fana Island</a> </li>
+              </ul></li>
+              <li> <a href="{% url "wikisite-type" "q3516752" %}"> Hatohobei </a> 
+              <ul class = "insites">
+                <li><a href="{% url "site-type" "tobi" %}"> Tobi Island</a> </li>
+              </ul></li>
+              </ul>
+      </li></ul></li>
+      <li id="mari"> <a href="{% url "wikisite-type" "q153732" %}"> Mariana Islands </a>  
+        <ul class = "insites">
+          <li> <a href="{% url "wikisite-type" "q16635" %}"> Guam </a> 
+            <ul class = "insites">
+            <li><a href="{% url "site-type" "tarague" %}"> Tarague </a> </li>
+            <li><a href="{% url "site-type" "tumon-bay" %}"> Tumon Bay </a> </li>
+            <li><a href="{% url "site-type" "waterfront-annex" %}"> Waterfront Annex </a> </li>
+            <li><a href="{% url "site-type" "pago" %}"> Pago </a> </li>
+            <li><a href="{% url "site-type" "pulantat" %}"> Pulantat </a> </li>
+            <li><a href="{% url "site-type" "manenggon" %}"> Manenggon </a> </li>
+            <li><a href="{% url "site-type" "ordnance-annex" %}"> Ordnance Annex </a> </li>
+            <li><a href="{% url "site-type" "ipan-beach" %}"> Ipan Beach </a> </li>
+            <li><a href="{% url "site-type" "talafoto" %}"> Talafoto </a> </li>
+            <li><a href="{% url "site-type" "nomna-bay" %}"> Nomna Bay </a> </li>
+            <li><a href="{% url "site-type" "inarajan" %}"> Inarajan </a> </li>
+            <li><a href="{% url "site-type" "fouha-bay" %}"> Fouha Bay </a> </li>
+            <li><a href="{% url "site-type" "laguas" %}"> Laguas </a> </li>
+            </ul></li>
+          <li> <a href="{% url "wikisite-type" "q16644" %}"> Northern Mariana Islands </a> 
+            <ul class = "insites">
+              <li> <a href="{% url "wikisite-type" "q27728202" %}"> Rota Municipality </a> 
+                <ul class = "insites">
+                <li> <a href="{% url "wikisite-type" "q949090" %}"> Rota Island </a> 
+                  <ul class = "insites">
+                  <li><a href="{% url "site-type" "rota-northeast" %}"> Rota (NEC) </a> </li>
+                  <li><a href="{% url "site-type" "mochong" %}"> Mochong </a> </li>
+                  <li><a href="{% url "site-type" "asmatmos" %}"> Asmatmos </a> </li>
+                </ul></li>
+              </ul></li>
+          
+          <li> <a href="{% url "wikisite-type" "q7808227" %}"> Tinian Municipality </a> 
+              <ul class = "insites">
+                <li><a href="{% url "site-type" "aguijan" %}"> Aguijan Island </a> </li>
+                <li> <a href="{% url "wikisite-type" "q325652" %}"> Tinian Island </a> 
+                  <ul class = "insites">
+                  <li><a href="{% url "site-type" "taga" %}"> Taga </a> </li>
+                  <li><a href="{% url "site-type" "kahet" %}"> Kahet </a> </li>
+                  <li><a href="{% url "site-type" "casino" %}"> Casino </a> </li>
+                  <li><a href="{% url "site-type" "ibb" %}"> IBB </a> </li>
+                  <li><a href="{% url "site-type" "unai-chulu" %}"> Unai Chulu </a> </li>
+                </ul></li>
+              </ul></li>
+
+              <li> <a href="{% url "wikisite-type" "q9332790" %}"> Saipan Municipality </a> 
+                <ul class = "insites">
+                <li> <a href="{% url "wikisite-type" "q51679" %}"> Saipan Island </a> 
+                  <ul class = "insites">
+                  <li><a href="{% url "site-type" "saipan" %}"> Saipan </a> </li>
+                  <li><a href="{% url "site-type" "chalan-piao" %}"> Chalan Piao </a> </li>
+                  <li><a href="{% url "site-type" "unai-bapot" %}"> Unai Bapot </a> </li>
+                  <li><a href="{% url "site-type" "sabanan-fiang" %}"> Sabanan-Fiang </a> </li>
+                  <li><a href="{% url "site-type" "unai-achugao" %}"> Unai Achugao </a> </li>
+                </ul></li>
+              </ul></li>
+              <li> <a href="{% url "wikisite-type" "q1608103" %}"> Northern Islands Municipality </a> 
+                <ul class = "insites">
+                <li> <a href="{% url "wikisite-type" "q478663" %}"> Alamagan Island </a> 
+                  <ul class = "insites">
+                  <li><a href="{% url "site-type" "alamagan-nwc" %}"> Alamagan NWC </a> </li>
+                </ul></li>
+                  <li> <a href="{% url "wikisite-type" "q1126761" %}"> Pagan Island </a> 
+                  <ul class = "insites">
+                  <li><a href="{% url "site-type" "apansantate" %}"> Apansantate </a> </li>
+                  <li><a href="{% url "site-type" "sanmeima" %}"> Sanmeima </a> </li>
+                  <li><a href="{% url "site-type" "regusa" %}"> Regusa </a> </li>
+                </ul></li>
+              </ul></li>
+         </ul></li>
+      </ul>
+      </li>
+      <li id="phil"> <a href="{% url "wikisite-type" "q928" %}"> Philippines  </a> 
+        <ul class = "insites">
+        <li> <a href="{% url "wikisite-type" "q14396901" %}"> Batan Islands </a> 
+            <ul class = "insites">
+            <li><a href="{% url "site-type" "itbayat" %}"> Itbayat </a> </li>
+            <li><a href="{% url "site-type" "batan" %}"> Batan </a> </li>
+            </ul></li>
+          <li> <a href="{% url "wikisite-type" "q125384" %}"> Luzon Island </a> 
+            <ul class = "insites">
+            <li> <a href="{% url "wikisite-type" "q13759" %}"> Cagayan Province </a> 
+            <ul class = "insites">
+              <li><a href="{% url "site-type" "irigayen" %}"> Irigayen </a> </li>
+              <li><a href="{% url "site-type" "dumbrique" %}"> Dumbrique </a> </li>
+            </ul></li> 
+                      <li> <a href="{% url "wikisite-type" "q13826" %}"> Isabela Province </a> 
+            <ul class = "insites">
+              <li><a href="{% url "site-type" "dimolit" %}"> Dimolit </a> </li>
+            </ul></li></ul></li>
+        </ul>
+      </li>
+      <li id="tai"> <a href="{% url "wikisite-type" "q865" %}"> Taiwan  </a> 
+          <ul class = "insites">
+          <li><a href="{% url "site-type" "huakanshan" %}"> Huakanshan </a> </li>
+      </ul>
+      </li>
+      <li id="jap"> <a href="{% url "wikisite-type" "q17" %}"> Japan  </a> 
+        <ul class = "insites">
+          <li><a href="{% url "site-type" "kita-iwo-jima" %}"> Kita Iwo Jima </a> </li>
+          <li><a href="{% url "site-type" "ryukyu-islands" %}"> Ryukyu Islands </a> </li>
+          <li><a href="{% url "site-type" "honshu" %}"> Honshu </a> </li>
+      </ul>
+      </li>
+      <li id="aus"> <a href="{% url "wikisite-type" "q408" %}"> Australia  </a> 
+        <ul class = "insites">
+          <li> <a href="{% url "wikisite-type" "q1059258" %}"> Torres Strait Islands </a> 
+            <ul class = "insites">
+            <li><a href="{% url "site-type" "mabuiag" %}"> Mabuiag </a> </li>
+          </ul></li>
+          <li><a href="{% url "site-type" "lizard-island" %}"> Lizard Island </a> </li>
+      </ul>
+      </li>
+    </ul>
+   </div>
+    
+    {% include "fabrics2/includes/footer.html" %}   
+{% endblock %}

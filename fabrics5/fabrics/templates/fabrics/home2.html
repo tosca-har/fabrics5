@@ -1,0 +1,132 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block css_files %}
+  <link rel="stylesheet" href="{% static "fabrics/fabrics.css" %}">
+  <link rel="stylesheet" href="{% static "fabrics/header.css" %}">
+{% endblock %}
+
+{% block page_title %}
+  Kuden Home
+{% endblock %}
+
+{% block content %}
+  {% include "fabrics/includes/header.html" %}
+  <h1>Pottery Fabric Database</h1>
+  <h2>Pacific Petrography</h2>
+  <p>Ceramic sherds provide an important archaeological record of past networks of exchange of goods and ideas between the islands of the Pacific. However, to interpret this record it is necessary to know where the pottery was made. One way to help determine if pieces in a ceramic assemblage are likely to be locally produced or imported is to look at if the mineral and rock inclusions trapped in their clay match the local geology.</p> 
+  <p>The islands of the Pacific have varied geology due to the differing ways in which they were formed, and this has meant that past potters have often captured the source of their materials in the ‘fabric’ of their pots. Pacific fabric types include <a href="{% url "glossary" %}#cal">calcareous</a>, <a href="{% url "glossary" %}#oce">oceanic basaltic</a>, <a href="{% url "glossary" %}#arc">andesitic arc</a> (and <a href="{% url "glossary" %}#pos">post-arc</a>), <a href="{% url "glossary" %}#hig">highland tectonic</a> and <a href="{% url "glossary" %}#dis">dissected orogen</a>.</p>
+    <p>Ceramic petrography is the examination, description, and identification of these inclusions (sometimes called temper). Thin-sections (30 micron) of pottery, mounted on glass slides, can be examined under <a href="{% url "glossary" %}#ppl">polarised light</a> to enable their constituent minerals and rocks to be identified. This fabric database ‘kuden’, along with the image database ‘Vimipo’ were created to archive and make widely available petrographic slide descriptions and images for the Pacific region. Our aim is to create a resource for researchers (to match samples to a Pacific-wide collection), and for anyone interested geology, archaeological ceramics or the Pacific region. The databases have been seeded with slides from the extensive petrographic slide collection of the late <a href="#wil">William Dickinson</a>, held by the Bishop Museum of Hawai’i. It is planned that it will continue to grow as new sherd assemblages are analysed. It is also envisioned that it can be connected to other databases that describe other aspects of the sherds, their appearance, dates and geochemistry, to aid in understanding the histories of the communities of the Pacific.
+    </p>
+  <h2>How to use kuden</h2>
+  <p>Kuden characterises Pacific pottery fabrics by their mineral and rock abundances in categories based on their percentage of all inclusions. See <a href="#abu">below</a>. Fabrics have a minimum and maximum abundance.</p>
+    <p>Under 'All Fabrics', you can see the ranges for the different minerals, for each fabric. You can perform simple sorting by clicking the column name. Fabrics with whole slide images are marked '**'. Click on the fabric code to see details and images (if available).</p>
+  <p>To search for fabrics that match specified abundances, go to 'Fabric Search' and use the form. Clicking the mineral names will clarify what is included in each term. You may have to experiment with a few options. Some rock type names are especially subjective, so be try with an without specifying their presence or absence.</p>
+  <p>You can also use the 'Sites' tab to look at what fabrics are present at what locations. Locations refers to where the sherds were found and not necessarily where they were made. The 2 forms below the map, allow you to investigate individual sites, or collections of sites.</p>
+    <h2>How to use Vimipo (Virtual Microscope for Pottery)</h2>
+  <p>Vimipo is an <a href="https://www.openmicroscopy.org/omero/"> Open Microscopy Environment Remote Objects (OMERO) </a> implementation, it holds our database of images, including those made with the Zeiss AxioscanZ1. You will need to sign in as user:Guest pwd:Guest. 
+ If you reach Vimipo from a link here you will be taken straight to the viewer for that image.</p>
+ <p>If you are viewing a whole slide image, you can turn the filters shown off and on by the clicking the Red, Green and Blue buttons that match that filter. 
+  Remember to click the previous filter off (Red, Green and Blue buttons). You can change the brightness of the image by adjusting the sliders, its strongly advisable to use the same value for the Red, Green and Blue channels. 
+  A few slides have an extra scan for PPL on 'over exposed' settings and if present this scan should be  below the selected one in the thumbnail panel on the left. Some slides have a circular polarised (cPol) image, which shows the maximum brightness for all angles of XPL, but note that the brightness may be different.</p>  
+ <figure id="full"><img src="{% static "fabrics/images/RGB.png" %}" alt=Changing channels in Vimipo height:"20">
+  <figcaption> Changing to XPL, and adjusting brightness for full slides in Vimipo.</figcaption> </figure>
+
+ <p>If you are viewing a partial slide image, you can see the XPL version by using the vertical slider on the left. The XPL image will be at the bottom, some image stacks have a middle image which will show the PPL or XPL at a different brightness.</p>  
+ <figure id="part"><img src="{% static "fabrics/images/xpl.png" %}" alt=Changing channels in Vimipo height:"20">
+  <figcaption> Changing to XPL, for partial slides in Vimipo.</figcaption> </figure>
+ <p>If you are viewing a partial slide image, you may be able to find other photos of the same sample by clicking on the thumbnails on the left, their names should indicate if they are the same slide.</p>   
+<p>To see more information on the slide, go to 'Info' and click on the Image ID number, this should open the main site.</p>
+<figure id="info"><img src="{% static "fabrics/images/info.png" %}" alt=getting more info height:"20">
+  <figcaption> To get more information on slide scan, in Vimipo.</figcaption> </figure>
+<p> If going to the main site directly you may need to change the user (red and grey people icon near the top left) to public-data > All Members. </p>
+<figure id="allmem"><img src="{% static "fabrics/images/allMembers.png" %}" alt=all_members_vimipo height:"20">
+  <figcaption> Go to 'public-data > All Members' in Vimipo.</figcaption> </figure>
+</figure>
+<p>In the main site you can filter the images or full slides by key-value pairs, but you first have to select the folder you wish to search. Then you can 'Add Filter' and filter by keys such as slide id or mineral abundance. </p>
+<figure id="key"><img src="{% static "fabrics/images/filter2.png" %}" alt=filtering_by_key_vimipo height:"20">
+  <figcaption> Filtering by key value pair in Vimipo.</figcaption> </figure>
+<h2>Finding the extinction angle in Vimipo</h2>
+<p>For the full slide scans, the <a href="{% url "glossary" %}#ext">extinction angle</a> of mineral grains can be estimated.</p>
+<p>First determine the angle of the mineral or its cleavage plane. This must be relative to the nearest vertical or horizontal axis in an clockwise direction.</p>
+<figure id="ali"><img src="{% static "fabrics/images/alignment.jpg" %}" alt=finding alignment angle height:"20">
+  <figcaption> Finding the angle of the cleavage plane relative to the nearest axis. The three minerals of interest, from the left have angles of 15&deg, 60&deg and about 70&deg.</figcaption> </figure>
+<p>Start at the image channel that most closely matches the angle, i.e. start at POL_75 if the angle was 70&deg. </p>
+<p>If the mineral is black at the start image then the extinction angle is 0&deg.</p>
+<p>If the mineral of interest is not black, check the next image channel (ie POL), then the next (i.e. POL_15), then the next (i.e. POL_30). Until 'extinction' occurs.
+  If extinction does not occur within 3 channel changes, go back to the start image and go the other way, (i.e. POL_60, then POL_45). </p>
+  <p>Each channel is 15&deg, so if extinction occurs after 2 channel changes, the extinction angle is 30&deg.</p>
+  <p>You may with to keep the origin angle offset in mind, i.e. if the measurement was 70&deg, and you started at POL_75, then subtract or may want to subtract 5&deg.</p>
+  <figure id="exti"><img src="{% static "fabrics/images/extinction.jpg" %}" alt=finding extinction angle height:"20">
+    <figcaption> The three minerals of interest, from the left go extinct at POL_60, POL and POL_45, giving extinction angles of around 45&deg, 30&deg and 25&deg.</figcaption> </figure>
+  <h2 id="abu">Mineral Abundances</h2>
+  <p>There are different approaches to classifying inclusion abundance in fabrics. Kuden characterises mineral and rock abundances by their percentage of the total inclusions, using counts. The values are generally those reported by the publication author (predominantly William Dickinson). However, while Dickinson often reported the
+    proportions as a percent of the non-calcareous grains, everything has been standardised to be as a percent of the total. The percentages are from inclusion counts and do not reflect the size of the inclusion (i.e. a large feldspar grain could have been counted with the same consideration as a smaller opaque grain). Depending on your search aims, it may be 
+  worth searching using a few different abundances. The following is an example of different calcareous abundances.</p>
+  <h3>Very Dominant (70% to 100%)</h3>
+  {% include "fabrics/includes/captionF.html" with sherd="ECA66-7-3" site="Talepakemalai" sample="ECA66_7_3" slide="WD_36_17" num="799" numf="16" extra="Example of 'Very Dominant' calcareous." %} 
+
+  <h3>Major (50% to 70%)</h3>
+  {% include "fabrics/includes/captionF.html" with sherd="ECA90-2-1" site="Talepakemalai" sample="ECA90_2_1" slide="WD_39_17" num="814" numf="25" extra="Example of 'Major' calcareous." %} 
+
+  <h3>Frequent (30% to 50%)</h3>
+  {% include "fabrics/includes/captionF.html" with sherd="UL6" site="Ulong Islet" sample="UL6" slide="WD_12_13" num="1729" numf="177" extra="Example of 'Frequent' calcareous." %} 
+
+  <h3>Common (15% to 30%)</h3>
+  {% include "fabrics/includes/captionF.html" with sherd="DGD223" site="Nissan" sample="DGD223" slide="WD_38_12" num="742" numf="456" extra="Example of 'Common' calcareous." %} 
+
+  <h3>Few (5% to 15%)</h3>
+  {% include "fabrics/includes/captionF.html" with sherd="1595" site="Nukuleka" sample="Nukuleka_1595" slide="WD_89_5" num="1271" numf="270" extra="Example of 'Few' calcareous." %} 
+
+  <h3>Minor (0% to 5%)</h3>
+  {% include "fabrics/includes/captionF.html" with sherd="ECA90-4-9" site="Talepakemalai" sample="ECA90_4_9" slide="WD_39_20" num="816" numf="28" extra="Example of 'Minor' calcareous." %} 
+
+  <figure id="bill"><img src="{% static "images/Dickinson.jpg" %}" alt=Dickinson photo height:"50">
+    <figcaption> Bill Dickinson at San Jual River. Photo used with permission from Dickinson Estate.</figcaption>
+  </figure>
+  <h2 id="wil">William Dickinson</h2>
+  <p>The American geoscientist William (Bill) R. Dickinson (1931-2015) was the leading petrographer for Pacific pottery. 
+    He undertook a degree in petroleum engineering at Stanford before focusing on Northwest American geology for his Masters and Doctoral work (at Stanford). 
+    Working at Stanford and the University of Arizona, he played an important role in using plate-tectonic context to classify sedimentary basins and in determining the relationship between sandstone petrology and tectonic environment. After his retirement in 1991, he researched the use of zircon to date rock deposits with scientists at the Arizona LaserChron Center.</p>
+    <p>In 1965, while still working at Stanford, he mapped volcaniclastic bedrock in Viti Levu, Fiji. He credited Fiji and his Fijian co-workers with making him a better teacher and advisor. During this time, he was asked (by Lawrence and Helen Birks) about the potential of petrography to identify the source of the Lapita pottery found at the Sigatoka Dunes on southern Viti Levi.
+      He began collaborating with archaeologists, particularly Richard Shutler Jr, using petrography to identify the source of Pacific pottery sherds. His collaborations with archaeologists over 49 years produced at least 292 reports and over 2000 thin sections of pottery and Pacific sands. Upon his death, while researching in Tonga, his thin section collection was donated to the Bishop Museum in Hawai'i. He was buried in Nukuleka with a Tongan funeral officiated by Lord Vaea.
+     For further information see the 
+    <a href="https://www.geo.arizona.edu/sites/www.geo.arizona.edu/files/WR%20Dickinson%20-%20Nat%20Acad%20Sci%20biography%20-%202016.pdf">a biographical memoir of William Dickinson, by Jon Spencer</a>. 
+</p>
+
+  <h2>Adding your images/slides to the database</h2>
+  <p>If you have thin-sections or images of a fabric that we have do not have images for we would 
+    greatly appreciate you getting in touch. All providers retain reproduction rights for the donated images.</p>
+   <p>Contact us at kristine.hardy@anu.edu.au or mathieu.leclerc@anu.edu.au.</p>
+  <h2>Requesting removal or alteration of data or images from the database</h2>
+  <p>We recognise that many cultures have had their heritage investigated and sampled without their consultation. 
+    If you would like any information or images removed from the database, would like additional acknowledgements, or have found errors in the information, 
+    please contact us. Please included the slide id/s (i.e. WD_1_1) in any email with details of requested alterations. 
+  </p>
+   <p>Contact us at kristine.hardy@anu.edu.au or mathieu.leclerc@anu.edu.au.</p>
+   <h2>Reuse of images from the database.</h2>
+   <p>Permission to image the thin-sections held by the Bishop Museum was conditional on the requirement that anyone seeking
+    to reuse the images from those thin-sections for commercial gain is required to contact them for approval.
+    Images are provided under a <a href="https://creativecommons.org/licenses/by-nc/4.0/">Creative Commons License CC BY-NC </a> which means they can be reused for non-commercial purposes only, as long as attribution is given to the creator of the images 
+    (as specified in the kuden figure legend).
+    If the slides have a WD_ prefix, please include W. Dickinson and mention that the slides are held at the Bishop Museum, Hawai'i.
+   </p>
+   <p>If using information from the site please reference the origin report or publication cited. If appropriate cite this
+    kuden as:</p>
+    <p>Hardy, K. & Leclerc, M. 2023 Kuden: A Pacific Pottery Fabric Database. www.kudenfabrics.anu.edu.au </p>
+      <p>and VIMIPO as:</p>
+    <p>Hardy, K. & Leclerc, M. 2023 VIMIPO: A Virtual Microscope for Pottery. www.kuden.anu.edu.au 
+  </p>
+    <p>Contact us at kristine.hardy@anu.edu.au or mathieu.leclerc@anu.edu.au for contact details of the thin-section providers.</p>
+
+<h2 id="ref">References</h2>
+
+<ol class="refer">
+  <li><a href="https://pubs.geoscienceworld.org/gsa/books/book/553/Temper-Sands-in-Prehistoric-Oceanian-Pottery"> Dickinson, W.R., 2006, Temper Sands in Prehistoric Oceanian Pottery: Geotectonics, Sedimentology, Petrography, Provenance. Geological Society of America
+    Geological Society of America, Volume 406 </a></li>
+    <li><a href="https://www.jstor.org/stable/25801160?seq=16"> Dickinson, W.R. & Shutler, R., 2000, Implications of Petrographic Temper Analysis for Oceanian Prehistory. Journal of World Prehistory 14(3): pp. 203-266. </a></li>
+  <li><a href="https://media.australian.museum/media/Uploads/Journals/17860/1285_complete.pdf"> Dickinson, W.R., 1998, Petrographic temper provinces of prehistoric pottery in Oceania. Records of the Australian Museum 50(3): 263–276. </a></li>
+</ol>
+
+  {% include "fabrics/includes/footer.html" %}
+{% endblock %}
